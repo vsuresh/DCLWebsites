@@ -1,0 +1,20 @@
+﻿1>------ Build started: Project: G:\...\YouthCricket\, Configuration: Debug Any CPU ------
+1>Warning: Unable to update auto-refresh reference 'microsoft.web.ui.webcontrols.dll'. Cannot find assembly 'G:\work\Dallas\YouthCricketCodebase\Archive\UI\bin\Microsoft.Web.UI.WebControls.dll'.
+1>Warning: Unable to update auto-refresh reference 'ajaxcontroltoolkit.dll'. Cannot find assembly 'G:\work\Dallas\YouthCricketCodebase\Archive\UI\bin\AjaxControlToolkit.dll'.
+1>Warning: Unable to update auto-refresh reference 'app_licenses.dll'. Cannot find assembly 'G:\work\Dallas\YouthCricketCodebase\Archive\UI\bin\App_Licenses.dll'.
+1>Validating Web Site
+1>Building directory '/YouthCricket/Admin/'.
+1>Building directory '/YouthCricket/AdminParent/'.
+1>Building directory '/YouthCricket/AdminTeams/'.
+1>Building directory '/YouthCricket/controls/'.
+1>Building directory '/YouthCricket/JS/'.
+1>Building directory '/YouthCricket/Main/'.
+1>Building directory '/YouthCricket/Offerings/'.
+1>Building directory '/YouthCricket/PayPal/'.
+1>Building directory '/YouthCricket/Statistics/'.
+1>Building directory '/YouthCricket/Teams/'.
+1>Building directory '/YouthCricket/Tournament/'.
+1>Building directory '/YouthCricket/'.
+1>
+1>Validation Complete
+========== Build: 1 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========

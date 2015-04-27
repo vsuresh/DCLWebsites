@@ -1,0 +1,7 @@
+D:\My\Development\DCL\Dallas Cricket\DCL_Website\Dev\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\My\Development\DCL\Dallas Cricket\DCL_Website\Dev\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\My\Development\DCL\Dallas Cricket\DCL_Website\Dev\ConsoleApplication1\bin\Debug\BAL.dll
+D:\My\Development\DCL\Dallas Cricket\DCL_Website\Dev\ConsoleApplication1\bin\Debug\BAL.pdb
+D:\My\Development\DCL\Dallas Cricket\DCL_Website\Dev\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+D:\My\Development\DCL\Dallas Cricket\DCL_Website\Dev\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\My\Development\DCL\Dallas Cricket\DCL_Website\Dev\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

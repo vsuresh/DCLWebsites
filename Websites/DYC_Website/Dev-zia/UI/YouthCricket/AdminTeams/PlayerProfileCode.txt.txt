@@ -1,0 +1,87 @@
+                            <br />
+                            <br />
+                            <!-- custom code start -->
+                            <asp:Panel ID="playerGuardianSection" runat="server">
+                            <table id="Table1" width="96%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <td class="title" colspan="4">
+                                        Players Guardian Information
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" colspan="2">
+                                        <span class="infoLabel">For security purpose, all the guardian information 
+                                            can be viewed only by the administrator of the team. </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" colspan="2">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        &nbsp;
+                                    </td>
+                                    <td align="left" colspan="3">
+                                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" Visible="true" 
+                                            DataSourceID="SqlDataSource1" EnableModelValidation="True" Height="50px" 
+                                            Width="187px" AutoGenerateInsertButton="True" >
+                                            <Fields>
+                                                <asp:BoundField DataField="player_id" HeaderText="player_id" 
+                                                    SortExpression="player_id" />
+                                                <asp:BoundField DataField="g1_first_name" HeaderText="g1_first_name" 
+                                                    SortExpression="g1_first_name" />
+                                                <asp:BoundField DataField="g1_last_name" HeaderText="g1_last_name" 
+                                                    SortExpression="g1_last_name" />
+                                                <asp:BoundField DataField="g1_phone_home" HeaderText="g1_phone_home" 
+                                                    SortExpression="g1_phone_home" />
+                                                <asp:BoundField DataField="g1_phone_cell" HeaderText="g1_phone_cell" 
+                                                    SortExpression="g1_phone_cell" />
+                                                <asp:BoundField DataField="g1_phone_work" HeaderText="g1_phone_work" 
+                                                    SortExpression="g1_phone_work" />
+                                                <asp:BoundField DataField="g1_email1" HeaderText="g1_email1" 
+                                                    SortExpression="g1_email1" />
+                                                <asp:BoundField DataField="g1_email2" HeaderText="g1_email2" 
+                                                    SortExpression="g1_email2" />
+                                                <asp:BoundField DataField="g2_first_name" HeaderText="g2_first_name" 
+                                                    SortExpression="g2_first_name" />
+                                                <asp:BoundField DataField="g2_last_name" HeaderText="g2_last_name" 
+                                                    SortExpression="g2_last_name" />
+                                                <asp:BoundField DataField="g2_phone_home" HeaderText="g2_phone_home" 
+                                                    SortExpression="g2_phone_home" />
+                                                <asp:BoundField DataField="g2_phone_cell" HeaderText="g2_phone_cell" 
+                                                    SortExpression="g2_phone_cell" />
+                                                <asp:BoundField DataField="g2_phone_work" HeaderText="g2_phone_work" 
+                                                    SortExpression="g2_phone_work" />
+                                                <asp:BoundField DataField="g2_email1" HeaderText="g2_email1" 
+                                                    SortExpression="g2_email1" />
+                                                <asp:BoundField DataField="g2_email2" HeaderText="g2_email2" 
+                                                    SortExpression="g2_email2" />
+                                                <asp:BoundField DataField="address" HeaderText="address" 
+                                                    SortExpression="address" />
+                                                <asp:CommandField ShowEditButton="True" ShowInsertButton="True" />
+                                            </Fields>
+                                        </asp:DetailsView>
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                                            ConnectionString="<%$ ConnectionStrings:dallascricketleague %>" 
+                                            SelectCommand="SELECT * FROM [player_guardians] WHERE ([player_id] = @player_id)">
+                                            <SelectParameters>
+                                                <asp:ControlParameter ControlID="lblPlayerId" Name="player_id" 
+                                                    PropertyName="Text" Type="Int32" />
+                                            </SelectParameters>
+                                        </asp:SqlDataSource>
+                                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                                            ConnectionString="<%$ ConnectionStrings:dallascricketleague %>" 
+                                            SelectCommand="SELECT * FROM [player] WHERE ([player_id] = @player_id)">
+                                            <SelectParameters>
+                                                <asp:ControlParameter ControlID="lblPlayerId" Name="player_id" 
+                                                    PropertyName="Text" Type="Int32" />
+                                            </SelectParameters>
+                                        </asp:SqlDataSource>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                            </asp:Panel>
+                            <!-- custom code end -->

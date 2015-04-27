@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+@import url("../css/reset.css");
+@import url("../css/nivo-slider.css");
+@import url("../css/nivo-default.css");
+
+/* -- Document Body -- */
+	html {width: 100%;}
+	body {font: 12px/18px Arial, Helvetica, sans-serif; min-width: 960px; color: #818181; background: #0b0101 url(../images/bg.png) no-repeat top center; background-attachment: fixed;}
+	
+/* -- Site Structure -- */
+	header {padding: 50px 0px 25px 0px;}
+	nav {}
+	section {}
+	section .container {padding-top: 0; padding-bottom: 60px;}
+	widget {}
+	footer {padding: 30px 0px;}
+	ffooter {}
+	
+/* -- Common Classes -- */
+	.wrapper {width:100%; overflow: hidden;}
+	.extra-wrap {overflow: hidden;}	
+	.rounded {-moz-border-radius: 10px; -webkit-border-radius: 10px; -khtml-border-radius: 10px; border-radius: 10px; position: relative; padding: 30px; background: #f0f0f0;}
+	.hidden {display: none;}
+	.container {width: 960px; margin: 0 auto;}
+	.columns-over {overflow: hidden; height: 100%;}
+	.clear {clear: both;}	
+	
+/* -- Header Structure -- */
+	#logo {background-image: url(../images/logo.png); background-repeat: no-repeat; width: 302px; height: 87px; float: left;}
+	#logo h1, #logo small {text-indent: -9999px; display: none;}
+	
+	#top_right {float: right; text-align: right; color: #bbb; margin-top: 15px;}
+	#top_right h3 {font-size: 14px; font-weight: normal;}
+	
+/* -- Primary Navigation -- */
+	#primary-nav {background: url(../images/line1.png) repeat-x 0 0; width: 960px; margin-top: 30px;}
+	nav > ul {background: url(../images/line1.png) repeat-x 0 bottom; padding: 12px 0px 0px 250px; height: 43px;}
+	nav > ul > li {float: left; height: 100%; cursor: pointer; background: none;}
+	nav li:hover {visibility: inherit;}	
+	
+	/* top level skin */
+		#primary-nav li {line-height: 1.4em; padding: 0px 3px;}
+		nav a {font-size: 14px; font-weight: normal; color: #bbb;}
+		#primary-nav > ul > li > a {padding: 8px 10px 4px 10px; display: block;}
+		#primary-nav > ul > li > a:hover {color: #e88237; text-decoration: none;}
+		#primary-nav > ul > li.current-menu-item > a {text-decoration: none; color: #fff; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; background: #e88237;}	
+		
+	/* sub level skin */
+		ul#topnav li .sub {position: absolute; background-color: #160504; padding: 20px; float: left; display: none; z-index: 10001; border: 1px solid #3e0909;}
+		ul#topnav li .row {clear: both; float: left; width: 100%; margin-bottom: 10px;}
+		ul#topnav li .sub ul {list-style: none; margin: 0; padding: 0; width: 150px; float: left;}
+		ul#topnav .sub ul li {width: 100%; color: #fff;}
+		ul#topnav .sub .submenu-title {padding: 0px; margin: 10px 0px; line-height: 1.1em; font-size: 14px; color: #999;}
+		ul#topnav .sub ul li a {float: none; text-indent: 0; height: auto; padding: 7px 5px 7px 15px; display: block; text-decoration: none; color: #fff; font-size: 12px;}
+		ul#topnav .sub ul li a:hover {color: #e88237;}	
+
+/* -- Nivo Slider -- */
+	#nivo_slider {}
+	.jj-nexgen-jquery_slider {top: 0; margin: 0; background: #160504; border: 1px solid #3e0909; padding: 9px !important; -webkit-box-shadow: 0px 1px 5px 0px #000; -moz-box-shadow: 0px 1px 5px 0px #000; box-shadow: 0px 1px 5px 0px #000;}
+	.theme-default #slider {margin: 5px auto 5px auto; width: 930px; height: 400px;}
+	.theme-pascal.slider-wrapper, .theme-orman.slider-wrapper {margin-top: 150px;}
+	
+/* -- Content widgets -- */		
+	.top-widget-area {padding: 0px; margin-top: 10px;}	
+	.top-widget-area li {float: left; list-style-type: none;}
+	.top-widget-area .widget {padding: 0px ; width: 300px;}
+	.top-widget-area .left {padding-right: 30px;}
+	.top-widget-area .center {}
+	.top-widget-area .right {padding-left: 30px;}	
+	.top-widget-area .widget-title {padding: 0px; margin: 10px 0px; line-height: 1.1em; font-size: 60px; color: #999;}
+	.top-widget-area p {padding: 0px; margin: 10px 0px;}
+	
+	.content-widget-area {padding: 0px; margin-top: 10px;}		
+	.content-widget-area li {float: left; list-style-type: none;}
+	.content-widget-area .left {width: 660px;}
+	.content-widget-area .right {padding-left: 20px; width: 200px;}
+	.content-widget-area .widget-title {padding: 0px; margin: 10px 0px; line-height: 1.1em; font-size: 60px; color: #999;}
+	.content-widget-area p {padding: 0px; margin: 15px 0px;}
+	.content-widget-area strong {color: #888}
+	
+/* -- Menu Structure -- */
+	.dinnermenu {padding: 0px; margin-top: 10px;}
+	.dinnermenu .widget-title {padding: 0px; margin: 10px 0px; line-height: 1.1em; font-size: 60px; color: #999;}
+	.subtitle li {float: left; list-style: none; display: block; height: 60px;}
+	.dinnermenu .menu-title {padding: 0px; margin: 10px 0px; line-height: 1.1em; font-size: 60px; color: #999;}
+	.dinnermenu .menu-subtitle {padding-top: 38px; padding-left: 15px; font-size: 14px; font-weight: normal; color: #888;}
+	
+	/*-- table menu skin --*/
+		.menutable {font-size: 14px; font-weight: bold; color: #888;}
+		.menutable p {font-size: 12px; font-weight: normal; color: #999;}
+		.menutable td {padding-right: 50px; padding-bottom: 20px;}
+	
+/* -- Footer Structure -- */
+	#footer-top {background: url(../images/line1.png) repeat-x 0 0; width: 960px; padding-top: 10px;}
+	.footer-widget-area {padding: 0px; margin-top: 20px;}
+	.footer-widget-area li {float: left; list-style-type: none;}
+	.footer-widget-area .fwidget {padding: 0px ; width: 240px;}
+	.footer-widget-area .one a {text-decoration: none; color: #818181;}
+	.footer-widget-area .two {}
+	.footer-widget-area .three {}
+	.footer-widget-area .four {}
+	.footer-widget-area .fwidget-title {padding: 0px; margin: 10px 0px; line-height: 1.1em; font-size: 16px; color: #999;}
+	
+	.footer-widget-area .footmenu_list {text-indent: 20px; display: block;}
+	.footer-widget-area .footmenu_list ul {display: list-item; list-style-type: circle;}
+	
+/* -- Twitter -- */
+	#twitter_m {padding: 20px 0px;}
+	#twitter_container {min-height: 45px; height: auto !important; height: 40px; padding-bottom: 10px;}
+	#twitter_update_list {padding: 0; overflow: hidden; font-family: Arial, Helvetica, sans-serif; font-style: italic; line-height: 16px; font-weight: normal;}
+	#twitter_update_list li {list-style: none;}
+	#twitter_update_list li a {color: #f2883a; text-decoration: none; font-style: normal;}
+	#twitter_update_list li a:hover {color: #fff; background: #f2883a;}	
+	
+/* -- Final Footer -- */	
+	#ffooter-mfix {padding: 30px 0px 50px 0px;}
+	#ffooter-top {background: url(../images/line1.png) repeat-x 0 0; width: 960px; padding-top: 10px;}
+	.ffooter {margin-top: 20px;}
+	.ffooter li {float: left; list-style-type: none;}
+	.ffooter .pd {float: right;}	
+	
+#contact-wrapper {width: 300px; padding: 0px;}
+#contact-wrapper div {clear: both; margin: 1em 0;}
+#contact-wrapper label {display: block; float: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #fff; font-weight: normal; width: auto;}
+form#contactform input {border-color: #b7b7b7 #e8e8e8 #e8e8e8 #b7b7b7; border-style: solid; border-width: 1px; padding: 5px; font-size: 12px; color: #333;}
+form#contactform textarea {padding: 0.6em 0.5em 0.7em; border-color: #b7b7b7 #e8e8e8 #e8e8e8 #b7b7b7; border-style: solid; border-width: 1px; font-size: 12px; color: #333; font-family: Arial, Helvetica, sans-serif;}	

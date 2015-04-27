@@ -1,0 +1,574 @@
+
+
+.hr
+{
+ color: LightGray;	
+}
+
+/* header */
+
+.headerTable
+{
+	margin-bottom: 2;
+	margin-left: 2;
+	margin-right: 2;
+	margin-top: 2;
+	border: none;
+	width: 800px;
+}
+
+.headerTableTR1
+{
+	height: 100px;
+}
+
+.headerTableTR2
+{
+	height: 20px;
+}
+
+.headerTableTD1
+{
+	width: 150px;
+}
+
+.headerTableTD2
+{
+
+}
+
+.headerTitle
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 10pt;
+	color: DarkRed;
+}
+
+.headerTitle2
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 10pt;
+	color:Maroon;
+}
+
+/* main body background */
+
+.mainBody
+{
+	background-color: white;
+}
+
+/* main body outer table */
+
+.outerTable
+{
+	margin-bottom: 2;
+	margin-left: 2;
+	margin-right: 2;
+	margin-top: 2;
+	border: none;
+	width: 800px;
+	height: 400px;
+}
+
+.outerTableTD1
+{
+}
+
+.outerTableTD2
+{
+	width: 100%;
+	padding-left: 0;
+}
+
+.customTable
+{
+	margin-top: 10;
+	margin-left: 10;
+	margin-right: 2;
+	margin-bottom: 20;
+	border: none;
+	width:97%;
+}
+
+.customTable2
+{
+	margin-top: 7;
+	margin-left: 10;
+	margin-right: 2;
+	margin-bottom: 7;
+	border: none;
+	width:97%;
+}
+
+.customTableTD1
+{
+	width: 150px;
+	text-align:right;
+}
+
+.customTableTD2
+{
+	width: 500px;
+}
+
+
+.btnDisabled {
+	background-color: Gray;
+}
+.btnAdmin
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 9pt;
+	text-align: center;
+	background-color: #40779F;
+	color: White;
+	border-top: 1 solid #8F93D3;
+	border-left: 2 solid #8F93D3;
+	border-right: 1 solid #000446;
+	border-bottom: 2 solid #000446;
+	cursor: hand;
+	width: 100px;
+	height: 20px
+}
+
+
+.btnAdmin2
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 9pt;
+	text-align: center;
+	background-color: #40779F;
+	color: White;
+	border-top: 1 solid #8F93D3;
+	border-left: 2 solid #8F93D3;
+	border-right: 1 solid #000446;
+	border-bottom: 2 solid #000446;
+	cursor: hand;
+	height: 20px
+}
+
+.infoError
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 9pt;
+	color: red;
+}
+
+.infoLabel
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 9pt;
+	color: #000000;
+}
+
+.infoLabelShort
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 8pt;
+	color: #000000;
+}
+
+
+.infoLabelShort
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 8pt;
+	color: #000000;
+    
+}
+
+.infoLabel2
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 10pt;
+	color: #000000;
+}
+
+.infoData
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #000000;
+}
+
+.infoDataShort
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 8pt;
+	color: #000000;
+}
+
+.infoDataBold
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 10pt;
+	color: #000000;
+}
+
+
+/* end */
+
+
+/* info bar styles ****************************/
+
+/* summary area under tabs */
+.infoBar
+{
+	width: 100%;
+	height: 60px;
+	background-color: #ccffcc;
+	border: none;
+	border-right: 2 ridge #ccffcc;
+}
+
+.infoTitle
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 11pt;
+	color: #000000;
+}
+
+
+/* info checks */
+.infoCheck
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 8pt;
+	color: #000000;
+}
+
+/* info checks */
+.infoCheckTotal
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 8pt;
+	color: #000000;
+}
+
+
+
+/* blue buttons */
+.infoAction
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 9pt;
+	text-align: center;
+	background-color: #40779F;
+	color: #ffffff;
+	border-top: 1 solid #8F93D3;
+	border-left: 2 solid #8F93D3;
+	border-right: 1 solid #000446;
+	border-bottom: 2 solid #000446;
+	cursor: hand;
+}
+
+/* edit labels in the info section */
+.infoEditLabel
+{
+	font-family: helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #0066CC;
+	text-align: right;
+}
+
+/* links in the info section */
+.infoLink
+{
+	font-family: helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #0066CC;
+	text-align: right;
+	text-decoration: underline;
+}
+
+
+/* record table styles ****************************/
+
+/* record table */
+.rtTable
+{
+	background-color: #ffffff;
+	padding-left: 3px;
+	padding-right: 3px;
+	width:800px;
+	border-color: #2D7C97;
+	border-style:double;
+}
+
+/* first row */
+.rtRow1
+{
+	height: 22px;
+}
+
+/* second row, alternating color */
+.rtRow2
+{
+	height: 22px;
+}
+
+/* seperator between row pairs */
+.rtRowSeperator
+{
+	height: 1px;
+	background-color: #dfdfdf;
+}
+
+/* button on column headers */
+.rtColAction
+{
+	background-color: #efefef;
+	border-top: 2 solid #ffffef;
+	border-left:  2 solid #ffffef;
+	border-right: 2 solid #dfdfdf;
+	border-bottom: 2 solid #dfdfdf;
+	font-family: helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	text-align: center;
+	cursor: hand;
+}
+
+/* column header when not a button */
+.rtPagerBar
+{
+	background-color: #efefef;
+	border-bottom: 2 solid #ffffef;
+	border-right:  2 solid #ffffef;
+	border-left: 2 solid #dfdfdf;
+	border-top: 2 solid #dfdfdf;
+	font-family: helvetica;
+	font-size: 8pt;
+	font-weight: lighter; 
+	text-align: right;
+}
+
+/* column header when not a button */
+.rtColHeaderOrg
+{
+	background-color: #efefef;
+	border-bottom: 2 solid #ffffef;
+	border-right:  2 solid #ffffef;
+	border-left: 2 solid #dfdfdf;
+	border-top: 2 solid #dfdfdf;
+	font-family: helvetica;
+	font-size: 8pt;
+	font-weight: bold;
+	text-align: center;
+	cursor: default;
+}
+
+/* column header when not a button */
+.rtColHeader
+{
+	background-color: #42ABBD;
+	font-family: helvetica;
+	font-size: 9pt;
+	font-weight: bold;
+	text-align: center;
+	cursor: default;
+	height: 20px;
+	vertical-align:middle;
+}
+
+.rtColHeader2
+{
+	background-color: #42ABBD;
+	color:White;
+	vertical-align:middle;
+	font-family: helvetica;
+	font-size: 9pt;
+	font-weight: bold;
+	text-align: center;
+	cursor: default;
+}
+
+/* upper left cell when empty */
+.rtTblActionDisabled
+{
+	background-color: #efefef;
+	border-bottom: 1 solid #ffffef;
+	border-right:  1 solid #ffffef;
+	border-left: 1 solid #dfdfdf;
+	border-top: 1 solid #dfdfdf;
+	width: 35px;
+}
+
+/* upper left cell when contains action button */
+.rtTblAction
+{
+	width: 35px;
+	color: #ffffff; 
+	background-color: #0066CC;
+	font-family: helvetica;
+	font-size: 9pt;
+	font-weight: normal;
+	text-align: center;
+	cursor: hand;
+}
+
+/* first row of tables "view" */
+.rtRowAction
+{
+	width: 35px;
+	background-color: #efefef;
+	border-top: 2 solid #ffffef;
+	border-left:  2 solid #ffffef;
+	border-right: 2 solid #dfdfdf;
+	border-bottom: 2 solid #dfdfdf;
+	color: #f56C19;
+	font-family: helvetica;
+	font-size: 9pt;
+	font-weight: normal;
+	text-align: center;
+	cursor: hand;
+}
+
+/* typical data cell in table */
+
+/* large text data label in stats */
+.rtCellLabelXl
+{
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: 600;
+	color: #6f6f6f;
+}
+
+.rtCellData
+{
+	font-family: helvetica;
+	font-size: 8pt;
+	font-weight: normal;
+	text-align: center;
+	vertical-align:middle;
+}
+
+.rtCellDataLeft
+{
+	font-family: helvetica;
+	font-size: 8pt;
+	font-weight: normal;
+	text-align: left;
+	vertical-align:middle;
+}
+
+.rtCellDataRight
+{
+	font-family: helvetica;
+	font-size: 8pt;
+	font-weight: normal;
+	text-align: right;
+	vertical-align:middle;
+}
+
+.rtCellDataBorder
+{
+	font-family: helvetica;
+	font-size: 8pt;
+	font-weight: normal;
+	text-align: left;
+	border-right: 2 ridge #ccffcc;
+	vertical-align:middle;
+}
+
+/* large text data in stats */
+.rtCellMultiDataXl
+{
+	font-family: Arial;
+	font-size: 8pt;
+	font-weight: 500;
+	color: #6f6f6f;
+}
+
+/* small text data label in stats */
+.rtCellLabel
+{
+	font-family: Arial;
+	font-size: 8pt;
+	font-weight: 600;
+	color: #6f6f6f;
+}
+
+/* small text data label in stats */
+.rtCellMultiData
+{
+	font-family: Arial;
+	font-size: 8pt;
+	font-weight: 500;
+	color: #6f6f6f;
+}
+
+/* edit page styles ****************************/
+
+/* labels on input fields on edit screens */
+.editLabel
+{
+	width: 40%;
+	font-family: helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #0066CC;
+	text-align: right;
+}
+
+
+/* view data only */
+.viewOnly
+{
+	font-family: helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #0066CC;
+	text-align: left;
+}
+
+/* read only input fields */
+.viewData
+{
+	background-color: #a5d69c;
+	color: #000000;
+	/* color: #0066CC; */
+}
+
+/* server side edit errors posted back */
+.serverError
+{
+	font-family: helvetica;
+	font-size: 10pt;
+	color: #ff0000;
+	text-align: left;
+	border: 3 groove #efefef;
+}
+
+.serverErrorHeading
+{
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.left-container { float:left;padding-left:0;padding-top:10;width:600 }
+.right-container { float:right;padding-right:0;padding-top:10; }
+    
+
+.left-containerMedium { float:left;padding-left:0;padding-top:10;width:400 }
+.right-container { float:right;padding-right:0;padding-top:10; }

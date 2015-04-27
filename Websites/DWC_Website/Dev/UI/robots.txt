@@ -1,0 +1,18 @@
+# robots.txt file for http://www.lifeclinic.com
+
+
+User-agent: *
+Disallow: /AdminTeams/
+Disallow: /bin/
+Disallow: /controls/
+Disallow: /Documents/
+Disallow: /Images/
+Disallow: /Photos/
+Disallow: /Teams/
+Disallow: /Fall2003/pics/
+Disallow: /Spring2004/pics/
+Disallow: /Financials/
+Disallow: /Fall/
+Disallow: /Spring/
+Disallow: /League/
+Disallow: /Statistics/

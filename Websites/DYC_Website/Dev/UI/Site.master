@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+<%@ Register TagPrefix="uc1" TagName="headerBase" Src="controls/headerBase.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="footerBase" Src="controls/footerBase.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="navBase" Src="controls/navBase.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="navData" Src="controls/navData.ascx" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Dallas Youth Cricket</title>
+    
+    <meta content="Dallas Youth Cricket" name="title" />
+    <meta content="Dallascricket, Dallas-cricket, dallas cricket, Cricket, Texas Cricket" name="KEYWORDS" />
+    <meta content="Dallascricket, Dallas-cricket, dallas cricket, Cricket, Texas Cricket" name="Description" />
+    <meta content="Microsoft Visual Studio 7.0" name="GENERATOR" />
+    <meta content="C#" name="CODE_LANGUAGE" />
+    <meta content="JavaScript" name="vs_defaultClientScript" />
+    <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" />
+
+    <link href="~/styles/DallasCC.css" type="text/css" rel="stylesheet" />
+    <link href="~/styles/Sample.css" type="text/css" rel="stylesheet" />
+    <link href="~/styles/cricket.css" type="text/css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder id="HeadContent" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+    <div id="top">
+        <br />
+        <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="bodyoutline2" >
+            <tr>
+                <td>
+                    <uc1:headerBase ID="headerBase1"  runat="server"></uc1:headerBase>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <asp:ContentPlaceHolder id="NavigationContent" runat="server">
+                        <uc1:navBase ID="navBase1"  runat="server"></uc1:navBase>
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <uc1:navData ID="navData1"  runat="server"></uc1:navData>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <asp:ContentPlaceHolder id="MainContent" runat="server">
+
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <uc1:footerBase ID="footerBase1" runat="server"></uc1:footerBase>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

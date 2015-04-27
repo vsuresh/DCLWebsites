@@ -1,0 +1,76 @@
+							<!--
+							<tr>
+								<td class="infoData">
+									<table width="100%">
+										<tr>
+											<td align="center" class="infoData">
+												<a href="pics.aspx">Tournament Pictures </a>
+											</td>
+										</tr>
+									</table>
+									<br>
+									<hr class="hr">
+								</td>
+							</tr>
+							-->
+							<tr>
+								<td class="infoData" align="center">
+									<span class="infoLabel2">Awards</span>
+									<br>
+									<br>
+									<table width="80%" align="center" border="1" bordercolor="lightskyblue">
+										<tr bgcolor="lightyellow">
+											<td width="30%" class="infoLabel">Champions</td>
+											<td align="center" class="infoData" colspan="2"></td>
+										</tr>
+										<tr bgcolor="lightyellow">
+											<td class="infoLabel">RunnerUp</td>
+											<td align="center" class="infoData" colspan="2"></td>
+										</tr>
+									</table>
+									<br>
+									<table width="80%" align="center" border="1" bordercolor="lightskyblue">
+										<tr bgcolor="lightyellow">
+											<td width="30%" class="infoLabel">Award</td>
+											<td width="27%" class="infoLabel">Player Name</td>
+											<td width="27%" class="infoLabel">Team Name</td>
+											<td width="16%" class="infoLabel">Figures</td>
+										</tr>
+										<tr>
+											<td class="infoLabel">Best Batsman</td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+										</tr>
+										<tr>
+											<td class="infoLabel">Best Bowler</td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+										</tr>
+										<tr>
+											<td class="infoLabel">Best Batting Score</td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+										</tr>
+										<tr>
+											<td class="infoLabel">Best Bowling Figure</td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+										</tr>
+										<tr>
+											<td class="infoLabel">Best Catcher</td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+											<td class="infoData"></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="infoData">
+									<hr class="hr">
+								</td>
+							</tr>
