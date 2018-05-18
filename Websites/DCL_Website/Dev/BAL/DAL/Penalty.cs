@@ -22,4 +22,14 @@ namespace Cricket.DAL.Penalty
 			addParmInt("tournament_id");
 		}
 	}
+
+  public class DeletePenalty : Command
+  {
+    public DeletePenalty(Connection conn) : base(conn)
+    {
+      m_cmd.CommandText = "Delete penalty where tournament_id = @tournament_id and penalty_id = @penalty_id";
+      addParmInt("tournament_id");
+      addParmInt("penalty_id");
+    }
+  }
 }

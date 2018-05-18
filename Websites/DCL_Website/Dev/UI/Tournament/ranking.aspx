@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="MainContent">
 
-	<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" >
+  <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" >
 		<tr>
 			<td align="left" valign="top" >
 				<table id="TableMain" width="900" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -23,10 +23,15 @@
 										&nbsp;
 									</td>
 								</tr>
+                <tr>
+                  <td align="center">
+                    <asp:Label ID="lblMessage" runat="server"  ForeColor="Red"></asp:Label>
+                  </td>
+                </tr>
 								<tr>
 									<td colspan="2" align="center">
 										<asp:DataGrid ID="dgrid_teams" runat="server" CssClass="rtTable" AllowCustomPaging="false"
-											AllowPaging="false" AllowSorting="false" EnableViewState="False"
+											AllowPaging="false" AllowSorting="false" EnableViewState="True"
 											ShowFooter="False" ShowHeader="True" AutoGenerateColumns="False" CellPadding="0"
                                             CellSpacing="0" BorderColor="#2D7C97" BorderStyle="Solid">
 											<EditItemStyle CssClass="rtRow1"></EditItemStyle>
@@ -124,9 +129,9 @@
 								<tr>
 									<td colspan="2" align="center">
 										<asp:DataGrid ID="dgrid_penalty" runat="server" CssClass="rtTable" AllowCustomPaging="false"
-											AllowPaging="false" AllowSorting="false" EnableViewState="False" Width="400px"
+											AllowPaging="false" AllowSorting="false" EnableViewState="True" Width="400px"
 											ShowFooter="False" ShowHeader="True" AutoGenerateColumns="False" CellPadding="0"
-                                            CellSpacing="0" BorderColor="#2D7C97" BorderStyle="Solid">
+                                            CellSpacing="0" BorderColor="#2D7C97" BorderStyle="Solid"  >
 											<EditItemStyle CssClass="rtRow1"></EditItemStyle>
 											<AlternatingItemStyle CssClass="rtRow2" BackColor=""></AlternatingItemStyle>
 											<ItemStyle CssClass="rtRow1" Height="22" BackColor=""></ItemStyle>
@@ -156,6 +161,7 @@
 													<ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="5%" CssClass="rtCellData">
 													</ItemStyle>
 												</asp:BoundColumn>
+											  <asp:ButtonColumn CommandName="Delete" HeaderText="Delete item" Text="Delete"  ></asp:ButtonColumn>
 											</Columns>
 										</asp:DataGrid>
 									</td>

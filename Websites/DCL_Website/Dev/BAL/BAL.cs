@@ -1197,6 +1197,14 @@ namespace Cricket.BAL
 			return cmd.executeReader();
 		}
 
+	  public int DeletePenalty( int nTournamentId, int penaltyId )
+	  {
+      DeletePenalty cmd = new DeletePenalty(m_conn);
+	    cmd.setParm("tournament_id", nTournamentId);
+      cmd.setParm("penalty_id",penaltyId);
+	    return cmd.executeNonQuery();
+	  }
+
 		public SqlDataReader GetRecentTournaments()
 		{
 			using (SqlConnection con = GetSQLConnection())
