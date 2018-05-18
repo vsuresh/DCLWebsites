@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UI", "UI", "{4FFCFDCA-5D15-459E-8F60-01A7012F73AE}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UI", "UI\", "{4FFCFDCA-5D15-459E-8F60-01A7012F73AE}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = "SAK"
 		SccAuxPath = "SAK"
 		SccLocalPath = "SAK"
 		SccProvider = "SAK"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
 		ProjectReferences = "{E5B20684-1E12-4088-85CF-FA18BA2CFA0C}|BAL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/UI"
 		Debug.AspNetCompiler.PhysicalPath = "UI\"
@@ -26,6 +28,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UI", "UI", "{4FFCFDCA-5D15-
 		VWDPort = "15775"
 		VWDDynamicPort = "false"
 		VWDVirtualPath = "/"
+		SlnRelativePath = "UI\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "BAL\BAL.csproj", "{E5B20684-1E12-4088-85CF-FA18BA2CFA0C}"
@@ -33,23 +36,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "ConsoleApplication1\TestApp.csproj", "{98A3AB39-F609-4C79-8945-54051EE17F5D}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://zamsoft.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = BAL\\BAL.csproj
-		SccProjectName1 = BAL
-		SccLocalPath1 = BAL
-		SccWebProject2 = true
-		SccProjectUniqueName2 = UI
-		SccProjectName2 = UI
-		SccLocalPath2 = UI
-		SccProjectEnlistmentChoice2 = 2
-		SccProjectUniqueName3 = ConsoleApplication1\\TestApp.csproj
-		SccProjectName3 = ConsoleApplication1
-		SccLocalPath3 = ConsoleApplication1
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
 		Debug|Any CPU = Debug|Any CPU
@@ -92,5 +78,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52378497-BB5D-4092-8540-5D1C56FD8BF9}
 	EndGlobalSection
 EndGlobal

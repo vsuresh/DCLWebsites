@@ -1,18 +1,11 @@
 namespace Cricket.controls
 {
-	using System;
-	using System.Data;
-	using System.Drawing;
-	using System.Web;
-	using System.Web.UI.WebControls;
-	using System.Web.UI.HtmlControls;
-	using Microsoft.Web.UI.WebControls;
-	using System.ComponentModel;
+    using System;
 
-	/// <summary>
-	///		Summary description for navbarMods.
-	/// </summary>
-	public class navbarBase : System.Web.UI.UserControl
+    /// <summary>
+    ///		Summary description for navbarMods.
+    /// </summary>
+    public class navbarBase : System.Web.UI.UserControl
 	{
 		protected TabStrip tabStrip;
 		protected string [] m_tabUrls;
