@@ -1,4 +1,0 @@
-D:\Manoj\DallasCricket Source\Website\BackEnd\BAL\bin\Release\BAL.dll
-D:\Manoj\DallasCricket Source\Website\BackEnd\BAL\bin\Release\DAL.dll
-D:\Manoj\DallasCricket Source\Website\BackEnd\BAL\obj\Release\ResolveAssemblyReference.cache
-D:\Manoj\DallasCricket Source\Website\BackEnd\BAL\obj\Release\BAL.dll
