@@ -27,12 +27,10 @@
                                             DCL conducts 3 main tournaments per year as follows:</p>
                                         <p>
                                             <strong>Spring Tournament&nbsp;</strong></p>
-                                        <p>
+                                         <p>
                                             The Spring Tournament is a knock out tournament that includes all the teams from 
-                                            all the divisions. Rankings from the Summer league and the Fall tournament is used to distribute the  
-                                            teams into multiple groups and few teams 
-                                            from each group then qualify for the play offs after the group matches which would include 
-                                            quaterfinals, semifinals and finals. 
+                                            all the divisions. To distribute the teams into multiple groups rankings from the Summer league is considered (Only for the teams that didnt play in summer league the Fall tournament rankings would be considered) 
+Note: For determination of Fall Rankings, Rank 1 and Rank 2 is occupied by Winner and Runners respectively and for remaining rankings are taken from the Fall League Final League Rankings. Sixteen teams from all the groups then qualify for the play offs after the group matches which would include quaterfinals, semifinals and finals. 
                                             <br /><br />
                                             There is 1 winner and 1 runner up for the Spring tournament</p>
                                         <p>

@@ -13,7 +13,7 @@
                             <table id="TableCustom" width="96%" border="0" align="center" cellpadding="2" cellspacing="2">
                                 <tr>
                                     <td class="title" colspan="4">
-                                        DCL Constitution
+                                        Constitution
                                     </td>
                                 </tr>
                                 <tr>

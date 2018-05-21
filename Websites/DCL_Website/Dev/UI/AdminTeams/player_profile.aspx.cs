@@ -111,79 +111,80 @@ namespace Cricket.AdminTeams
 		}
 		#endregion
 
-		protected void btnSubmit_Click(object sender, System.EventArgs e)
-		{
-			if (Page.IsValid)
-			{
-				string strPhotoURL = "";
-				bool fKeeperSw = chkKeeper.Checked;
-				bool fInActiveSw = chkInActive.Checked;
-				int nTypeCd = toInt(ddlDesignation.SelectedValue);
-				bool fInsert = false;
-				if (m_nPlayerId <= 0)
-				{
-					fInsert = true;
-					m_nPlayerId = m_bl.newPlayerId();
-				}
+        protected void btnSubmit_Click(object sender, System.EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                string strPhotoURL = "";
+                bool fKeeperSw = chkKeeper.Checked;
+                bool fInActiveSw = chkInActive.Checked;
+                int nTypeCd = toInt(ddlDesignation.SelectedValue);
+                bool fInsert = false;
+                if (m_nPlayerId <= 0)
+                {
+                    fInsert = true;
+                    m_nPlayerId = m_bl.newPlayerId();
+                }
 
-				try
-				{
-					string strPhotoPath = "c:\\inetpub\\wwwroot\\cricket\\photos\\";
-					string strPhotoName = "Player_" + m_nPlayerId.ToString();
-					HttpPostedFile postedFile = filePhoto.PostedFile;
-					if (postedFile != null)
-					{
-						strPhotoName += Path.GetExtension(postedFile.FileName);
-						strPhotoPath += strPhotoName;
-						strPhotoURL = strPhotoName;
+                try
+                {
 
-						int nFileLengthKB = postedFile.ContentLength / 1024;
-						string strFileMIMEType = postedFile.ContentType;
-						if (strFileMIMEType.StartsWith("image") && nFileLengthKB > 0 && nFileLengthKB <= 100)
-						{
-							postedFile.SaveAs(strPhotoPath);
-						}
-						else
-							strPhotoURL = "";
-					}
-				}
-				catch(Exception)
-				{
-					strPhotoURL = "";
-				}
+                    //string strPhotoPath = "c:\\inetpub\\wwwroot\\cricket\\photos\\";
+                    string strPhotoName = "Player_" + m_nPlayerId.ToString();
+                    HttpPostedFile postedFile = filePhoto.PostedFile;
+                    if (postedFile != null)
+                    {
+                        strPhotoName += Path.GetExtension(postedFile.FileName);
+                        string strPhotoPath = Server.MapPath("~/Photos/" + strPhotoName);
+                        strPhotoURL = strPhotoName;
 
-				if (strPhotoURL.Length <= 0)
-					strPhotoURL = m_strPhotoURL;
+                        int nFileLengthKB = postedFile.ContentLength / 1024;
+                        string strFileMIMEType = postedFile.ContentType;
+                        if (strFileMIMEType.StartsWith("image") && nFileLengthKB > 0 && nFileLengthKB <= 500)
+                        {
+                            postedFile.SaveAs(strPhotoPath);
+                        }
+                        else
+                            strPhotoURL = "";
+                    }
+                }
+                catch (Exception)
+                {
+                    strPhotoURL = "";
+                }
 
-				int nAge = 0;
-				string strComments = "";
-				string strDate = "";
-				string strEndDate = "";
+                if (strPhotoURL.Length <= 0)
+                    strPhotoURL = m_strPhotoURL;
 
-				if (fInActiveSw)
-					strEndDate = DateTime.Now.ToShortDateString();
+                int nAge = 0;
+                string strComments = "";
+                string strDate = "";
+                string strEndDate = "";
 
-				if (fInsert)
-				{
-					//check player name for duplication
-					if (m_bl.checkPlayerName(m_nTeamId, txtFirstName.Text, txtLastName.Text))
-					{
-						lblMessage.Text = "Player name already exists!";
-						return;
-					}
-				}
-                
-				m_bl.setPlayerData(fInsert, m_nTeamId, m_nPlayerId, txtFirstName.Text, txtLastName.Text, nAge, txtBattingStyle.Text, txtBowlingStyle.Text, 
-					txtBattingPos.Text, strDate, strEndDate, m_nEmailId, txtEmail.Text, m_nPhoneId, txtPhone.Text, strComments, strPhotoURL, fKeeperSw, nTypeCd);
-		
-				Server.Transfer("players.aspx");		
-			}
-		}
+                if (fInActiveSw)
+                    strEndDate = DateTime.Now.ToShortDateString();
 
-		protected void btnCancel_Click(object sender, System.EventArgs e)
-		{
-			Server.Transfer("players.aspx");	
-		}
-	}
+                if (fInsert)
+                {
+                    //check player name for duplication
+                    if (m_bl.checkPlayerName(m_nTeamId, txtFirstName.Text, txtLastName.Text))
+                    {
+                        lblMessage.Text = "Player name already exists!";
+                        return;
+                    }
+                }
+
+                m_bl.setPlayerData(fInsert, m_nTeamId, m_nPlayerId, txtFirstName.Text, txtLastName.Text, nAge, txtBattingStyle.Text, txtBowlingStyle.Text,
+                    txtBattingPos.Text, strDate, strEndDate, m_nEmailId, txtEmail.Text, m_nPhoneId, txtPhone.Text, strComments, strPhotoURL, fKeeperSw, nTypeCd);
+
+                Server.Transfer("players.aspx");
+            }
+        }
+
+        protected void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            Server.Transfer("players.aspx");
+        }
+    }
 
 }

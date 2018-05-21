@@ -16,7 +16,7 @@
                             <table id="TableCustom" width="96%" border="0" align="center" cellpadding="2" cellspacing="2">
                                 <tr>
                                     <td class="title" colspan="4">
-                                        Organizers
+                                        Organizers (For any Questions Related to DCL Call 469-608-0DCL or 469-608-0325 [ M-F ] from 8:00 am CST - 5:00 pm CST)
                                     </td>
                                 </tr>
                                 <tr>
@@ -30,85 +30,196 @@
                                 </tr>
                                 <tr>
                                     <td align="center">
+
                                         <table class="infoData" id="Table1" BorderColor="#2D7C97" border=1 cellspacing="0" cellpadding="5"
-                                            width="500" bgcolor="white" border="1">
+                                            width="800" bgcolor="white" border="1">
                                             <tr class="infoLabel">
-                                                <td align="left" width="150">
+                                                <td align="center" width="250">
                                                     Name
                                                 </td>
-                                                <td align="left" width="200">
+                                                <td align="center" width="400">
                                                     Position
                                                 </td>
-                                                <td align="left" width="150">
+                                                <td align="center" width="200">
                                                     Contact
                                                 </td>
                                             </tr>
                                             <tr class="infoData">
-                                                <td align="left" width="150">
-                                                    Zia Quadri
+                                                <td align="center" width="250">
+                                                    KULJIT-SINGH NIJJAR
                                                 </td>
-                                                <td align="left" width="200">
-                                                    President - Website Manager
+                                                <td align="center" width="400">
+                                                   Servant of Cricket & TREASURER
                                                 </td>
-                                                <td align="left" width="150">
-                                                    (214-282-2963)
-                                                </td>
-                                            </tr>
-                                            <tr class="infoData">
-                                                <td align="left" width="200">
-                                                    Kuljit Singh Nijjar
-                                                </td>
-                                                <td align="left" width="200">
-                                                    Coordinator - Treasurer
-                                                </td>
-                                                <td align="left" width="100">
+                                                <td align="center" width="200">
                                                     (972-814-3921)
                                                 </td>
                                             </tr>
-                                            <tr class="infoData">
-                                                <td align="left" width="200">
-                                                    Mohan Vamsi
+
+						<tr class="infoData">
+                                                <td align="center" width="250">
+                                                JAGANNATH POOSARLA
                                                 </td>
-                                                <td align="left" width="250">
-                                                    Coordinator - Schedule Manager
+                                                <td align="center" width="400">
+                                                    EXECUTIVE VICE PRESIDENT (SPECIAL OPERATIONS)
                                                 </td>
-                                                <td align="left" width="100">
-                                                    (919-744-1382)
+                                                <td align="center" width="200">
+                                                    469-939-8329
                                                 </td>
                                             </tr>
+
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    RAJAN K DWIVEDI
+                                                </td>
+                                                <td align="center" width="400">
+                                                    CHIEF STRATEGY OFFICER [CSO]
+                                                </td>
+                                                <td align="center" width="200">
+                                                    (972-408-8496)
+                                                </td>
+                                            </tr>
+
+
+                                            
+
+
+                                           
                                             <tr class="infoData">
-                                                <td align="left" width="200">
-                                                    Krishna Kumar
+                                                <td align="center" width="250">
+                                                    KRISHNA KUMAR
                                                 </td>
-                                                <td align="left" width="200">
-                                                    Coordinator - Inventory Manager
+                                                <td align="center" width="400">
+                                                    VICE PRESIDENT (OPERATIONS)
                                                 </td>
-                                                <td align="left" width="100">
+                                                <td align="center" width="200">
                                                     (972 398 8028)
                                                 </td>
                                             </tr>
-                                            <tr class="infoData">
-                                                <td align="left" width="200">
-                                                    Mukund Ravikumar
+						
+						<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    UPENDRA KULKARNI
                                                 </td>
-                                                <td align="left" width="200">
-                                                    Coordinator - Accounts Manager
+                                                <td align="center" width="400">
+                                                    CHIEF FINANCIAL OFFICER (CFO)
                                                 </td>
-                                                <td align="left" width="100">
-                                                    (214-773-5663)
-                                                </td>
-                                            </tr>
-                                            <tr class="infoData">
-                                                <td align="left" width="200">
-                                                    Manoj Prakasam
-                                                </td>
-                                                <td align="left" width="200">
-                                                    Coordinator
-                                                </td>
-                                                <td align="left" width="100">
-                                                    (214-536-7167)
+                                                <td align="center" width="200">
+                                                    (972-413-0009)
                                                 </td>
                                             </tr>
+
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    
+                                                </td>
+                                                <td align="center" width="400">
+                                                    DIRECTOR OF OPERATIONS
+                                                </td>
+                                                <td align="center" width="200">
+                                                    
+                                                </td>
+                                            </tr>
+
+
+						<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    Vacant Position
+                                                </td>
+                                                <td align="center" width="400">
+                                                    EXECUTIVE SECRETARY & UMPIRE TRAINING COORDINATOR
+                                                </td>
+                                                <td align="center" width="200">
+                                                    
+                                                </td>
+                                            </tr>
+
+                                            <tr class="infoData">
+                                                <td align="center" width="250">
+                                                    KAILAS MAGI
+                                                </td>
+                                                <td align="center" width="400">
+                                                    CHIEF OF SCHEDULING COMMITTEE
+                                                </td>
+                                                <td align="center" width="200">
+                                                    (817-715-9946)
+                                                </td>
+                                            </tr>
+
+
+            
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    MOHAMMAD ATIQUR RAHMAN
+                                                </td>
+                                                <td align="center" width="400">
+                                                   HEAD OF DISCIPLINARY COMMITTEE
+                                                </td>
+                                                <td align="center" width="200">
+                                                    (832-898-4087)
+                                                </td>
+                                            </tr>
+                                
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    SRINIDHI KANIYAR
+                                                </td>
+                                                <td align="center" width="400">
+                                                    CHIEF ETHICS OFFICER
+                                                </td>
+                                                <td align="center" width="200">
+                                                    (214-405-2988)
+                                                </td>
+                                            </tr>
+
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    SRINIVASA RAO KILAPARTI
+                                                </td>
+                                                <td align="center" width="400">
+                                                   JOINT SECRETARY / UMPIRING COORDINATOR
+                                                </td>
+                                                <td align="center" width="200">
+                                                    (214-729-8715)
+                                                </td>
+                                            </tr>
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    JAGANNATH POOSARLA
+                                                </td>
+                                                <td align="center" width="400">
+                                                    PRESIDENT OF DALLAS YOUTH CRICKET LEAGUE
+                                                </td>
+                                                <td align="center" width="200">
+                                                   469-939-8329 (dyclmgmt@gmail.com)
+                                                </td>
+                                            </tr>
+
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    SAMPOORNA RAMAKRISHNA
+                                                </td>
+                                                <td align="center" width="400">
+                                                    PRESIDENT OF DALLAS WOMENS CRICKET LEAGUE
+                                                </td>
+                                                <td align="center" width="200">
+                                                   (682-46D-WCL1) (dwclmgmt@gmail.com)
+                                                </td>
+                                            </tr>
+
+
+<tr class="infoData">
+                                                <td align="center" width="250">
+                                                    ZIA QUADRI
+                                                </td>
+                                                <td align="center" width="400">
+                                                    (HONORARY PRESIDENT)
+                                                </td>
+                                                <td align="center" width="200">
+                                                   dclmgmt@gmail.com
+                                                </td>
+                                            </tr>
+
                                         </table>
                                     </td>
                                 </tr>
@@ -120,7 +231,7 @@
                                 <tr>
                                     <td align="center">
                                         <span class="infoData">For any questions and suggestions please contact any of the organizers
-                                            above or send an email to: <span class="infoLabel">Kuljit-Singh Nijjar Email: knijjar@yahoo.com or Zia Quadri Email: ziaq@yahoo.com </span>
+                                            above or send an email to: <span class="infoLabel">Kuljit-Singh Nijjar Email: knijjar@yahoo.com or DCL Management Email: dclmgmt@gmail.com</span>
                                             <br>
                                             <br>
                                         </span>

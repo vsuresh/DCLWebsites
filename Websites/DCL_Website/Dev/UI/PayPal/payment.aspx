@@ -18,7 +18,7 @@
         <input type="hidden" name="item_name_1" value="<%=Session["Paypal_TeamName"]%>" />
 	    <input type="hidden" name="amount_1" value="<%=Session["Paypal_Fees"]%>" /> 
 	    <input type="hidden" name="tax_cart" value="0.00" /> 
-	    <input type="hidden" name="business" value="paypal@dallascricket.net" /> 
+	    <input type="hidden" name="business" value="dclbank@gmail.com" /> 
         <input type="hidden" name="invoice" value="<%=Session["Paypal_OrderId"]%>" />
 	    <input type="hidden" name="no_note" value="0" /> 
         <input type="hidden" name="currency_code" value="USD" />

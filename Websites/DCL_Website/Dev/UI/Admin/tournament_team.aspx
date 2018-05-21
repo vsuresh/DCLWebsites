@@ -54,6 +54,7 @@
                                         &nbsp;&nbsp;&nbsp;
                                         <asp:Button ID="btnAdd" TabIndex="13" runat="server" CssClass="btnAdmin" Text="Add Team"
                                             OnClick="btnAdd_Click"></asp:Button>
+                                        <asp:Label ID="lblbtnAddMessage" text="" runat="server"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>

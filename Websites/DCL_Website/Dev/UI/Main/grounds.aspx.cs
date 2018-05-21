@@ -28,7 +28,7 @@ namespace Cricket.Main
             int groundId = 0;
             if (!IsPostBack)
             {
-                PopulateData();
+                Load();
                 groundId = firstGroundId;
             }
 
@@ -75,7 +75,7 @@ namespace Cricket.Main
             }
         }
 
-        protected void PopulateData()
+        protected void Load()
         {
             using (SqlDataReader dr = m_bl.GetGroundList())
             {

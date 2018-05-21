@@ -39,17 +39,19 @@
                                                 <br />
                                                 </li>
                                                 -->
-                                                <li>
+                                               
+ <li>
                                                 <a href="teamcontacts.aspx">Click here</a> for Tournament Team Contacts! 
                                                 <br />
-                                                <br />
+                                                <br /> 
                                                 </li>
-                                                <li>
+                                                <!--
+<li>
                                                 <a href="ReserveGrounds.aspx">Click here</a> to Reserve Russel Creek Grounds for Practice! 
                                                 <font color="green"><i>(New)</i></font>
                                                 <br />
                                                 <br />
-                                                </li>
+                                                </li>                -->
                                                 <li>
                                                 <a href="paymentmisc.aspx">Click here</a> to make a payment to DCL!
                                                 <br />

@@ -45,18 +45,6 @@
 							        </tr>
 							        <tr>
 								        <td align="center" colSpan="2">
-									        <P align="left"></SPAN><SPAN class="infoData"><STRONG>Existing Teams</STRONG>: <EM><U>You do not have to fill all this information if you have played in DCL tournaments in the past.  
-													    Please <a href="/adminteams/login.aspx?action=registration">Click here </a> to login with your team username/password and register for the tournament from there!
-                                            </SPAN></P>
-								        </td>
-							        </tr>
-							        <tr>
-								        <td align="center" colSpan="2">
-									        <hr class="hr">
-								        </td>
-							        </tr>
-							        <tr>
-								        <td align="center" colSpan="2">
 									        <P align="left"></SPAN><SPAN class="infoData"><STRONG>Note</STRONG>: <EM><U>All teams are 
 													    required to register before the registration deadline and submit their registration fees by paypal 
                                             during the registration process</U></EM> . Teams can use a paypal account <U>OR </U>any credit 
@@ -145,7 +133,7 @@
 								        <td align="right"><span class="infoLabel">Contact1 Email:</span>
 								        </td>
 								        <td>
-									        <asp:textbox id="txtContact1Email" tabIndex="5" runat="server" Width="200px" MaxLength="30"></asp:textbox>
+									        <asp:textbox id="txtContact1Email" tabIndex="5" runat="server" Width="200px" MaxLength="40"></asp:textbox>
 									        <asp:requiredfieldvalidator ControlToValidate="txtContact1Email" id="Requiredfieldvalidator7" runat="server"
 										        ErrorMessage="RequiredFieldValidator">Field is required</asp:requiredfieldvalidator>
 								        </td>
@@ -166,7 +154,7 @@
 								        <td align="right"><span class="infoLabel">Contact2 Name:</span>
 								        </td>
 								        <td>
-									        <asp:textbox id="txtContact2Name" tabIndex="7" runat="server" Width="200px" MaxLength="30"></asp:textbox>
+									        <asp:textbox id="txtContact2Name" tabIndex="7" runat="server" Width="200px" MaxLength="40"></asp:textbox>
 								        </td>
 							        </tr>
 							        <tr>
@@ -179,7 +167,7 @@
 								        <td align="right"><span class="infoLabel">Contact2 Email:</span>
 								        </td>
 								        <td>
-									        <asp:textbox id="txtContact2Email" tabIndex="9" runat="server" Width="200px" MaxLength="30"></asp:textbox>
+									        <asp:textbox id="txtContact2Email" tabIndex="9" runat="server" Width="200px" MaxLength="40"></asp:textbox>
 								        </td>
 							        </tr>
 							        <tr>

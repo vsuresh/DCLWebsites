@@ -111,7 +111,7 @@
                                         <span class="infoLabel">Email Address:</span>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtEmail" TabIndex="8" runat="server" Width="200px" MaxLength="30"></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" TabIndex="8" runat="server" Width="200px" MaxLength="60"></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"
                                             ControlToValidate="txtEmail" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Invalid Email</asp:RegularExpressionValidator>
                                     </td>

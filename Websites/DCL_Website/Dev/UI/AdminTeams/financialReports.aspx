@@ -24,6 +24,10 @@
 								    <td  colspan="2" class="infoData" align="left"><font size="2">
 									    The following links provide access to the yearly financial accounts. 
 									    <br />
+<br />
+<a href="/Financials/DCL_Financials_2009_to_2016.xlsx">Year 2009 -2016</a>
+<br />
+<a href="/Financials/DCL-2010_2011_2012_2013-Accounting-01.xlsx">Year 2009 2010 2011 2012 2013</a>
 									    <br />
 									    <a href="/Financials/DCL-2009-Accounting-01.xls">Year 2009</a>
 									    <br />

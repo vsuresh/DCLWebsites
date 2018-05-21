@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
+using System.Configuration;
 using Cricket;
 using Cricket.controls;
 using Cricket.Common;
@@ -87,10 +88,19 @@ namespace Cricket.Admin
 			dr.Close();
 
             // disable Add button after a week of tournament start
-			if (DateTime.Now >= startDate.AddDays(7))
-				btnAdd.Enabled = false;
-			else
-				btnAdd.Enabled = true;
+
+            int disableAfterDays = toInt(ConfigurationManager.AppSettings["DisableTeamAddAfterTournamentStartInDays"]);
+            if (disableAfterDays <= 0)
+                disableAfterDays = 7;
+
+            lblbtnAddMessage.Text = "";
+            if (DateTime.Now >= startDate.AddDays(disableAfterDays))
+            {
+                btnAdd.Enabled = false;
+                lblbtnAddMessage.Text = string.Format("You cannot add teams after {0} days past the tournament start date!", disableAfterDays);
+            }
+            else
+                btnAdd.Enabled = true;
 		}
 
 		#region Web Form Designer generated code

@@ -106,11 +106,11 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtFees" TabIndex="2" runat="server" Width="30px" MaxLength="3" 
+                                        <asp:TextBox ID="txtFees" TabIndex="2" runat="server" Width="30px" MaxLength="4" 
                                             Height="24px"></asp:TextBox><asp:RequiredFieldValidator ID="Requiredfieldvalidator8"
                                                 runat="server" ControlToValidate="txtFees" ErrorMessage="RequiredFieldValidator">Field is required</asp:RequiredFieldValidator>
                                         <asp:RangeValidator ID="RangeValidator2" runat="server" ErrorMessage="Out of Range"
-                                            ControlToValidate="txtFees" Type="Integer" MinimumValue="0" MaximumValue="500"></asp:RangeValidator>
+                                            ControlToValidate="txtFees" Type="Integer" MinimumValue="0" MaximumValue="5000"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>

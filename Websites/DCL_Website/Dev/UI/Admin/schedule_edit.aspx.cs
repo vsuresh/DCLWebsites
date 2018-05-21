@@ -237,8 +237,8 @@ namespace Cricket.Admin
 				ddlWinTeam.Items.FindByText("select").Selected = true;
 				ddlGround.Items.FindByText("select").Selected = true;
 
-				txtStartTime.Text = "8:00 AM";
-				txtEndTime.Text = "12:00 PM";
+				txtStartTime.Text = "7:30 AM";
+				txtEndTime.Text = "11:30 AM";
 			}
 
 		}

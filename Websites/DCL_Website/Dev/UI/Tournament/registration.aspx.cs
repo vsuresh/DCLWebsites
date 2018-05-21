@@ -176,6 +176,47 @@ namespace Cricket.Tournament
             Response.Redirect("/paypal/payment.aspx");
         }
 
+
+		private void SendEmail(string teamName, string toAddress)
+		{
+            try
+            {
+                string message = string.Format("This email is to confirm that we have received registration entry for your team {0} to participate in the {1}{2}{2}, Your registration is not final until you pay the regsiration fees on the website.", teamName, tournamentName, Environment.NewLine);
+                MailMessage msg = new MailMessage();
+                msg.Body = message;
+                msg.From = "ziaq@dallascricket.net";
+                msg.Bcc = "ziaq@dallascricket.net";
+                msg.BodyFormat = MailFormat.Text;
+                msg.Subject = string.Format("DCL: Registration confirmation for {0}", teamName);
+                msg.Priority = MailPriority.Normal;
+                msg.To = toAddress;
+                SmtpMail.Send(msg);
+            }
+            catch
+            {
+            }
+        }
+		
+		
+		#region Web Form Designer generated code
+		override protected void OnInit(EventArgs e)
+		{
+			//
+			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
+			//
+			InitializeComponent();
+			base.OnInit(e);
+		}
+		
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{    
+
+		}
+		#endregion
 		
 	}
 }

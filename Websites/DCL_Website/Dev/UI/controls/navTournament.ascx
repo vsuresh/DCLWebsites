@@ -26,6 +26,10 @@
                     <td align="center" valign="middle" class="menuline">
                         <a href="/Tournament/format.aspx" class="menuline">Format</a>
                     </td>
+ <td width="122" align="center" valign="middle" class="menuline">
+                        <a href="/Main/LiveScore.aspx" class="menuline" style="color:Yellow">Live Scorecard</a>
+                    </td>
+
                     <td align="center" valign="middle" class="menuline">
                         <a href="/Tournament/registrationInfo.aspx" class="menuline">Registration</a>
                     </td>

@@ -32,7 +32,7 @@
                                             <br />
                                             <br />
                                             DCL is a registered Non Profit Corporation in the State of Texas.
-                                            DCL does not currently have the 501c3 Tax exempt status from IRS 
+                                            DCL has the 501c3 Tax exempt status from IRS and State of Texas 
                                     </td>
                                 </tr>
                                 <tr>

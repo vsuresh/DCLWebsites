@@ -158,6 +158,8 @@
                                         <asp:TextBox ID="txtOvers1" TabIndex="6" runat="server" Width="100px" MaxLength="5"></asp:TextBox>
                                         <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator"
                                             ControlToValidate="txtOvers1" Operator="DataTypeCheck" Type="Double">Invalid Value</asp:CompareValidator>
+                                        <br />
+                                        <span class="infodata"><font size="1">(Enter actual overs that your team has played as the Run Rate calculations depends on it. If you played less overs and put 20 here, your team could get disqualified frmo the tournament!)</font></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -267,6 +269,8 @@
                                         <asp:TextBox ID="txtOvers2" TabIndex="20" runat="server" Width="100px" MaxLength="5"></asp:TextBox>
                                         <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="CompareValidator"
                                             ControlToValidate="txtOvers2" Operator="DataTypeCheck" Type="Double">Invalid Value</asp:CompareValidator>
+                                        <br />
+                                        <span class="infodata"><font size="1">(Enter actual overs that your team has played as the Run Rate calculations depends on it. If you played less overs and put 20 here, your team could get disqualified frmo the tournament!)</font></span>
                                     </td>
                                 </tr>
                                 <tr>

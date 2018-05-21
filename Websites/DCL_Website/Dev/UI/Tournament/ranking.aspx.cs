@@ -23,24 +23,22 @@ namespace Cricket.Tournament
 		
 		protected int		m_nSerialNo = 1;
         protected string groupId = "";
-	  protected int m_nUserId = 0;
-	  
-
-    protected override void OnLoad(System.EventArgs e)
+	
+		protected override void OnLoad(System.EventArgs e)
 		{
 			base.OnLoad(e);
 
-		  m_nUserId = toInt(Session["user_id"]);
-
-      if (!IsPostBack)
-      {
-        loadData();
-      }
-    }
+			if (!IsPostBack)
+			{
+				loadData();
+			}
+		}
 
 		protected void loadData()
 		{
-      SqlDataReader dr = m_bl.getTeamStats(tournamentId);
+			SqlDataReader dr = m_bl.getTeamStats(tournamentId);
+
+
 
             DataTable dt = new DataTable();
             dt.Columns.Add("team_id");
@@ -104,16 +102,10 @@ namespace Cricket.Tournament
 		{    
 			this.dgrid_teams.ItemDataBound += new System.Web.UI.WebControls.DataGridItemEventHandler(this.dgrid_teams_ItemDataBound);
 
-		  this.dgrid_penalty.ItemCommand += new System.Web.UI.WebControls.DataGridCommandEventHandler(this.dgrid_penalty_ItemCommand);
-
-		  if ( !IsSysAdmin() )
-		    this.dgrid_penalty.Columns[ 5 ].Visible = false;
-
 		}
-    #endregion
+		#endregion
 
-	  
-    private void dgrid_teams_ItemDataBound(object sender, System.Web.UI.WebControls.DataGridItemEventArgs e)
+		private void dgrid_teams_ItemDataBound(object sender, System.Web.UI.WebControls.DataGridItemEventArgs e)
 		{
 			if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
 			{
@@ -144,77 +136,13 @@ namespace Cricket.Tournament
                 {
                     e.Item.BackColor = Color.LightYellow;
                 }
-                
+
 
 			}
 		}
 
-    protected bool IsSysAdmin()
-    {
-      return (m_nUserId == 1 || Request.QueryString["sysadmin"] == "1");
-    }
 
-
-
-    protected void dgrid_penalty_ItemCommand(object source, System.Web.UI.WebControls.DataGridCommandEventArgs e)
-    {
-      switch ( ( ( LinkButton ) e.CommandSource ).CommandName )
-      {
-
-        case "Delete":
-          try
-          {
-            int penaltyId = 0;
-            penaltyId = toInt(((System.Web.UI.WebControls.TableCell)e.Item.Controls[0]).Text);
-
-            DeletePenalty(penaltyId);
-
-            loadData();
-          }
-          catch ( Exception ex )
-          {
-            lblMessage.Text = "Error while trying to delete Penalty/Byes";
-            lblMessage.Text += "<br/>Error: <br/>" + ex.ToString();
-          }
-
-          break;
-
-        default:
-          // Do nothing.
-          break;
-      }
-
-    }
-
-	  private void DeletePenalty(int penaltyId)
-	  {
-	    try
-	    {
-	      // check if we have the tournament id in session
-	      if (tournamentId <= 0)
-	      {
-	        tournamentId = toInt(Session["tournament_id"]);
-	        tournamentName = Session["tournament_name"] as string;
-	        if (tournamentId <= 0)
-	        {
-	          Response.Redirect("/default.aspx");
-	        }
-	      }
-
-        int result = m_bl.DeletePenalty(tournamentId, penaltyId);
-
-	      if (result <= 0)
-	        lblMessage.Text = "Error while trying to delete Penalty/Byes";
-
-	      loadData();
-	    }
-	    catch (Exception ex)
-	    {
-	      lblMessage.Text = "Error while trying to delete Penalty/Byes";
-	      lblMessage.Text += "<br/>Error: <br/>" + ex.ToString();
-	    }
-    }
-  }
+	}
 
 
 }
