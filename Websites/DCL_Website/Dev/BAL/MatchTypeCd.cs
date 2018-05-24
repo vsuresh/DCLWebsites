@@ -116,8 +116,13 @@ namespace Cricket.BAL
                 case 22:
                     strType = "PreQuaterFinal 8";
                     break;
+                //Added Wildcard Match Type : By Siddharth -- START
+                case 23:
+                    strType = "WildCard Match";
+                    break;
+                //Added Wildcard Match Type : By Siddharth -- END
             }
-			return strType;
+            return strType;
 		}
 
 		public static string getGroup(int nTypeCd)
@@ -153,6 +158,7 @@ namespace Cricket.BAL
 
 		public static void populateList(ref DropDownList ddl)
 		{
+            ddl.Items.Insert(0, new ListItem("WildCard Match", "23"));          //Added Wildcard Match Type : By Siddharth
             ddl.Items.Insert(0, new ListItem("PreQuaterFinal 8", "22"));
             ddl.Items.Insert(0, new ListItem("PreQuaterFinal 7", "21"));
             ddl.Items.Insert(0, new ListItem("PreQuaterFinal 6", "20"));
