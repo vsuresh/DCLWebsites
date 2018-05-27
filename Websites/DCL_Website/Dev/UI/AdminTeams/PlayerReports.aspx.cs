@@ -19,15 +19,15 @@ public partial class AdminTeams_PlayerReports : PageBaseAdmin
         base.OnLoad(e);
 
         // get the # of days we allow users to update the scores after the match date
-        updateDaysAfterEndDate = toInt(ConfigurationManager.AppSettings["DaysToAllowMatchScoreUpdatesAfterMatchDate"]);
+        //updateDaysAfterEndDate = toInt(ConfigurationManager.AppSettings["DaysToAllowMatchScoreUpdatesAfterMatchDate"]);
 
-        // get the match ids that are defined in web config files that we need to allow match score updates for
-        string matchIds = ConfigurationManager.AppSettings["MatchIDsForScoreUpdateAllowedCommaSeperated"];
-        if (!string.IsNullOrEmpty(matchIds))
-        {
-            string[] matchIdArray = matchIds.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-            matchIDsForScoreUpdateAllowed.AddRange(matchIdArray);
-        }
+        //// get the match ids that are defined in web config files that we need to allow match score updates for
+        //string matchIds = ConfigurationManager.AppSettings["MatchIDsForScoreUpdateAllowedCommaSeperated"];
+        //if (!string.IsNullOrEmpty(matchIds))
+        //{
+        //    string[] matchIdArray = matchIds.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+        //    matchIDsForScoreUpdateAllowed.AddRange(matchIdArray);
+        //}
 
         if (!IsPostBack)
         {
@@ -38,22 +38,22 @@ public partial class AdminTeams_PlayerReports : PageBaseAdmin
     protected void bindControls()
     {
 
-        SqlDataReader dr = m_bl.getTournamentList(m_nTeamId);
+        SqlDataReader dr = m_bl.getGroupNames();
         ddlTournament.DataSource = dr;
-        ddlTournament.DataTextField = "name";
-        ddlTournament.DataValueField = "tournament_id";
+        ddlTournament.DataTextField = "group_name";
+        ddlTournament.DataValueField = "group_name";
         ddlTournament.DataBind();
         dr.Close();
 
-        ddlTournament.SelectedValue = m_nTournamentId.ToString();
+        ddlTournament.SelectedValue = "Summer 2017";
 
-        LoadPlayerReport(toInt(ddlTournament.SelectedValue), ddlTournament.SelectedItem.Text);
+        LoadPlayerReport(ddlTournament.SelectedValue);
 
     }
 
-    private void LoadPlayerReport(int tournamentId, string tournamentName)
+    private void LoadPlayerReport(string groupName)
     {
-        SqlDataReader dr = m_bl.getPlayerReport(tournamentId);
+        SqlDataReader dr = m_bl.getPlayerReport(groupName);
         dgrid_playerReport.DataSource = dr;
         dgrid_playerReport.DataBind();
         dr.Close();
@@ -62,7 +62,7 @@ public partial class AdminTeams_PlayerReports : PageBaseAdmin
         if (dgrid_playerReport.Items.Count <= 0)
             lblErrorMatches.Text = "There are no matches scheduled.";
 
-        lblTournament.Text = tournamentName;
+        lblTournament.Text = groupName;
     }
 
     #region Web Form Designer generated code
@@ -89,11 +89,11 @@ public partial class AdminTeams_PlayerReports : PageBaseAdmin
 
     private void dgrid_scores_ItemDataBound(object sender, System.Web.UI.WebControls.DataGridItemEventArgs e)
     {
-        if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-        {
-            DateTime matchDate = DateTime.MinValue;
-            if (DateTime.TryParse(e.Item.Cells[0].Text, out matchDate))
-                e.Item.Cells[0].Text = matchDate.ToShortDateString();
+        //if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+        //{
+            //DateTime matchDate = DateTime.MinValue;
+            //if (DateTime.TryParse(e.Item.Cells[0].Text, out matchDate))
+            //    e.Item.Cells[0].Text = matchDate.ToShortDateString();
 
             // disable the edit option if the match date is in the past beyond the allowed # of days fro match score updates
             //if (DateTime.Now > matchDate.AddDays(updateDaysAfterEndDate))
@@ -104,25 +104,25 @@ public partial class AdminTeams_PlayerReports : PageBaseAdmin
             //    if (!matchIDsForScoreUpdateAllowed.Contains(e.Item.Cells[1].Text))
             //        e.Item.Cells[8].Enabled = false;
             //}
-        }
+        //}
     }
 
     private void dgrid_scores_ItemCommand(object source, System.Web.UI.WebControls.DataGridCommandEventArgs e)
     {
-        if (e.CommandName == "Edit")
-        {
-            string strMatchId = e.Item.Cells[1].Text;
-            if (strMatchId.Length > 0)
-            {
-                Session["match_id"] = strMatchId;
-                Server.Transfer("match_score.aspx");
-            }
-        }
+        //if (e.CommandName == "Edit")
+        //{
+        //    string strMatchId = e.Item.Cells[1].Text;
+        //    if (strMatchId.Length > 0)
+        //    {
+        //        Session["match_id"] = strMatchId;
+        //        Server.Transfer("match_score.aspx");
+        //    }
+        //}
     }
 
     protected void ddlTournament_SelectedIndexChanged(object sender, EventArgs e)
     {
-        LoadPlayerReport(toInt(ddlTournament.SelectedValue), ddlTournament.SelectedItem.Text);
+        LoadPlayerReport(ddlTournament.SelectedValue);
     }
 }
 

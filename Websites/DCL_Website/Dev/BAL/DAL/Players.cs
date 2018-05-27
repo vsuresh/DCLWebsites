@@ -75,13 +75,13 @@ namespace Cricket.DAL.Players
 	}
     public class GetPlayerReport : Command
     {
-        public GetPlayerReport(Connection conn, int tournamentid) : base(conn)
+        public GetPlayerReport(Connection conn, string groupName) : base(conn)
         {
     
-            m_cmd.CommandText = "PlayerListByTournamentId";
+            m_cmd.CommandText = "GetPlayerListByGroupName";
             m_cmd.CommandType = System.Data.CommandType.StoredProcedure;
             // 3. add parameter to command, which will be passed to the stored procedure
-            m_cmd.Parameters.Add(new SqlParameter("@tournament_id", tournamentid));
+            m_cmd.Parameters.Add(new SqlParameter("@group_name", groupName));
             m_cmd.CommandTimeout = 240;
             // addParmInt("tournament_id");
         }

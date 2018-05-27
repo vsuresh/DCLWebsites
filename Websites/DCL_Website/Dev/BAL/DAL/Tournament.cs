@@ -22,6 +22,14 @@ namespace Cricket.DAL.Tournament
         }
 	}
 
+    public class GetGroupNames : Command
+    {
+        public GetGroupNames(Connection conn)
+            : base(conn)
+        {
+            m_cmd.CommandText = "select distinct group_name from tournament order by group_name ";
+        }
+    }
     public class GetTournamentCurrent : Command
     {
         public GetTournamentCurrent(Connection conn)

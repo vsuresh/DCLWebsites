@@ -24,7 +24,7 @@
                                 </tr>
                                 <tr>
                                     <td style="height: 22px" align="center">
-                                        <span class="infoLabel">Select Tournament To Run Player Report:</span>
+                                        <span class="infoLabel">Select a Season To Run Player Report:</span>
                                         &nbsp;&nbsp;&nbsp;
                                         <asp:DropDownList ID="ddlTournament" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTournament_SelectedIndexChanged">
                                         </asp:DropDownList>
@@ -68,13 +68,17 @@
                                             <AlternatingItemStyle CssClass="rtRow2"></AlternatingItemStyle>
                                             <ItemStyle Height="20px" CssClass="rtRow1"></ItemStyle>
                                             <Columns>
-                                                <asp:BoundColumn DataField="tournament_name" HeaderText="TournamentName" Visible="True">
+                                                <asp:BoundColumn DataField="season_name" HeaderText="Season" Visible="True">
                                                     <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
                                                     <ItemStyle HorizontalAlign="Right" Width="10%" CssClass="rtCellData"></ItemStyle>
                                                 </asp:BoundColumn>
-                                                <asp:BoundColumn DataField="player_id" HeaderText="PlayerId" Visible="True">
+                                                <asp:BoundColumn DataField="division_name" HeaderText="Division Name" Visible="True">
                                                     <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-                                                    <ItemStyle HorizontalAlign="Right" Width="5%" CssClass="rtCellData"></ItemStyle>
+                                                    <ItemStyle HorizontalAlign="Right" Width="15%" CssClass="rtCellData"></ItemStyle>
+                                                </asp:BoundColumn>
+                                                <asp:BoundColumn DataField="player_id" HeaderText="Player Id">
+                                                    <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+                                                    <ItemStyle HorizontalAlign="Right" Width="10%" CssClass="rtCellData"></ItemStyle>
                                                 </asp:BoundColumn>
                                                 <asp:BoundColumn DataField="first_name" HeaderText="FirstName" Visible="True">
                                                     <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
@@ -85,14 +89,6 @@
                                                     <ItemStyle HorizontalAlign="Right" Width="20%" CssClass="rtCellData"></ItemStyle>
                                                 </asp:BoundColumn>
                                                 <asp:BoundColumn DataField="team_name" HeaderText="Team">
-                                                    <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-                                                    <ItemStyle HorizontalAlign="Right" Width="20%" CssClass="rtCellData"></ItemStyle>
-                                                </asp:BoundColumn>
-                                                <asp:BoundColumn DataField="match_date" HeaderText="MatchDate" DataFormatString="{0:d}">
-                                                    <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-                                                    <ItemStyle HorizontalAlign="Right" Width="5%" CssClass="rtCellData"></ItemStyle>
-                                                </asp:BoundColumn>
-                                                <asp:BoundColumn DataField="ground_name" HeaderText="GroundName">
                                                     <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
                                                     <ItemStyle HorizontalAlign="Right" Width="20%" CssClass="rtCellData"></ItemStyle>
                                                 </asp:BoundColumn>
