@@ -118,31 +118,31 @@ namespace Cricket.BAL
                     break;
                 //Added Wildcard Match Type : By Siddharth -- START
                 case 23:
-                    strType = "WildCard Match 1";
+                    strType = "WildCard 1";
                     break;
                 case 24:
-                    strType = "WildCard Match 2";
+                    strType = "WildCard 2";
                     break;
                 case 25:
-                    strType = "WildCard Match 3";
+                    strType = "WildCard 3";
                     break;
                 case 26:
-                    strType = "WildCard Match 4";
+                    strType = "WildCard 4";
                     break;
                 case 27:
-                    strType = "WildCard Match 5";
+                    strType = "WildCard 5";
                     break;
                 case 28:
-                    strType = "WildCard Match 6";
+                    strType = "WildCard 6";
                     break;
                 case 29:
-                    strType = "WildCard Match 7";
+                    strType = "WildCard 7";
                     break;
                 case 30:
-                    strType = "WildCard Match 8";
+                    strType = "WildCard 8";
                     break;
                 case 31:
-                    strType = "Third Place Match";
+                    strType = "Third Place";
                     break;                
                 //Added Wildcard Match Type : By Siddharth -- END
             }
@@ -183,15 +183,15 @@ namespace Cricket.BAL
 		public static void populateList(ref DropDownList ddl)
 		{
             //Added Wildcard Match Type : By Siddharth -- START
-            ddl.Items.Insert(0, new ListItem("Third Place Match", "31"));
-            ddl.Items.Insert(0, new ListItem("WildCard Match 8", "30"));          
-            ddl.Items.Insert(0, new ListItem("WildCard Match 7", "29"));
-            ddl.Items.Insert(0, new ListItem("WildCard Match 6", "28"));
-            ddl.Items.Insert(0, new ListItem("WildCard Match 5", "27"));
-            ddl.Items.Insert(0, new ListItem("WildCard Match 4", "26"));
-            ddl.Items.Insert(0, new ListItem("WildCard Match 3", "25"));
-            ddl.Items.Insert(0, new ListItem("WildCard Match 2", "24"));
-            ddl.Items.Insert(0, new ListItem("WildCard Match 1", "23"));
+            ddl.Items.Insert(0, new ListItem("Third Place", "31"));
+            ddl.Items.Insert(0, new ListItem("WildCard 8", "30"));          
+            ddl.Items.Insert(0, new ListItem("WildCard 7", "29"));
+            ddl.Items.Insert(0, new ListItem("WildCard 6", "28"));
+            ddl.Items.Insert(0, new ListItem("WildCard 5", "27"));
+            ddl.Items.Insert(0, new ListItem("WildCard 4", "26"));
+            ddl.Items.Insert(0, new ListItem("WildCard 3", "25"));
+            ddl.Items.Insert(0, new ListItem("WildCard 2", "24"));
+            ddl.Items.Insert(0, new ListItem("WildCard 1", "23"));
             //Added Wildcard Match Type : By Siddharth -- END
             ddl.Items.Insert(0, new ListItem("PreQuaterFinal 8", "22"));
             ddl.Items.Insert(0, new ListItem("PreQuaterFinal 7", "21"));
