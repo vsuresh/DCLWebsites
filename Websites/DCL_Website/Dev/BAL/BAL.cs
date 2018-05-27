@@ -558,8 +558,25 @@ namespace Cricket.BAL
 				return cmd.executeReader();		
 			}
 		}
+	    public SqlDataReader getPlayerReport(int tournamentId)
+	    {
+	        try
+	        {
+	            GetPlayerReport cmd = new GetPlayerReport(m_conn, tournamentId);
+	           // cmd.setParm("tournament_id", tournamentId);
+               var result = cmd.executeReader();
+                return result;
+            }
+	        catch (Exception e)
+	        {
+	            Console.WriteLine(e);
+	            throw;
+	        }
+	      
+        }
+	   
 
-		public SqlDataReader getPlayerData(int nPlayerId)
+        public SqlDataReader getPlayerData(int nPlayerId)
 		{
 			GetPlayerData cmd = new GetPlayerData(m_conn);
 			cmd.setParm("player_id", nPlayerId);
