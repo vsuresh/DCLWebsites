@@ -88,6 +88,49 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td colspan="2" align="center">
+										                  <asp:DataGrid ID="dgrid_penalty" runat="server" CssClass="rtTable" AllowCustomPaging="false"
+											                  AllowPaging="false" AllowSorting="false" EnableViewState="True" Width="400px"
+											                  ShowFooter="False" ShowHeader="True" AutoGenerateColumns="False" CellPadding="0"
+                                                              CellSpacing="0" BorderColor="#2D7C97" BorderStyle="Solid"  >
+											                  <EditItemStyle CssClass="rtRow1"></EditItemStyle>
+											                  <AlternatingItemStyle CssClass="rtRow2" BackColor=""></AlternatingItemStyle>
+											                  <ItemStyle CssClass="rtRow1" Height="22" BackColor=""></ItemStyle>
+											                  <Columns>
+												                  <asp:BoundColumn DataField="penalty_id" HeaderText="No." Visible="False">
+													                  <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+													                  <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="8%" CssClass="rtCellData">
+													                  </ItemStyle>
+												                  </asp:BoundColumn>
+												                  <asp:BoundColumn DataField="name" HeaderText="Team Name">
+													                  <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+													                  <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="25%" CssClass="rtCellDataLeft">
+													                  </ItemStyle>
+												                  </asp:BoundColumn>
+												                  <asp:BoundColumn DataField="type_code" HeaderText="TypeCode" Visible="False">
+													                  <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+													                  <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="5%" CssClass="rtCellData">
+													                  </ItemStyle>
+												                  </asp:BoundColumn>
+												                  <asp:BoundColumn DataField="verbose" HeaderText="Description">
+													                  <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+													                  <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="25%" CssClass="rtCellData">
+													                  </ItemStyle>
+												                  </asp:BoundColumn>
+												                  <asp:BoundColumn DataField="points" HeaderText="Points">
+													                  <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+													                  <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="5%" CssClass="rtCellData">
+													                  </ItemStyle>
+												                  </asp:BoundColumn>
+											                    <asp:ButtonColumn CommandName="Delete" HeaderText="Delete item" Text="Delete"  >
+											                      <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+											                      <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="25%" CssClass="rtCellData"/>
+											                    </asp:ButtonColumn>
+											                  </Columns>
+										                  </asp:DataGrid>
+									                  </td>
+                                  </tr>
+                                <tr>
                                     <td align="left" colspan="2" style="color:red">
                                         <br />
                                             <asp:Label ID="lblMsg" runat="server"></asp:Label>

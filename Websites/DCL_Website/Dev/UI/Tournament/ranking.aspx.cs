@@ -14,29 +14,29 @@ using Cricket;
 
 namespace Cricket.Tournament
 {
-	/// <summary>
-	/// Summary description for ranking.
-	/// </summary>
-	public partial class ranking : PageBaseTournament
-	{
-		protected System.Web.UI.WebControls.Label lblError;
-		
-		protected int		m_nSerialNo = 1;
+    /// <summary>
+    /// Summary description for ranking.
+    /// </summary>
+    public partial class ranking : PageBaseTournament
+    {
+        protected System.Web.UI.WebControls.Label lblError;
+
+        protected int m_nSerialNo = 1;
         protected string groupId = "";
-	
-		protected override void OnLoad(System.EventArgs e)
-		{
-			base.OnLoad(e);
 
-			if (!IsPostBack)
-			{
-				loadData();
-			}
-		}
+        protected override void OnLoad(System.EventArgs e)
+        {
+            base.OnLoad(e);
 
-		protected void loadData()
-		{
-			SqlDataReader dr = m_bl.getTeamStats(tournamentId);
+            if (!IsPostBack)
+            {
+                loadData();
+            }
+        }
+
+        protected void loadData()
+        {
+            SqlDataReader dr = m_bl.getTeamStats(tournamentId);
 
 
 
@@ -78,37 +78,37 @@ namespace Cricket.Tournament
             dgrid_teams.DataBind();
             dr.Close();
 
-			dr = m_bl.getPenaltyAll(tournamentId);
-			dgrid_penalty.DataSource = dr;
-			dgrid_penalty.DataBind();
-			dr.Close();
-		}
+            dr = m_bl.getPenaltyAll(tournamentId);
+            dgrid_penalty.DataSource = dr;
+            dgrid_penalty.DataBind();
+            dr.Close();
+        }
 
-		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
-		{
-			//
-			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
-			//
-			InitializeComponent();
-			base.OnInit(e);
-		}
-		
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{    
-			this.dgrid_teams.ItemDataBound += new System.Web.UI.WebControls.DataGridItemEventHandler(this.dgrid_teams_ItemDataBound);
+        #region Web Form Designer generated code
+        override protected void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
 
-		}
-		#endregion
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.dgrid_teams.ItemDataBound += new System.Web.UI.WebControls.DataGridItemEventHandler(this.dgrid_teams_ItemDataBound);
 
-		private void dgrid_teams_ItemDataBound(object sender, System.Web.UI.WebControls.DataGridItemEventArgs e)
-		{
-			if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-			{
+        }
+        #endregion
+
+        private void dgrid_teams_ItemDataBound(object sender, System.Web.UI.WebControls.DataGridItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
                 string currentGroupId = e.Item.Cells[1].Text;
 
                 if (currentGroupId != "EmptyRow")
@@ -138,11 +138,11 @@ namespace Cricket.Tournament
                 }
 
 
-			}
-		}
+            }
+        }
 
 
-	}
+    }
 
 
 }
