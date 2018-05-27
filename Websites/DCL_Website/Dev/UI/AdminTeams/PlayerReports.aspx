@@ -14,7 +14,7 @@
                             <table id="TableCustom" width="96%" border="0" align="center" cellpadding="2" cellspacing="2">
                                 <tr>
                                     <td class="title">
-                                       Edit Match Scores
+                                       Players Report Breakdown
                                     </td>
                                 </tr>
                                 <tr>
