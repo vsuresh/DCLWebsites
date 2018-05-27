@@ -1,4 +1,6 @@
 
+using System.Data.SqlClient;
+
 namespace Cricket.DAL.Players
 {
 	public class CheckPlayerId : Command
@@ -71,8 +73,21 @@ namespace Cricket.DAL.Players
 			addParmInt("team_id");
 		}
 	}
+    public class GetPlayerReport : Command
+    {
+        public GetPlayerReport(Connection conn, string groupName) : base(conn)
+        {
+    
+            m_cmd.CommandText = "GetPlayerListByGroupName";
+            m_cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            // 3. add parameter to command, which will be passed to the stored procedure
+            m_cmd.Parameters.Add(new SqlParameter("@group_name", groupName));
+            m_cmd.CommandTimeout = 240;
+            // addParmInt("tournament_id");
+        }
+    }
 
-	public class GetMatchBattingPlayerList : Command
+    public class GetMatchBattingPlayerList : Command
 	{
 		public GetMatchBattingPlayerList(Connection conn) : base(conn)
 		{

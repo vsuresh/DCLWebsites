@@ -38,7 +38,8 @@ namespace Cricket
         private void PopulateTournaments()
         {
             SqlDataReader dr = null;
-            using (SqlCommand com = new SqlCommand("select top 6 *, 'current'=(select 1 where GetDate() between regstart_dt and end_dt) from tournament order by start_dt desc", m_bl.GetSQLConnection()))
+            string CommandText = string.Format("select top {0} *, 'current'=(select 1 where GetDate() between regstart_dt and end_dt) from tournament order by start_dt desc", toInt(ConfigurationManager.AppSettings["DisplayMainPageAnouncementTournamentsCount"]));
+            using (SqlCommand com = new SqlCommand(CommandText, m_bl.GetSQLConnection()))
             {
                 com.CommandType = System.Data.CommandType.Text;
                 dr = com.ExecuteReader();
@@ -46,14 +47,16 @@ namespace Cricket
                 dgrid_tournaments.DataBind();
                 dr.Close();
             }
+
         }
 
         private void PopulateAccouncements()
         {
-            SqlDataReader dr = m_bl.GetAnnouncements(6);
+            SqlDataReader dr = m_bl.GetAnnouncements(toInt(ConfigurationManager.AppSettings["DisplayMainPageAnouncementTournamentsCount"]));
             dgrid_announcements.DataSource = dr;
             dgrid_announcements.DataBind();
             dr.Close();
+
         }
 
         protected void dgrid_tournaments_ItemDataBound(object sender, DataGridItemEventArgs e)

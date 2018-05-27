@@ -558,8 +558,25 @@ namespace Cricket.BAL
 				return cmd.executeReader();		
 			}
 		}
+	    public SqlDataReader getPlayerReport(string groupName)
+	    {
+	        try
+	        {
+	            GetPlayerReport cmd = new GetPlayerReport(m_conn, groupName);
+	           // cmd.setParm("tournament_id", tournamentId);
+               var result = cmd.executeReader();
+                return result;
+            }
+	        catch (Exception e)
+	        {
+	            Console.WriteLine(e);
+	            throw;
+	        }
+	      
+        }
+	   
 
-		public SqlDataReader getPlayerData(int nPlayerId)
+        public SqlDataReader getPlayerData(int nPlayerId)
 		{
 			GetPlayerData cmd = new GetPlayerData(m_conn);
 			cmd.setParm("player_id", nPlayerId);
@@ -680,7 +697,11 @@ namespace Cricket.BAL
             cmd.setParm("team_id", teamId);
             return cmd.executeReader();
         }
-
+	    public SqlDataReader getGroupNames()
+	    {
+	        GetGroupNames cmd = new GetGroupNames(m_conn);
+	        return cmd.executeReader();
+	    }
         public SqlDataReader getTournamentCurrent(int nTeamId, int updateDaysAfterEndDate)
 		{
 			GetTournamentCurrent cmd = new GetTournamentCurrent(m_conn);
