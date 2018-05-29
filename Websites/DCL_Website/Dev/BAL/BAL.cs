@@ -1218,14 +1218,6 @@ namespace Cricket.BAL
 			return cmd.executeReader();
 		}
 
-	  public int DeletePenalty( int nTournamentId, int penaltyId )
-	  {
-      DeletePenalty cmd = new DeletePenalty(m_conn);
-	    cmd.setParm("tournament_id", nTournamentId);
-      cmd.setParm("penalty_id",penaltyId);
-	    return cmd.executeNonQuery();
-	  }
-
 		public SqlDataReader GetRecentTournaments()
 		{
 			using (SqlConnection con = GetSQLConnection())
@@ -1608,7 +1600,36 @@ namespace Cricket.BAL
             }
         }
 
-        public SqlDataReader GetPlayerRegistrations(int tournamentId)
+	    public int DeletePenalty( int tournamentId, int penaltyId, int teamId, int penaltypoints )
+	    {
+	        string cmdText = string.Empty;
+	        SqlConnection conn = m_conn.getConnection();
+
+	        DeletePenalty cmd = new DeletePenalty( m_conn );
+	        cmd.setParm( "tournament_id", tournamentId );
+	        cmd.setParm( "penalty_id", penaltyId );
+	        cmd.executeNonQuery();
+
+	        // update the tournament_team table to adjust the total team points
+	        int totalpoints = 0;
+	        cmdText = string.Format( "select points from tournament_team where tournament_id = {0} and team_id = {1}", tournamentId, teamId );
+	        using ( SqlCommand com = new SqlCommand( cmdText, conn ) )
+	        {
+	            com.CommandType = System.Data.CommandType.Text;
+	            totalpoints = toInt( com.ExecuteScalar() );
+	        }
+
+	        totalpoints -= penaltypoints;
+
+	        cmdText = string.Format( "update tournament_team set points = {0} where tournament_id = {1} and team_id = {2} ", totalpoints, tournamentId, teamId );
+	        using ( SqlCommand com = new SqlCommand( cmdText, conn ) )
+	        {
+	            com.CommandType = System.Data.CommandType.Text;
+	            return com.ExecuteNonQuery();
+	        }
+	    }
+
+	    public SqlDataReader GetPlayerRegistrations(int tournamentId)
         {
             string cmdText = string.Format("select * from player_registration where tournament_id = {0}", tournamentId);
 

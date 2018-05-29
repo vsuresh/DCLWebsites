@@ -153,10 +153,14 @@ namespace Cricket.Admin
                     try
                     {
                         int penaltyId = 0;
-                        penaltyId = toInt(((System.Web.UI.WebControls.TableCell)e.Item.Controls[0]).Text);
+                        int teamId = 0;
+                        int penaltypoints = 0;
 
-                        DeletePenalty(penaltyId);
+                        penaltyId = toInt( ( ( System.Web.UI.WebControls.TableCell ) e.Item.Controls[ 0 ] ).Text );
+                        teamId = toInt( ( ( System.Web.UI.WebControls.TableCell ) e.Item.Controls[ 6 ] ).Text );
+                        penaltypoints = toInt( ( ( System.Web.UI.WebControls.TableCell ) e.Item.Controls[ 4 ] ).Text );
 
+                        DeletePenalty( penaltyId, teamId, penaltypoints );
                         loadData();
                     }
                     catch (Exception ex)
@@ -174,7 +178,7 @@ namespace Cricket.Admin
 
         }
 
-        private void DeletePenalty(int penaltyId)
+        private void DeletePenalty(int penaltyId, int teamId, int penaltypoints )
         {
             try
             {
@@ -186,7 +190,7 @@ namespace Cricket.Admin
                         Response.Redirect("/default.aspx");
                     }
 
-                int result = m_bl.DeletePenalty(tournamentId, penaltyId);
+                int result = m_bl.DeletePenalty(tournamentId, penaltyId, teamId, penaltypoints);
 
                 if (result <= 0)
                     lblMsg.Text = "Error while trying to delete Penalty/Byes";

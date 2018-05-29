@@ -126,6 +126,11 @@
 											                      <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
 											                      <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="25%" CssClass="rtCellData"/>
 											                    </asp:ButtonColumn>
+											                    <asp:BoundColumn DataField="team_id" HeaderText="Team Id" Visible="False">
+											                        <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+											                        <ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="8%" CssClass="rtCellData">
+											                        </ItemStyle>
+											                    </asp:BoundColumn>
 											                  </Columns>
 										                  </asp:DataGrid>
 									                  </td>
