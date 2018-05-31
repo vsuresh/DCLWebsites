@@ -87,14 +87,19 @@ namespace Cricket.Admin
         {
             //load the data from the database
             SqlDataReader dr = m_bl.getTeamListByTournament(tournamentId);
-            ddlTeams.DataSource = dr;
-            ddlTeams.DataTextField = "name";
-            ddlTeams.DataValueField = "team_id";
-            ddlTeams.DataBind();
-            dr.Close();
 
-            //ddlTeams.Items.Insert(0, new ListItem("select", "0"));
-            ddlTeams.SelectedIndex = 0;
+            if ( dr.HasRows )
+            {
+                ddlTeams.DataSource = dr;
+                ddlTeams.DataTextField = "name";
+                ddlTeams.DataValueField = "team_id";
+                ddlTeams.DataBind();
+                //dr.Close();
+
+                //ddlTeams.Items.Insert(0, new ListItem("select", "0"));
+                ddlTeams.SelectedIndex = 0;
+            }
+            dr.Close();
         }
 
         private void LoadPenaltyList(int tournamentId)
