@@ -97,7 +97,7 @@
                                             Height="24px"></asp:TextBox><asp:RequiredFieldValidator ID="Requiredfieldvalidator5"
                                                 runat="server" ControlToValidate="txtDesc" ErrorMessage="RequiredFieldValidator">Field is required</asp:RequiredFieldValidator>
                                         <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Out of Range"
-                                            ControlToValidate="txtOvers" Type="Integer" MinimumValue="0" MaximumValue="25"></asp:RangeValidator>
+                                            ControlToValidate="txtOvers" Type="Integer" MinimumValue="0" MaximumValue="50"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>
