@@ -1,5 +1,5 @@
 <%@ Page Language="c#" MasterPageFile="~/SiteTeam.master" Inherits="Cricket.Teams.player_profile" CodeFile="player_profile.aspx.cs" %>
-<%@ Register TagPrefix="uc1" TagName="navbarTeam" Src="/controls/navTeam.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="navbarTeam" Src="~/controls/navTeam.ascx" %>
 
 <asp:Content ID="Control1" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

@@ -1,5 +1,5 @@
 <%@ Page language="c#" MasterPageFile="~/SiteTeam.master" AutoEventWireup="true" Inherits="Cricket.Team.match_score" CodeFile="match_score.aspx.cs" %>
-<%@ Register TagPrefix="uc1" TagName="navbarTeam" Src="/controls/navTeam.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="navbarTeam" Src="~/controls/navTeam.ascx" %>
 
 <asp:Content ID="Control1" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

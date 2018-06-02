@@ -109,39 +109,43 @@ namespace Cricket.Teams
             PlayerStats ps1 = null;
             string name = string.Empty;
 
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.runs > y.runs ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.runs > 0 ? ps1.name : string.Empty;
-            dt.Rows.Add("Most Runs", name, ps1.runs);
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.flAverage > y.flAverage ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.flAverage > 0 ? ps1.name : string.Empty;
-            dt.Rows.Add("Top Average", name, ps1.flAverage);
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.flStrikeRate > y.flStrikeRate ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.flStrikeRate > 0 ? ps1.name : string.Empty;
-            dt.Rows.Add("Top Strike Rate", name, ps1.flStrikeRate);
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.highest > y.highest ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.highest > 0 ? ps1.name : string.Empty;
-            dt.Rows.Add("Highest Score", name, ps1.highest);
-            ps1 = psList.First();
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.hundreds > y.hundreds ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.hundreds > 0 ? ps1.name : string.Empty;
-            dt.Rows.Add("# of Hundreds", name, ps1.hundreds);
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else   return x.fifties > y.fifties ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.fifties > 0 ? ps1.name : string.Empty; 
-            dt.Rows.Add("# of Fifties", name, ps1.fifties);
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.sixes > y.sixes ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.sixes > 0 ? ps1.name : string.Empty;
-            dt.Rows.Add("# of Sixes", name, ps1.sixes);
-            psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.fours > y.fours ? -1 : 1; });
-            ps1 = psList.First();
-            name = ps1.fours > 0 ? ps1.name : string.Empty;
-            dt.Rows.Add("# of Fours", name, ps1.fours);
+            if (psList.Count > 0)
+            {
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.runs > y.runs ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.runs > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("Most Runs", name, ps1.runs);
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.flAverage > y.flAverage ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.flAverage > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("Top Average", name, ps1.flAverage);
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.flStrikeRate > y.flStrikeRate ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.flStrikeRate > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("Top Strike Rate", name, ps1.flStrikeRate);
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.highest > y.highest ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.highest > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("Highest Score", name, ps1.highest);
+                ps1 = psList.First();
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.hundreds > y.hundreds ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.hundreds > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("# of Hundreds", name, ps1.hundreds);
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else   return x.fifties > y.fifties ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.fifties > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("# of Fifties", name, ps1.fifties);
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.sixes > y.sixes ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.sixes > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("# of Sixes", name, ps1.sixes);
+                psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.fours > y.fours ? -1 : 1; });
+                ps1 = psList.First();
+                name = ps1.fours > 0 ? ps1.name : string.Empty;
+                dt.Rows.Add("# of Fours", name, ps1.fours);
+
+            }
 
             dgrid_stats.DataSource = dt;
             dgrid_stats.DataBind();

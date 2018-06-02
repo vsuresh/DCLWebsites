@@ -31,7 +31,7 @@ namespace Cricket.Team
 			{
                 matchId = toInt(Request.QueryString["matchId"]);
 				if (matchId <= 0)
-					Server.Transfer("/teams/matches.aspx");
+					Server.Transfer("~/teams/matches.aspx");
 
                 lblTournamentName.Text = Request.QueryString["tournamentName"] as string;
 

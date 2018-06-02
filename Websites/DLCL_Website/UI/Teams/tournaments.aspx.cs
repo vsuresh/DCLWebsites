@@ -195,7 +195,7 @@ namespace Cricket.Teams
 		{
 			if (e.CommandName == "View")
 			{
-				Server.Transfer(string.Format("/teams/matches.aspx?tournamentId={0}&tournamentName={1}",e.Item.Cells[1].Text, e.Item.Cells[2].Text));
+				Server.Transfer(string.Format("~/teams/matches.aspx?tournamentId={0}&tournamentName={1}",e.Item.Cells[1].Text, e.Item.Cells[2].Text));
 			}
 		}
 	}

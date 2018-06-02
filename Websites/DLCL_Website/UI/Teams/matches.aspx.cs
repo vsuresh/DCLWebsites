@@ -32,7 +32,7 @@ namespace Cricket.Teams
 			{
                 tournamentId = toInt(Request.QueryString["tournamentId"]);
                 if (tournamentId <= 0)
-                    Server.Transfer("/teams/tournaments.aspx");
+                    Server.Transfer("~/teams/tournaments.aspx");
 
                 lblTournamentName.Text = Request.QueryString["tournamentName"] as string;
 
@@ -178,7 +178,7 @@ namespace Cricket.Teams
         {
             if (e.CommandName == "View")
             {
-                Server.Transfer(string.Format("/teams/match_score.aspx?matchId={0}&tournamentName={1}",e.Item.Cells[1].Text,lblTournamentName.Text));
+                Server.Transfer(string.Format("~/teams/match_score.aspx?matchId={0}&tournamentName={1}",e.Item.Cells[1].Text,lblTournamentName.Text));
             }
         }
 

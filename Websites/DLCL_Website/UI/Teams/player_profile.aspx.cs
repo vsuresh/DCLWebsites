@@ -29,7 +29,7 @@ namespace Cricket.Teams
 			{
 				playerId = toInt(Request.QueryString["playerId"]);
 				if (playerId <= 0)
-					Server.Transfer("/teams/players.aspx");
+					Server.Transfer("~/teams/players.aspx");
 
 				loadData();
 			}
@@ -162,7 +162,7 @@ namespace Cricket.Teams
 
 		protected void btnPlayerList_Click(object sender, System.EventArgs e)
 		{
-			Server.Transfer("/teams/players.aspx");
+			Server.Transfer("~/teams/players.aspx");
 		}
 	}
 
