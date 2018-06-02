@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#"  MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="SiteTeam.master.cs" Inherits="SiteTeam" %>
+<%@ Register TagPrefix="uc1" TagName="navTeam" Src="controls/navTeam.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="navBase" Src="controls/navBase.ascx" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <asp:ContentPlaceHolder id="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="NavigationContent" Runat="Server">
+    <asp:ContentPlaceHolder id="NavigationContent" runat="server">
+        <uc1:navBase ID="navBase1"  runat="server"></uc1:navBase>
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+    <asp:ContentPlaceHolder id="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
