@@ -1,11 +1,11 @@
-<%@Page Title="DLCL Live Score" Language="c#" MasterPageFile="~/Site.master" Inherits="Cricket.Main.awards" CodeFile="Livescore.aspx.cs" CodeFileBaseClass="Cricket.PageBase" %>
+<%@Page Title="DFW T20 Live Score" Language="c#" MasterPageFile="~/Site.master" Inherits="Cricket.Main.awards" CodeFile="Livescore.aspx.cs" CodeFileBaseClass="Cricket.PageBase" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-<span class="summertext">DLCL Summer 2015</span>
+<span class="summertext">DFW T20 INDEPENDENCE CUP 2015</span>
 <br /><br />
 
     <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="">
@@ -22,10 +22,9 @@
                                     </td>
                                 
  <tr align="center">
-<td width="33%">                                                    
-<iframe id="schedule_904" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/904/true?embed_code=72646f14c3f3a1b898929031787b650f20c9c58bd83a1ca7f98e2f179ea0349fce7ca76c81db6ad4025b6b3886126d4a0d74be244ef0f3dc13aa5c9978717907" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
-                                            
 
+<td width="33%">  
+<iframe id="schedule_959" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/959/true?embed_code=4991e3483a21cfc1c3a9eb0ff1470c4dcd1fde6460525a939b3a3c10bee3c7d6e0f75ecda105dd26a7841485156c6e13e0680aef83ed955c7748bccd3843865f" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
 <br />
 
                                                                                                         <br />
@@ -71,6 +70,7 @@
 
 <tr align="center">
 <td width="33%">
+
 
                                                     
                                                 </td>

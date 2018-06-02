@@ -5,7 +5,7 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-<span class="summertext">DLCL Summer 2015</span>
+<span class="summertext">DLCL Summer League 2018 Division B</span>
 <br /><br />
 
     <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="">
@@ -22,11 +22,9 @@
                                     </td>
                                 
  <tr align="center">
-<td width="33%">                                                    
-<iframe id="schedule_904" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/904/true?embed_code=72646f14c3f3a1b898929031787b650f20c9c58bd83a1ca7f98e2f179ea0349fce7ca76c81db6ad4025b6b3886126d4a0d74be244ef0f3dc13aa5c9978717907" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
-                                            
 
-<br />
+<td width="33%">  
+<iframe id="schedule_3508" src="http://www.chauka.in/index.php/embed/tournaments/schedule/3508/?embed_code=9648efa5d5cc120b38cf0986f326fd9a7320d1fb4c8c9823f357d8e3c35364d9542e1d990cc1672cf2301e8adb7d06f742f5bb0c9688afb1d14c87829df9482f" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe><br />
 
                                                                                                         <br />
                                                 </td>
@@ -71,6 +69,7 @@
 
 <tr align="center">
 <td width="33%">
+
 
                                                     
                                                 </td>

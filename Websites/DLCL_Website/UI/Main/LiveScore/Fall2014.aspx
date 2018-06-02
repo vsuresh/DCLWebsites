@@ -5,7 +5,7 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-<span class="summertext">DLCL Summer 2015</span>
+<span class="summertext">DLCL Fall 2014</span>
 <br /><br />
 
     <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="">
@@ -23,7 +23,8 @@
                                 
  <tr align="center">
 <td width="33%">                                                    
-<iframe id="schedule_904" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/904/true?embed_code=72646f14c3f3a1b898929031787b650f20c9c58bd83a1ca7f98e2f179ea0349fce7ca76c81db6ad4025b6b3886126d4a0d74be244ef0f3dc13aa5c9978717907" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
+<iframe id="schedule_341" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/341/true?embed_code=d3c7811e59d68e568fb6010d938dc90791c56d8386866bb4f1897d7c86035d099af910aaff33933317c3c7d83dc4cae9f11c1d97a40a2d4864803b5d302e381b"  frameborder="0" style="border:none; overflow:scroll; width:740px;height:3900px;" allowTransparency="true"></iframe>
+
                                             
 
 <br />

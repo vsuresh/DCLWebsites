@@ -1,11 +1,11 @@
-<%@Page Title="DCL Live Score" Language="c#" MasterPageFile="~/Site.master" Inherits="Cricket.Main.awards" CodeFile="Livescore.aspx.cs" CodeFileBaseClass="Cricket.PageBase" %>
+<%@Page Title="DLCL Live Score" Language="c#" MasterPageFile="~/Site.master" Inherits="Cricket.Main.awards" CodeFile="Livescore.aspx.cs" CodeFileBaseClass="Cricket.PageBase" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-<span class="summertext">DCL Fall 2015 Division A</span>
+<span class="summertext">DLCL Fall 2015 Division A</span>
 <br /><br />
 
     <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="">
@@ -23,9 +23,7 @@
                                 
  <tr align="center">
 <td width="33%">                                                    
-<iframe id="schedule_1040" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/1040/true?embed_code=f887e80290a52d6d6182cad780023a40290e9113455e20134528d9a311a309b607e857f445efb64d808de5dd8e5dd948d206db1df5e1a1f449f292a90e2c41be" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
-
-
+<iframe id="schedule_1047" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/1047/true?embed_code=0ed5575eeea600b1015fec265b2cd83f71d58a523ff8ea7d95da7446f89e7d0305ebdca1e2d3fce22262e80c7bb94a45d3bc7a4d9f96b6fcb7bc42fcb0a1466f" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
                                             
 
 <br />

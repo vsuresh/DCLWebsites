@@ -41,7 +41,7 @@ namespace Cricket.controls
             Response.Cookies.Add(myCookie);
             Response.Cookies.Clear();
             Session.Clear();
-            Response.Redirect("/default.aspx");
+            Response.Redirect("~/default.aspx");
         }
 	}
 }

@@ -5,7 +5,7 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-<span class="summertext">DLCL Summer 2015</span>
+<span class="summertext">DLCL T20 Spring 2018 Live Scorecards  </span>
 <br /><br />
 
     <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="">
@@ -22,10 +22,10 @@
                                     </td>
                                 
  <tr align="center">
-<td width="33%">                                                    
-<iframe id="schedule_904" src="http://www.chauka.in/index.php/embedCode/create_scheduleForEmbedCodeTournament/904/true?embed_code=72646f14c3f3a1b898929031787b650f20c9c58bd83a1ca7f98e2f179ea0349fce7ca76c81db6ad4025b6b3886126d4a0d74be244ef0f3dc13aa5c9978717907" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
-                                            
 
+<td width="33%">         
+<iframe id="schedule_3215" src="http://www.chauka.in/index.php/embed/tournaments/schedule/3215/?embed_code=4d9ee13b2dde3c31edd40e11e01fd0dcb5b208774c53b41c9cd002a7995e0128da4720278e1f6af9e618fd659bb113e916e66162f7bb67b443a3bc0da9809dbb" frameborder="0" style="border:none; overflow:scroll;width:750px;height:700px;" allowTransparency="true"></iframe>
+                                          
 <br />
 
                                                                                                         <br />
@@ -71,6 +71,7 @@
 
 <tr align="center">
 <td width="33%">
+
 
                                                     
                                                 </td>

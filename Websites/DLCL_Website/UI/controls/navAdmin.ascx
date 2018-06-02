@@ -24,10 +24,7 @@
                             <a href="/AdminTeams/players.aspx" class="menuline">Players</a>
                         </div>
                     </td>
-                    <td align="center" valign="middle">
-                        <a href="/AdminTeams/financialReports.aspx" class="menuline">Financial Reports</a>
-                    </td>
-                    <td align="center" valign="middle">
+                     <td align="center" valign="middle">
                         <a href="/AdminTeams/PlayerReports.aspx" class="menuline">Player Reports</a>
                     </td>
                     <td align="center" valign="middle" class="aboutustext">

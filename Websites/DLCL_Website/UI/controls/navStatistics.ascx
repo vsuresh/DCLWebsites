@@ -26,7 +26,7 @@
                         <br />
                         <a href="/Statistics/topCatches.aspx" class="menulineNoBorder">Top Catches</a>
                         <br />
-                        <a href="/Statistics/Centurians.aspx" class="menulineNoBorder">Centurians</a>
+                        <a href="/Statistics/Centurians.aspx" class="menulineNoBorder">Centurions</a>
                         <br />
                     </td>
                     <td width="33%" align="center" valign="middle" >

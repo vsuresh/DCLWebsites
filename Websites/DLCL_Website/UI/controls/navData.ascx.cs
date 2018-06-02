@@ -20,9 +20,9 @@ namespace Cricket.controls
             anchorTeamName.Text = Session["team_name"] as string;
             //string teamIdValue = Session["teamId"].ToString();
             //if (!string.IsNullOrEmpty(teamIdValue))
-            //    anchorTeamName.NavigateUrl = "/teams/default.aspx?teamId=" + Session["teamId"].ToString();
+            //    anchorTeamName.NavigateUrl = "~/teams/default.aspx?teamId=" + Session["teamId"].ToString();
             //else
-            //    anchorTeamName.NavigateUrl = "/teams/default.aspx";
+            //    anchorTeamName.NavigateUrl = "~/teams/default.aspx";
 
 			anchorTitle.Text = Session["tournament_name"] as string;
 

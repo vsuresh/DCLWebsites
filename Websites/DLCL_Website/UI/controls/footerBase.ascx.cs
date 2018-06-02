@@ -15,6 +15,6 @@ public partial class controls_footerBase : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 }
