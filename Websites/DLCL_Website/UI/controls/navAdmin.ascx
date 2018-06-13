@@ -24,9 +24,8 @@
                             <a href="/AdminTeams/players.aspx" class="menuline">Players</a>
                         </div>
                     </td>
-                     <td align="center" valign="middle">
-                        <a href="/AdminTeams/PlayerReports.aspx" class="menuline">Player Reports</a>
-                    </td>
+               
+
                     <td align="center" valign="middle" class="aboutustext">
                         <a href="" id="aLogout" runat="server" class="menuline" onserverclick="aLogOut_OnClick">Logout</a>
                     </td>
