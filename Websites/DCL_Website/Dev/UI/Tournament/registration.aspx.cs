@@ -98,8 +98,26 @@ namespace Cricket.Tournament
 			ddlContact2Title.Items.Add(new ListItem("Player", "Player"));
 			ddlContact2Title.SelectedIndex = 1;
 		
-			ddlLocation.Items.Add(new ListItem("Plano", "Plano"));
-			ddlLocation.Items.Add(new ListItem("Coppel", "Coppel"));
+
+            ddlLocation.Items.Add(new ListItem("Addison", "Addison"));
+            ddlLocation.Items.Add(new ListItem("Allen", "Allen"));
+            ddlLocation.Items.Add(new ListItem("Arlington", "Arlington"));
+            ddlLocation.Items.Add(new ListItem("Carrollton", "Carrollton"));
+            ddlLocation.Items.Add(new ListItem("Coppell", "Coppell"));
+            ddlLocation.Items.Add(new ListItem("Dallas", "Dallas"));
+            ddlLocation.Items.Add(new ListItem("Flower mond", "Flower mond"));
+            ddlLocation.Items.Add(new ListItem("Fortworth", "Fortworth"));
+            ddlLocation.Items.Add(new ListItem("Frisco", "Frisco"));
+            ddlLocation.Items.Add(new ListItem("Garland", "Garland"));
+            ddlLocation.Items.Add(new ListItem("Grand Prairie", "Grand Prairie"));
+            ddlLocation.Items.Add(new ListItem("Irving", "Irving"));
+            ddlLocation.Items.Add(new ListItem("Mckinney", "Mckinney"));
+            ddlLocation.Items.Add(new ListItem("Murphy", "Murphy"));
+            ddlLocation.Items.Add(new ListItem("Plano", "Plano"));
+            ddlLocation.Items.Add(new ListItem("Prosper", "Prosper"));
+            ddlLocation.Items.Add(new ListItem("Richardson", "Richardson"));
+            ddlLocation.Items.Add(new ListItem("Southlake", "Southlake"));
+            ddlLocation.Items.Add(new ListItem("Wylie", "Wylie"));
 			ddlLocation.SelectedIndex = 0;
 			
 		}
