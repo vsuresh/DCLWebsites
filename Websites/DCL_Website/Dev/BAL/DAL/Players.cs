@@ -244,8 +244,17 @@ namespace Cricket.DAL.Players
 			addParmInt("tournament_id");
 		}
 	}
+    //public class GetPlayerBowlingStatsRevised : Command
+    //{
+    //    public GetPlayerBowlingStatsRevised(Connection conn) : base(conn)
+    //    {
+    //        m_cmd.CommandText = "Select [matches],[innings],[overs],[wickets] ,[runs],[average],[best] where player_id = @player_id and tournament_id = @tournament_id and wickets > 4 ";
+    //        addParmInt("player_id");
+    //        addParmInt("tournament_id");
+    //    }
+    //}
 
-	public class CreatePlayerBattingStats : Command
+    public class CreatePlayerBattingStats : Command
 	{
 		public CreatePlayerBattingStats(Connection conn) : base(conn)
 		{

@@ -74,22 +74,37 @@ namespace Cricket.Teams
 
             //set the batting stats 
             int index = 0;
-            dr = m_bl.GetPlayerBattingStatsAll(playerId);
-			while (dr.Read())
-			{
-				 matches += toInt(dr["matches"].ToString());
-				 innings += toInt(dr["innings"].ToString());
-                 notouts += toInt(dr["not_outs"].ToString());
-                 runs += toInt(dr["runs"].ToString());
-                 highest = (toInt(dr["highest"].ToString()) > highest) ? toInt(dr["highest"].ToString()) : highest;
-				 flAverage += toFloat(dr["average"]);
-				 flStrikeRate += toFloat(dr["strike_rate"]);
-                 hundreds += toInt(dr["hundred"].ToString());
-                 fifties += toInt(dr["fifty"].ToString());
+            //         dr = m_bl.GetPlayerBattingStatsAll(playerId);
+            //while (dr.Read())
+            //{
+            //	 matches += toInt(dr["matches"].ToString());
+            //	 innings += toInt(dr["innings"].ToString());
+            //              notouts += toInt(dr["not_outs"].ToString());
+            //              runs += toInt(dr["runs"].ToString());
+            //              highest = (toInt(dr["highest"].ToString()) > highest) ? toInt(dr["highest"].ToString()) : highest;
+            //	 flAverage += toFloat(dr["average"]);
+            //	 flStrikeRate += toFloat(dr["strike_rate"]);
+            //              hundreds += toInt(dr["hundred"].ToString());
+            //              fifties += toInt(dr["fifty"].ToString());
+
+            //             index++;
+            //         }
+            dr = m_bl.GetPlayerBattingStatsAllRevised(playerId);
+            while (dr.Read())
+            {
+                matches = toInt(dr["Matches"].ToString());
+                innings = toInt(dr["Innings"].ToString());
+                notouts = toInt(dr["NotOuts"].ToString());
+                runs = toInt(dr["Runs"].ToString());
+                highest = toInt(dr["Highest"].ToString()); ;
+                flAverage += toFloat(dr["Average"]);
+                flStrikeRate += toFloat(dr["StrikeRate"]);
+                hundreds += toInt(dr["Hundred"].ToString());
+                fifties += toInt(dr["Fifty"].ToString());
 
                 index++;
             }
-			dr.Close();
+            dr.Close();
             if (index > 0)
             {
                 flAverage /= index;
@@ -108,17 +123,17 @@ namespace Cricket.Teams
             lbl50.Text = fifties.ToString();
 			
 			//set the bowling stats 
-            int tournamentId = 0;
-            dr = m_bl.getPlayerBowlingStats(tournamentId, playerId);
+            //int tournamentId = 0;
+            dr = m_bl.getPlayerBowlingStatsAllRevised(playerId);
             if (dr.Read())
             {
-                lblMatches2.Text = dr["matches"].ToString();
-                lblInnings2.Text = dr["innings"].ToString();
-                float flOvers = toFloat(dr["overs"]);
-                lblWickets.Text = dr["wickets"].ToString();
-                lblRuns2.Text = dr["runs"].ToString();
-                flAverage = toFloat(dr["average"]);
-                lblBest.Text = dr["best"].ToString();
+                lblMatches2.Text = dr["Matches"].ToString();
+                lblInnings2.Text = dr["Innings"].ToString();
+                float flOvers = toFloat(dr["Overs"]);
+                lblWickets.Text = dr["Wickets"].ToString();
+                lblRuns2.Text = dr["Runs"].ToString();
+                flAverage = toFloat(dr["Average"]);
+                lblBest.Text = dr["Best"].ToString();
 
                 lblOvers.Text = flOvers.ToString("##0.0");
                 lblAverage2.Text = flAverage.ToString("##0.00");

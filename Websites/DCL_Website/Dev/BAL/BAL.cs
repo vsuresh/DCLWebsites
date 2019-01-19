@@ -982,9 +982,19 @@ namespace Cricket.BAL
 			cmd.setParm("tournament_id", nTournamentId);
 			cmd.setParm("player_id", nPlayerId);
 			return cmd.executeReader();		
-		}	
-
-		public SqlDataReader getAllPlayersBattingStats(int nTournamentId, int nTeamId)
+		}
+        public SqlDataReader getPlayerBowlingStatsAllRevised(int nPlayerId)
+        {
+            string cmdText = string.Format("Select sum(A.Matches) Matches, sum(A.Innings) Innings, sum(A.Overs) Overs, sum(A.wickets) Wickets, sum(A.Runs) Runs, " +
+                "Sum(A.Maidens) Maidens , ROUND(AVG(A.Average), 2) Average, MAX(A.best)  Best " +
+                "from player_bowling A , Player B where A.Player_ID = B.Player_id and A.player_id = {0} ", nPlayerId);
+            using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
+            {
+                com.CommandType = System.Data.CommandType.Text;
+                return com.ExecuteReader();
+            }
+        }
+        public SqlDataReader getAllPlayersBattingStats(int nTournamentId, int nTeamId)
 		{
 			GetAllPlayersBattingStats cmd = new GetAllPlayersBattingStats(m_conn);
 			cmd.setParm("tournament_id", nTournamentId);
@@ -1454,8 +1464,18 @@ namespace Cricket.BAL
                 com.CommandType = System.Data.CommandType.Text;
                 return com.ExecuteReader();
             }
-        }	
-
+        }
+        public SqlDataReader GetPlayerBattingStatsAllRevised(int playerId)
+        {
+            string cmdText = string.Format("Select sum(matches) Matches, sum(Runs) Runs, sum(hundred) Hundred,sum(not_outs) NotOuts," +
+                            "sum(fifty) Fifty, sum(innings) Innings, sum(Four) Four, sum(six) Six, sum(duck) Zeros, MAX(highest) Highest," +
+                            "ROUND(AVG(average), 2) Average, ROUND(AVG(strike_rate), 2) StrikeRate from player_batting where player_id = {0} ", playerId);
+            using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
+            {
+                com.CommandType = System.Data.CommandType.Text;
+                return com.ExecuteReader();
+            }
+        }
 
         public SqlDataReader GetTeamTournaments2(int teamId)
         {
