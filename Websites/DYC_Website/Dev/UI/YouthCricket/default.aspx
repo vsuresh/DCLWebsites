@@ -34,16 +34,29 @@
                                     <br />
                                 </tr>
                                 -->
-                                
+                                                				<tr align="center" valign="top" width="600">
+
+  <td colspan="5">
+              <span class="subtitle">Youth Cricket Coaching Year Around. Slots are filling up fast <a href="/offerings/coachinginfo.aspx">(Regsiter ASAP) Or Call 972-814-3921 Or 469-939-8329!!!</a> </span> <br />
+	<span class="subtitle"><Strong>Indoor Cricket Academy Location: </Strong>
+Regular Coaching: Tuesday, Thursday: 6:30pm to 8:30 pm at Russell Creek Park ( G3, G4 ) Sunday:  6:30pm to 8:30 pm at Horseshoe Park
+</span> <br />
+	<span class="subtitle">Questions??? Send an email to <a href="mailto:dyclmgmt@gmail.com">dyclmgmt@gmail.com</a></span>
+                                   </td> 
+                               </tr>
+
                                 <tr align="center" valign="top" width="600">
                                     <td colspan="3">
 
-                                    <div class="jcarousel-wrapper">
+                                            <div class="jcarousel-wrapper">
                                             <div class="jcarousel">
                                                 <ul>
-                                                    <li><img src="/Images/sponsors/slide1.jpg" alt="" width="850px" height="300" ></li>
-                                                    <li><img src="/Images/sponsors/slide2.jpg" alt="" width="850px" height="300" ></li>
-                                                    <li><img src="/Images/sponsors/slide3.jpg" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/Slide1.JPG" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/Slide2.JPG" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/SlideDYCL.JPG" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/SlideDWCL.JPG" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/Slide5.JPG" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/SlideChauka.JPG" alt="" width="850px" height="300" ></li>
                                                 </ul>
                                             </div>
 

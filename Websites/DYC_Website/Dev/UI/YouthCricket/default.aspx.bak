@@ -1,6 +1,19 @@
 <%@ Page Title="Home Page" Language="c#" MasterPageFile="~/Site.master" Inherits="Cricket._default" CodeFile="default.aspx.cs" CodeFileBaseClass="Cricket.PageBase" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <style type="text/css">
+        .auto-style1 {
+            width: 301px;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="/styles/_shared/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/jcarousel.basic.css">
+
+    <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="/js/jcarousel.basic.js"></script>
+
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -10,23 +23,53 @@
                 <table width="900" border="0" cellpadding="0" cellspacing="10">
                     <tr>
                         <td colspan="2" align="center">
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td colspan="2" align="center">
-<span class="subtitle">Youth Cricket Coaching Year Around. Slots are filling up fast <a href="/offerings/coachinginfo.aspx">(Regsiter ASAP)!!!</a> </span>
-                            <br />
-                            <span class="subtitle">Welcome to the new Dallas Youth Cricket website! </span>
-                            <br />
-                            <span class="infoData">(Click on the tournament link below to see the tournament details)</span>
-                            <br />
-                            
-                            <span class="subtitle" style="color:Navy">
-                            Questions??? Send an email to <a href="mailto:dyclmgmt@gmail.com"><font color="green">dyclmgmt@gmail.com</font></a> DYCL Parents/Teams Please add this Email address to your Email contacts <br />
-                            </span>
- 
-                                </td>
-                            </tr>
-                        </table>
+
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                                <!--
+                				<tr align="center" valign="top" width="600">
+                                    <span class="subtitle">Youth Cricket Coaching Year Around. Slots are filling up fast <a href="/offerings/coachinginfo.aspx">(Regsiter ASAP) Or Call 469-939-8329!!!</a> </span>
+                                    <br />
+                                    <span class="subtitle"><Strong>Indoor Cricket Academy Location: </Strong>Extra Innings Address 2300 Coit Road Suite 400, Plano, TX 75075 </span> <br />
+                                    <br />
+                                </tr>
+                                -->
+                                
+                                <tr align="center" valign="top" width="600">
+                                    <td colspan="3">
+
+                                    <div class="jcarousel-wrapper">
+                                            <div class="jcarousel">
+                                                <ul>
+                                                    <li><img src="/Images/sponsors/slide1.jpg" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/slide2.jpg" alt="" width="850px" height="300" ></li>
+                                                    <li><img src="/Images/sponsors/slide3.jpg" alt="" width="850px" height="300" ></li>
+                                                </ul>
+                                            </div>
+
+                                            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                                            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                
+                                            <p class="jcarousel-pagination"></p>
+                                    </div>
+
+                                    </td>
+                                </tr>
+
+                                <tr align="center" valign="top" width="600">
+                                    <td >
+                                        <a href="/offerings/coachinginfo.aspx"><img src="/Images/sponsors/coachingIcon.jpg" width="279" height="128" /></a>
+                                    </td>
+                                    <td>
+                                        &nbsp;&nbsp;
+                                        <a href="/offerings/lanerentals.aspx"><img src="/Images/sponsors/lanerentals.jpg"  width="279" height="128" /></a>
+                                    </td>
+                                    <td>
+                                        &nbsp;&nbsp;
+                                        <a href="/tournament/paymentMisc.aspx"><img src="/Images/sponsors/payments.jpg"  width="279" height="128" /></a>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
@@ -132,54 +175,58 @@
         </tr>
 
         <tr>
-            <td align="left" valign="top">
-                <table width="900" border="0" align="center" cellpadding="0" cellspacing="10">
-                    <tr>
+            <td align="center" valign="top">
+
+                <br />
+                            <span class="infoData2" style="color:Navy">
+                            Questions??? Send an email to <a href="mailto:dyclmgmt@gmail.com"><font color="green">dyclmgmt@gmail.com</font></a> 
+                            <br />
+                                (DYCL Parents/Teams Please add this Email address to your Email contacts)
+                                 <br />
+                            </span>
+                <br />
+
+<!-- 
+               <table width="900" border="1" align="center" cellpadding="0" cellspacing="10">
+                   <tr>
                         <td align="left" valign="top">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr align="center" valign="top" width="600">
                                     <td>
-                                        <a href="/AdminParent/Login.aspx"><img src="/Images/sponsors/coachingIcon.jpg" /></a>
+                                        <a href="/offerings/coachinginfo.aspx"><img src="/Images/sponsors/coachingIcon.jpg" /></a>
                                     </td>
                                     <td>
                                         &nbsp;&nbsp;
                                         <a href="/offerings/lanerentals.aspx"><img src="/Images/sponsors/lanerentals.jpg" /></a>
                                     </td>
                                 </tr>
-                            </table>
+                            </table> 
                         </td>
                         <td width="307" align="left" valign="top">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <!--
                                 <tr align="left" valign="top" width="600">
                                     <td>
                                         <span class="title2">Sponsors</span>
                                     </td>
                                 </tr>
-                                    -->
                                 <tr>
                                      <td align="left" valign="top">
-                                                <table width="100%" border="0" cellpadding="0" cellspacing="10" >
-                                                    <tr>
-                                                                <td align="center" valign="middle">
-								<a href="/Images/sponsors/ICAFlyer11.jpg"><img src="/Images/sponsors/ICAFlyer1.jpg" /></a>
-<!--
-    <a href ="<img src=/Images/sponsors/ICAFlyer1.jpg>" </a> 
-    
+                                        <a href ="<img src=/Images/sponsors/ICAFlyer1.jpg>" </a> 
     						            <img  src="/Images/sponsors/BombayChopstix.jpg"  /> --%>
-                                                        </td>
-    <td align="center" valign="middle">
-                                                      //        <img src="/Images/sponsors/IndiaBazaar.jpg"  />
-                                                        </td>
--->
-                                                    </tr>
-                                                </table>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <img src="/Images/sponsors/IndiaBazaar.jpg"  />
                                     </td>
                                 </tr>
                             </table>
+                         </td>
+                    </tr>
+                </table>
+-->
                         </td>
                     </tr>
                 </table>
+
             </td>
         </tr>
 
