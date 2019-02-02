@@ -13,382 +13,382 @@ using Cricket.DAL.Users;
 
 namespace Cricket.BAL
 {
-	/// <summary>
-	/// Summary description for Class1.
-	/// </summary>
+    /// <summary>
+    /// Summary description for Class1.
+    /// </summary>
 
-	
-	public class Base : Object
-	{
-		//Helper methods
-		protected int toInt(Object strDataObject)
-		{
-			if (strDataObject != null)
-			{
-				string strData = strDataObject.ToString();
-				if (strData != null)
-					if (strData.Length > 0)
-						return int.Parse(strData);
-			}
-			return 0;
-		}
 
-		protected float toFloat(Object strDataObject)
-		{
-			if (strDataObject != null)
-			{
-				string strData = strDataObject.ToString();
-				if (strData != null)
-					if (strData.Length > 0)
-						return float.Parse(strData);
-			}
-			return 0;
-		}
-	}
+    public class Base : Object
+    {
+        //Helper methods
+        protected int toInt(Object strDataObject)
+        {
+            if (strDataObject != null)
+            {
+                string strData = strDataObject.ToString();
+                if (strData != null)
+                    if (strData.Length > 0)
+                        return int.Parse(strData);
+            }
+            return 0;
+        }
 
-	public class BusinessLayerBase : Base
-	{
-		protected Connection	m_conn;
+        protected float toFloat(Object strDataObject)
+        {
+            if (strDataObject != null)
+            {
+                string strData = strDataObject.ToString();
+                if (strData != null)
+                    if (strData.Length > 0)
+                        return float.Parse(strData);
+            }
+            return 0;
+        }
+    }
 
-		public BusinessLayerBase()
-		{
-		}
+    public class BusinessLayerBase : Base
+    {
+        protected Connection m_conn;
 
-		public void open()
-		{
-			m_conn = new Connection();
-			m_conn.open();
-		}
+        public BusinessLayerBase()
+        {
+        }
 
-		public void close()
-		{
+        public void open()
+        {
+            m_conn = new Connection();
+            m_conn.open();
+        }
+
+        public void close()
+        {
             if (m_conn != null)
-			    m_conn.close();
-		}
+                m_conn.close();
+        }
 
-	}
+    }
 
-	public class Data 
-	{
-		protected Connection	m_conn;
+    public class Data
+    {
+        protected Connection m_conn;
 
-		public Data(Connection conn)
-		{
-			m_conn = conn;
-		}
-	
-	}
+        public Data(Connection conn)
+        {
+            m_conn = conn;
+        }
 
-	public class BusinessLayer : BusinessLayerBase
-	{
-		private DataStatistics dataStats = null;
+    }
 
-		public SqlConnection GetSQLConnection()
-		{
+    public class BusinessLayer : BusinessLayerBase
+    {
+        private DataStatistics dataStats = null;
+
+        public SqlConnection GetSQLConnection()
+        {
             return m_conn.getConnection();
-		}
+        }
 
-		public DataStatistics DataStatistics
-		{
-			get 
-			{ 
-				if (dataStats == null)
-					dataStats = new DataStatistics(m_conn);
-				return dataStats; 
-			}
-		}
+        public DataStatistics DataStatistics
+        {
+            get
+            {
+                if (dataStats == null)
+                    dataStats = new DataStatistics(m_conn);
+                return dataStats;
+            }
+        }
 
-		public int getRandomNumber()
-		{
-			Random r = new Random((int) DateTime.Now.Ticks);
-			return r.Next();
-		}
+        public int getRandomNumber()
+        {
+            Random r = new Random((int)DateTime.Now.Ticks);
+            return r.Next();
+        }
 
-		public int newEmailId()
-		{
-			int nNewId = 0;
-			SqlDataReader dr;
-			bool fUnique = false;
-			CheckEmailId cmd = new CheckEmailId(m_conn);
-			while (!fUnique)
-			{
-				nNewId = getRandomNumber();
-				cmd.setParm("email_id", nNewId.ToString());
-				dr = cmd.executeReader();
-				if (dr.Read())
-					fUnique = false;
-				else
-					fUnique = true;
-				dr.Close();
-			}
-			return nNewId;
-		}
-		public int newPhoneId()
-		{
-			int nNewId = 0;
-			SqlDataReader dr;
-			bool fUnique = false;
-			CheckPhoneId cmd = new CheckPhoneId(m_conn);
-			while (!fUnique)
-			{
-				nNewId = getRandomNumber();
-				cmd.setParm("phone_id", nNewId.ToString());
-				dr = cmd.executeReader();
-				if (dr.Read())
-					fUnique = false;
-				else
-					fUnique = true;
-				dr.Close();
-			}
-			return nNewId;
-		}
+        public int newEmailId()
+        {
+            int nNewId = 0;
+            SqlDataReader dr;
+            bool fUnique = false;
+            CheckEmailId cmd = new CheckEmailId(m_conn);
+            while (!fUnique)
+            {
+                nNewId = getRandomNumber();
+                cmd.setParm("email_id", nNewId.ToString());
+                dr = cmd.executeReader();
+                if (dr.Read())
+                    fUnique = false;
+                else
+                    fUnique = true;
+                dr.Close();
+            }
+            return nNewId;
+        }
+        public int newPhoneId()
+        {
+            int nNewId = 0;
+            SqlDataReader dr;
+            bool fUnique = false;
+            CheckPhoneId cmd = new CheckPhoneId(m_conn);
+            while (!fUnique)
+            {
+                nNewId = getRandomNumber();
+                cmd.setParm("phone_id", nNewId.ToString());
+                dr = cmd.executeReader();
+                if (dr.Read())
+                    fUnique = false;
+                else
+                    fUnique = true;
+                dr.Close();
+            }
+            return nNewId;
+        }
 
-		public int newAddressId()
-		{
-			int nNewId = 0;
-			SqlDataReader dr;
-			bool fUnique = false;
-			CheckAddressId cmd = new CheckAddressId(m_conn);
-			while (!fUnique)
-			{
-				nNewId = getRandomNumber();
-				cmd.setParm("address_id", nNewId.ToString());
-				dr = cmd.executeReader();
-				if (dr.Read())
-					fUnique = false;
-				else
-					fUnique = true;
-				dr.Close();
-			}
-			return nNewId;
-		}
+        public int newAddressId()
+        {
+            int nNewId = 0;
+            SqlDataReader dr;
+            bool fUnique = false;
+            CheckAddressId cmd = new CheckAddressId(m_conn);
+            while (!fUnique)
+            {
+                nNewId = getRandomNumber();
+                cmd.setParm("address_id", nNewId.ToString());
+                dr = cmd.executeReader();
+                if (dr.Read())
+                    fUnique = false;
+                else
+                    fUnique = true;
+                dr.Close();
+            }
+            return nNewId;
+        }
 
-		public int newTeamId()
-		{
-			int nNewId = 0;
-			SqlDataReader dr;
-			bool fUnique = false;
-			CheckTeamId cmd = new CheckTeamId(m_conn);
-			while (!fUnique)
-			{
-				nNewId = getRandomNumber();
-				cmd.setParm("team_id", nNewId.ToString());
-				dr = cmd.executeReader();
-				if (dr.Read())
-					fUnique = false;
-				else
-					fUnique = true;
-				dr.Close();
-			}
-			return nNewId;
-		}
+        public int newTeamId()
+        {
+            int nNewId = 0;
+            SqlDataReader dr;
+            bool fUnique = false;
+            CheckTeamId cmd = new CheckTeamId(m_conn);
+            while (!fUnique)
+            {
+                nNewId = getRandomNumber();
+                cmd.setParm("team_id", nNewId.ToString());
+                dr = cmd.executeReader();
+                if (dr.Read())
+                    fUnique = false;
+                else
+                    fUnique = true;
+                dr.Close();
+            }
+            return nNewId;
+        }
 
-		public int newTournamentId()
-		{
-			GetNewTournamentId cmd = new GetNewTournamentId(m_conn);
-			return (int) cmd.executeScalar();
-		}
+        public int newTournamentId()
+        {
+            GetNewTournamentId cmd = new GetNewTournamentId(m_conn);
+            return (int)cmd.executeScalar();
+        }
 
 
-		public int newMatchId()
-		{
-			int nNewId = 0;
-			SqlDataReader dr;
-			bool fUnique = false;
-			CheckMatchId cmd = new CheckMatchId(m_conn);
-			while (!fUnique)
-			{
-				nNewId = getRandomNumber();
-				cmd.setParm("match_id", nNewId.ToString());
-				dr = cmd.executeReader();
-				if (dr.Read())
-					fUnique = false;
-				else
-					fUnique = true;
-				dr.Close();
-			}
-			return nNewId;
-		}
+        public int newMatchId()
+        {
+            int nNewId = 0;
+            SqlDataReader dr;
+            bool fUnique = false;
+            CheckMatchId cmd = new CheckMatchId(m_conn);
+            while (!fUnique)
+            {
+                nNewId = getRandomNumber();
+                cmd.setParm("match_id", nNewId.ToString());
+                dr = cmd.executeReader();
+                if (dr.Read())
+                    fUnique = false;
+                else
+                    fUnique = true;
+                dr.Close();
+            }
+            return nNewId;
+        }
 
-		public int newPlayerId()
-		{
-			int nNewId = 0;
-			SqlDataReader dr;
-			bool fUnique = false;
-			CheckPlayerId cmd = new CheckPlayerId(m_conn);
-			while (!fUnique)
-			{
-				nNewId = getRandomNumber();
-				cmd.setParm("player_id", nNewId.ToString());
-				dr = cmd.executeReader();
-				if (dr.Read())
-					fUnique = false;
-				else
-					fUnique = true;
-				dr.Close();
-			}
-			return nNewId;
-		}
+        public int newPlayerId()
+        {
+            int nNewId = 0;
+            SqlDataReader dr;
+            bool fUnique = false;
+            CheckPlayerId cmd = new CheckPlayerId(m_conn);
+            while (!fUnique)
+            {
+                nNewId = getRandomNumber();
+                cmd.setParm("player_id", nNewId.ToString());
+                dr = cmd.executeReader();
+                if (dr.Read())
+                    fUnique = false;
+                else
+                    fUnique = true;
+                dr.Close();
+            }
+            return nNewId;
+        }
 
-		public SqlDataReader loginUser(string strUserName, string strPassword)
-		{
-			LoginUser login = new LoginUser(m_conn);
-			login.setParm("user_name", strUserName);
-			login.setParm("password", strPassword);
-			return login.executeReader();
-		}
+        public SqlDataReader loginUser(string strUserName, string strPassword)
+        {
+            LoginUser login = new LoginUser(m_conn);
+            login.setParm("user_name", strUserName);
+            login.setParm("password", strPassword);
+            return login.executeReader();
+        }
 
-		public bool changePassword(int nUserId, string strOldPwd, string strNewPwd)
-		{
-			GetUserById cmd = new GetUserById(m_conn);
-			cmd.setParm("user_id", nUserId);
-			SqlDataReader dr = cmd.executeReader();		
+        public bool changePassword(int nUserId, string strOldPwd, string strNewPwd)
+        {
+            GetUserById cmd = new GetUserById(m_conn);
+            cmd.setParm("user_id", nUserId);
+            SqlDataReader dr = cmd.executeReader();
 
-			string strOldDBPwd = "";
-			if (dr.Read())
-			{
-				if (!dr.IsDBNull(dr.GetOrdinal("password")))
-					strOldDBPwd = (string) dr["password"];
-			}
-			dr.Close();
+            string strOldDBPwd = "";
+            if (dr.Read())
+            {
+                if (!dr.IsDBNull(dr.GetOrdinal("password")))
+                    strOldDBPwd = (string)dr["password"];
+            }
+            dr.Close();
 
-			if (strOldDBPwd.ToUpper() != strOldPwd.ToUpper())
-				return false;
+            if (strOldDBPwd.ToUpper() != strOldPwd.ToUpper())
+                return false;
 
-			ChangePassword cmd2 = new ChangePassword(m_conn);
-			cmd2.setParm("user_id", nUserId);
-			cmd2.setParm("password", strNewPwd);
-			cmd2.executeNonQuery();
-			return true;
-		}
+            ChangePassword cmd2 = new ChangePassword(m_conn);
+            cmd2.setParm("user_id", nUserId);
+            cmd2.setParm("password", strNewPwd);
+            cmd2.executeNonQuery();
+            return true;
+        }
 
-		public int createEmail(string strEmail)
-		{
-			int nEmailId = newEmailId();
-			CreateEmail cmd = new CreateEmail(m_conn);
-			cmd.setParm("email_id", nEmailId);
-			cmd.setParm("email_code", "PRIMARY");
-			cmd.setParm("address", strEmail);
-			cmd.executeNonQuery();
-			return nEmailId;
-		}
+        public int createEmail(string strEmail)
+        {
+            int nEmailId = newEmailId();
+            CreateEmail cmd = new CreateEmail(m_conn);
+            cmd.setParm("email_id", nEmailId);
+            cmd.setParm("email_code", "PRIMARY");
+            cmd.setParm("address", strEmail);
+            cmd.executeNonQuery();
+            return nEmailId;
+        }
 
-		public void setEmail(int nEmailId, string strEmail)
-		{
-			SetEmail cmd = new SetEmail(m_conn);
-			cmd.setParm("email_id", nEmailId);
-			cmd.setParm("email_code", "PRIMARY");
-			cmd.setParm("address", strEmail);
-			cmd.executeNonQuery();
-		}
+        public void setEmail(int nEmailId, string strEmail)
+        {
+            SetEmail cmd = new SetEmail(m_conn);
+            cmd.setParm("email_id", nEmailId);
+            cmd.setParm("email_code", "PRIMARY");
+            cmd.setParm("address", strEmail);
+            cmd.executeNonQuery();
+        }
 
-		public int createPhone(string strPhone)
-		{
-			int nPhoneId = newPhoneId();
-			CreatePhone cmd = new CreatePhone(m_conn);
-			cmd.setParm("phone_id", nPhoneId);
-			cmd.setParm("phone_code", "PRIMARY");
-			cmd.setParm("number", strPhone);
-			cmd.executeNonQuery();
-			return nPhoneId;
-		}
+        public int createPhone(string strPhone)
+        {
+            int nPhoneId = newPhoneId();
+            CreatePhone cmd = new CreatePhone(m_conn);
+            cmd.setParm("phone_id", nPhoneId);
+            cmd.setParm("phone_code", "PRIMARY");
+            cmd.setParm("number", strPhone);
+            cmd.executeNonQuery();
+            return nPhoneId;
+        }
 
-		public void setPhone(int nPhoneId, string strPhone)
-		{
-			SetPhone cmd = new SetPhone(m_conn);
-			cmd.setParm("phone_id", nPhoneId);
-			cmd.setParm("phone_code", "PRIMARY");
-			cmd.setParm("number", strPhone);
-			cmd.executeNonQuery();
-		}
+        public void setPhone(int nPhoneId, string strPhone)
+        {
+            SetPhone cmd = new SetPhone(m_conn);
+            cmd.setParm("phone_id", nPhoneId);
+            cmd.setParm("phone_code", "PRIMARY");
+            cmd.setParm("number", strPhone);
+            cmd.executeNonQuery();
+        }
 
-		public int createAddress(string strStreet1, string strStreet2, string strCity, string strState, string strZip, string strCountry)
-		{
-			int nAddressId = newAddressId();
-			CreateAddress cmd = new CreateAddress(m_conn);
-			cmd.setParm("address_id", nAddressId);
-			cmd.setParm("address_code", "PRIMARY");
-			cmd.setParm("street1", strStreet1);
-			cmd.setParm("street2", strStreet2);
-			cmd.setParm("city", strCity);
-			cmd.setParm("state", strState);
-			cmd.setParm("zip", strZip);
-			cmd.setParm("country", strCountry);
-			cmd.executeNonQuery();
-			return nAddressId;
-		}
-		
-		public void setAddress(int nAddressId, string strStreet1, string strStreet2, string strCity, string strState, string strZip, string strCountry)
-		{
-			SetAddress cmd = new SetAddress(m_conn);
-			cmd.setParm("address_id", nAddressId);
-			cmd.setParm("address_code", "PRIMARY");
-			cmd.setParm("street1", strStreet1);
-			cmd.setParm("street2", strStreet2);
-			cmd.setParm("city", strCity);
-			cmd.setParm("state", strState);
-			cmd.setParm("zip", strZip);
-			cmd.setParm("country", strCountry);
-			cmd.executeNonQuery();
-		}
+        public int createAddress(string strStreet1, string strStreet2, string strCity, string strState, string strZip, string strCountry)
+        {
+            int nAddressId = newAddressId();
+            CreateAddress cmd = new CreateAddress(m_conn);
+            cmd.setParm("address_id", nAddressId);
+            cmd.setParm("address_code", "PRIMARY");
+            cmd.setParm("street1", strStreet1);
+            cmd.setParm("street2", strStreet2);
+            cmd.setParm("city", strCity);
+            cmd.setParm("state", strState);
+            cmd.setParm("zip", strZip);
+            cmd.setParm("country", strCountry);
+            cmd.executeNonQuery();
+            return nAddressId;
+        }
 
-		public SqlDataReader getTeamData(int nTeamId)
-		{
-			GetTeamData cmd = new GetTeamData(m_conn);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();
-		}
+        public void setAddress(int nAddressId, string strStreet1, string strStreet2, string strCity, string strState, string strZip, string strCountry)
+        {
+            SetAddress cmd = new SetAddress(m_conn);
+            cmd.setParm("address_id", nAddressId);
+            cmd.setParm("address_code", "PRIMARY");
+            cmd.setParm("street1", strStreet1);
+            cmd.setParm("street2", strStreet2);
+            cmd.setParm("city", strCity);
+            cmd.setParm("state", strState);
+            cmd.setParm("zip", strZip);
+            cmd.setParm("country", strCountry);
+            cmd.executeNonQuery();
+        }
+
+        public SqlDataReader getTeamData(int nTeamId)
+        {
+            GetTeamData cmd = new GetTeamData(m_conn);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
         public void setTeamData(int nTeamId, string strName, string strDesc, string strContactName, string emailAddress, string strGroundName, int activeSw)
-		{
-			SetTeamData cmd = new SetTeamData(m_conn);
-			cmd.setParm("team_id", nTeamId);
-			cmd.setParm("name", strName);
-			cmd.setParm("description", strDesc);
+        {
+            SetTeamData cmd = new SetTeamData(m_conn);
+            cmd.setParm("team_id", nTeamId);
+            cmd.setParm("name", strName);
+            cmd.setParm("description", strDesc);
             cmd.setParm("contact_name", strContactName);
             cmd.setParm("contact_email", emailAddress);
             cmd.setParm("ground_name", strGroundName);
-			cmd.setParm("active_sw", activeSw);
-			cmd.executeNonQuery();
+            cmd.setParm("active_sw", activeSw);
+            cmd.executeNonQuery();
 
-         }
+        }
 
 
-		public bool checkTeamName(string strName)
-		{
-			bool fFound = false;
-			CheckTeamName cmd = new CheckTeamName(m_conn);
-			cmd.setParm("name", strName);
-			SqlDataReader dr = cmd.executeReader();
-			if (dr.Read())
-				fFound = true;
-			dr.Close();
-			return fFound;
-		}
+        public bool checkTeamName(string strName)
+        {
+            bool fFound = false;
+            CheckTeamName cmd = new CheckTeamName(m_conn);
+            cmd.setParm("name", strName);
+            SqlDataReader dr = cmd.executeReader();
+            if (dr.Read())
+                fFound = true;
+            dr.Close();
+            return fFound;
+        }
 
-		public void createTeamData(string strName, string userName, string strDesc, string strContactName, string emailAddress, string strGroundName, int activeSw)
-		{
-			int nTeamId = newTeamId();
+        public void createTeamData(string strName, string userName, string strDesc, string strContactName, string emailAddress, string strGroundName, int activeSw)
+        {
+            int nTeamId = newTeamId();
 
             if (checkTeamName(strName))
                 throw new Exception("Team name already exists!");
 
-			CreateTeamData cmd = new CreateTeamData(m_conn);
-			cmd.setParm("team_id", nTeamId);
-			cmd.setParm("name", strName);
-			cmd.setParm("description", strDesc);
+            CreateTeamData cmd = new CreateTeamData(m_conn);
+            cmd.setParm("team_id", nTeamId);
+            cmd.setParm("name", strName);
+            cmd.setParm("description", strDesc);
             cmd.setParm("contact_name", strContactName);
             cmd.setParm("contact_email", emailAddress);
             cmd.setParm("ground_name", strGroundName);
 
-			cmd.setParm("address_id", createAddress("", "", "", "", "", ""));
-			cmd.setParm("phone_id", createPhone(""));
-			cmd.setParm("email_id", createEmail(""));
+            cmd.setParm("address_id", createAddress("", "", "", "", "", ""));
+            cmd.setParm("phone_id", createPhone(""));
+            cmd.setParm("email_id", createEmail(""));
             cmd.setParm("active_sw", activeSw);
             cmd.executeNonQuery();
 
             int userId = 0;
-            using (SqlCommand cmd1= new SqlCommand("select MAX(user_id)+1 from users ", GetSQLConnection()))
+            using (SqlCommand cmd1 = new SqlCommand("select MAX(user_id)+1 from users ", GetSQLConnection()))
             {
                 cmd1.CommandType = System.Data.CommandType.Text;
                 userId = int.Parse(cmd1.ExecuteScalar().ToString());
@@ -397,47 +397,47 @@ namespace Cricket.BAL
 
             using (SqlCommand com = new SqlCommand(
                   string.Format("insert into users (user_id, user_name, password, reminder, created_dt, mod_dt, team_id, user_type) " +
-                                "values ({0}, '{1}', '{2}', '{3}', GetDate(), GetDate(), {4}, 1) ", + 
+                                "values ({0}, '{1}', '{2}', '{3}', GetDate(), GetDate(), {4}, 1) ", +
                                 userId, userName, userName, strName, nTeamId), GetSQLConnection()))
             {
                 com.CommandType = System.Data.CommandType.Text;
                 com.ExecuteNonQuery();
             }
 
-		}
+        }
 
-		
-		public void addTournamentTeam(int nId, int nTeamId)
-		{
-			GetNewTournamentTeamRecId cmd2 = new GetNewTournamentTeamRecId(m_conn);
-			cmd2.setParm("tournament_id", nId);
-			int nRecId = (int) cmd2.executeScalar();
 
-			CheckTournamentTeam cmd3 = new CheckTournamentTeam(m_conn);
-			cmd3.setParm("tournament_id", nId);
-			cmd3.setParm("team_id", nTeamId);
-			object status = cmd3.executeScalar();
-			if (status == null)
-			{
-				AddTournamentTeam cmd = new AddTournamentTeam(m_conn);
-				cmd.setParm("tournament_id", nId);
-				cmd.setParm("rec_id", nRecId);
-				cmd.setParm("team_id", nTeamId);
-				cmd.setParm("active_sw", 1);
-				cmd.executeNonQuery();
-			}
-		}
+        public void addTournamentTeam(int nId, int nTeamId)
+        {
+            GetNewTournamentTeamRecId cmd2 = new GetNewTournamentTeamRecId(m_conn);
+            cmd2.setParm("tournament_id", nId);
+            int nRecId = (int)cmd2.executeScalar();
 
-		public void createTournament(string strName, string strDesc, string strStartDate, string strEndDate, int overs, int fees, string regstartdate, string regenddate, string groupName, string regInfo, string format)
-		{
-			int nId = newTournamentId();
+            CheckTournamentTeam cmd3 = new CheckTournamentTeam(m_conn);
+            cmd3.setParm("tournament_id", nId);
+            cmd3.setParm("team_id", nTeamId);
+            object status = cmd3.executeScalar();
+            if (status == null)
+            {
+                AddTournamentTeam cmd = new AddTournamentTeam(m_conn);
+                cmd.setParm("tournament_id", nId);
+                cmd.setParm("rec_id", nRecId);
+                cmd.setParm("team_id", nTeamId);
+                cmd.setParm("active_sw", 1);
+                cmd.executeNonQuery();
+            }
+        }
 
-			CreateTournament cmd = new CreateTournament(m_conn);
-			cmd.setParm("tournament_id", nId);
-			cmd.setParm("name", strName);
-			cmd.setParm("description", strDesc);
-			cmd.setParm("start_dt", strStartDate);
-			cmd.setParm("end_dt", strEndDate);
+        public void createTournament(string strName, string strDesc, string strStartDate, string strEndDate, int overs, int fees, string regstartdate, string regenddate, string groupName, string regInfo, string format)
+        {
+            int nId = newTournamentId();
+
+            CreateTournament cmd = new CreateTournament(m_conn);
+            cmd.setParm("tournament_id", nId);
+            cmd.setParm("name", strName);
+            cmd.setParm("description", strDesc);
+            cmd.setParm("start_dt", strStartDate);
+            cmd.setParm("end_dt", strEndDate);
             cmd.setParm("overs", overs);
             cmd.setParm("fees", fees);
             cmd.setParm("regstart_dt", regstartdate);
@@ -446,72 +446,72 @@ namespace Cricket.BAL
             cmd.setParm("registration_info", regInfo);
             cmd.setParm("format", format);
             cmd.executeNonQuery();
-		}
+        }
 
-		public void createTeamRegistration(Guid RegistrationID,int nTournamentId, string strTeamName, string strLocation, 
-			string contact1Name, string contact1Title, string contact1Phone, string contact1Email,
-			string contact2Name, string contact2Title, string contact2Phone, string contact2Email,
-			string strComments, string orderID)
-		{
-			if (nTournamentId > 0 )
-			{
-				GetNewTeamRegistrationRecId cmd2 = new GetNewTeamRegistrationRecId(m_conn);
-				cmd2.setParm("tournament_id", nTournamentId);
-				int nRecId = (int) cmd2.executeScalar();
-			   
-				
-				CreateTeamRegistration cmd = new CreateTeamRegistration(m_conn);
-				cmd.setParm("RegistrationID", RegistrationID);
-				cmd.setParm("tournament_id", nTournamentId);
-				cmd.setParm("rec_id", nRecId);
-				cmd.setParm("team_id", 0);
-				cmd.setParm("name", strTeamName);
-				cmd.setParm("location", strLocation);
-				cmd.setParm("contact1_name", contact1Name);
-				cmd.setParm("contact1_title", contact1Title);
-				cmd.setParm("contact1_phone", contact1Phone);
-				cmd.setParm("contact1_email", contact1Email);
-				cmd.setParm("contact2_name", contact2Name);
-				cmd.setParm("contact2_title", contact2Title);
-				cmd.setParm("contact2_phone", contact2Phone);
-				cmd.setParm("contact2_email", contact2Email);
+        public void createTeamRegistration(Guid RegistrationID, int nTournamentId, string strTeamName, string strLocation,
+            string contact1Name, string contact1Title, string contact1Phone, string contact1Email,
+            string contact2Name, string contact2Title, string contact2Phone, string contact2Email,
+            string strComments, string orderID)
+        {
+            if (nTournamentId > 0)
+            {
+                GetNewTeamRegistrationRecId cmd2 = new GetNewTeamRegistrationRecId(m_conn);
+                cmd2.setParm("tournament_id", nTournamentId);
+                int nRecId = (int)cmd2.executeScalar();
+
+
+                CreateTeamRegistration cmd = new CreateTeamRegistration(m_conn);
+                cmd.setParm("RegistrationID", RegistrationID);
+                cmd.setParm("tournament_id", nTournamentId);
+                cmd.setParm("rec_id", nRecId);
+                cmd.setParm("team_id", 0);
+                cmd.setParm("name", strTeamName);
+                cmd.setParm("location", strLocation);
+                cmd.setParm("contact1_name", contact1Name);
+                cmd.setParm("contact1_title", contact1Title);
+                cmd.setParm("contact1_phone", contact1Phone);
+                cmd.setParm("contact1_email", contact1Email);
+                cmd.setParm("contact2_name", contact2Name);
+                cmd.setParm("contact2_title", contact2Title);
+                cmd.setParm("contact2_phone", contact2Phone);
+                cmd.setParm("contact2_email", contact2Email);
                 cmd.setParm("comments", strComments);
                 cmd.setParm("order_id", orderID);
                 cmd.executeNonQuery();
-			}
-		}
+            }
+        }
 
-		public void CreatePayPalRegistrationTemp(Guid RegistrationID,String TeamName, String Location, String ContactName)
-		{
-			CreatePayPalRegistration cmd = new CreatePayPalRegistration(m_conn);
-			cmd.setParm("RegistrationID",RegistrationID);
-			cmd.setParm("TeamName",TeamName);
-			cmd.setParm("Location",Location);
-			cmd.setParm("ContactName",ContactName);
-			cmd.executeNonQuery();
-		}
+        public void CreatePayPalRegistrationTemp(Guid RegistrationID, String TeamName, String Location, String ContactName)
+        {
+            CreatePayPalRegistration cmd = new CreatePayPalRegistration(m_conn);
+            cmd.setParm("RegistrationID", RegistrationID);
+            cmd.setParm("TeamName", TeamName);
+            cmd.setParm("Location", Location);
+            cmd.setParm("ContactName", ContactName);
+            cmd.executeNonQuery();
+        }
 
-		public void AddPaymentDetails(Guid RegistrationID, string OrderId, string Amount, string PaymentStatus, DateTime PaymentDate)
-		{
-			AddPaymentDetails objPayment = new AddPaymentDetails(m_conn);
-			objPayment.setParm("@RegistrationID", RegistrationID);
-			objPayment.setParm("@OrderId", OrderId);
-			objPayment.setParm("@Amount", Amount);
-			objPayment.setParm("@PaymentStatus", PaymentStatus);
-			objPayment.setParm("@PaymentDate", PaymentDate);
-			objPayment.executeNonQuery();
-		}
+        public void AddPaymentDetails(Guid RegistrationID, string OrderId, string Amount, string PaymentStatus, DateTime PaymentDate)
+        {
+            AddPaymentDetails objPayment = new AddPaymentDetails(m_conn);
+            objPayment.setParm("@RegistrationID", RegistrationID);
+            objPayment.setParm("@OrderId", OrderId);
+            objPayment.setParm("@Amount", Amount);
+            objPayment.setParm("@PaymentStatus", PaymentStatus);
+            objPayment.setParm("@PaymentDate", PaymentDate);
+            objPayment.executeNonQuery();
+        }
 
 
         public void setTournamentData(int nId, string strName, string strDesc, string strStartDate, string strEndDate, int overs, int fees, string regstartdate, string regenddate, string groupName, string regInfo, string format)
-		{
-			SetTournamentData cmd = new SetTournamentData(m_conn);
-			cmd.setParm("tournament_id", nId);
-			cmd.setParm("name", strName);
-			cmd.setParm("description", strDesc);
-			cmd.setParm("start_dt", strStartDate);
-			cmd.setParm("end_dt", strEndDate);
-			cmd.setParm("overs", overs);
+        {
+            SetTournamentData cmd = new SetTournamentData(m_conn);
+            cmd.setParm("tournament_id", nId);
+            cmd.setParm("name", strName);
+            cmd.setParm("description", strDesc);
+            cmd.setParm("start_dt", strStartDate);
+            cmd.setParm("end_dt", strEndDate);
+            cmd.setParm("overs", overs);
             cmd.setParm("fees", fees);
             cmd.setParm("regstart_dt", regstartdate);
             cmd.setParm("regend_dt", regenddate);
@@ -519,160 +519,160 @@ namespace Cricket.BAL
             cmd.setParm("registration_info", regInfo);
             cmd.setParm("format", format);
             cmd.executeNonQuery();
-		}
+        }
 
 
-		public SqlDataReader getTournamentData(int nId)
-		{
-			GetTournamentData cmd = new GetTournamentData(m_conn);
-			cmd.setParm("tournament_id", nId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getTournamentData(int nId)
+        {
+            GetTournamentData cmd = new GetTournamentData(m_conn);
+            cmd.setParm("tournament_id", nId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getPlayerSortedList(int nTeamId)
-		{
-			GetActivePlayerSortedList cmd = new GetActivePlayerSortedList(m_conn);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getPlayerSortedList(int nTeamId)
+        {
+            GetActivePlayerSortedList cmd = new GetActivePlayerSortedList(m_conn);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getPlayerList(int nTeamId)
-		{
+        public SqlDataReader getPlayerList(int nTeamId)
+        {
             GetPlayerList cmd = new GetPlayerList(m_conn);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getPlayerList(int nTeamId, bool fActiveSw)
-		{
-			if (fActiveSw)
-			{
-				GetActivePlayerList cmd = new GetActivePlayerList(m_conn);
-				cmd.setParm("team_id", nTeamId);
-				return cmd.executeReader();		
-			}
-			else
-			{
-				GetInActivePlayerList cmd = new GetInActivePlayerList(m_conn);
-				cmd.setParm("team_id", nTeamId);
-				return cmd.executeReader();		
-			}
-		}
-	    public SqlDataReader getPlayerReport(string groupName)
-	    {
-	        try
-	        {
-	            GetPlayerReport cmd = new GetPlayerReport(m_conn, groupName);
-	           // cmd.setParm("tournament_id", tournamentId);
-               var result = cmd.executeReader();
+        public SqlDataReader getPlayerList(int nTeamId, bool fActiveSw)
+        {
+            if (fActiveSw)
+            {
+                GetActivePlayerList cmd = new GetActivePlayerList(m_conn);
+                cmd.setParm("team_id", nTeamId);
+                return cmd.executeReader();
+            }
+            else
+            {
+                GetInActivePlayerList cmd = new GetInActivePlayerList(m_conn);
+                cmd.setParm("team_id", nTeamId);
+                return cmd.executeReader();
+            }
+        }
+        public SqlDataReader getPlayerReport(string groupName)
+        {
+            try
+            {
+                GetPlayerReport cmd = new GetPlayerReport(m_conn, groupName);
+                // cmd.setParm("tournament_id", tournamentId);
+                var result = cmd.executeReader();
                 return result;
             }
-	        catch (Exception e)
-	        {
-	            Console.WriteLine(e);
-	            throw;
-	        }
-	      
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
         }
-	   
+
 
         public SqlDataReader getPlayerData(int nPlayerId)
-		{
-			GetPlayerData cmd = new GetPlayerData(m_conn);
-			cmd.setParm("player_id", nPlayerId);
-			return cmd.executeReader();		
-		}
+        {
+            GetPlayerData cmd = new GetPlayerData(m_conn);
+            cmd.setParm("player_id", nPlayerId);
+            return cmd.executeReader();
+        }
 
-		public bool checkPlayerName(int nTeamId, string strFirstName, string strLastName)
-		{
-			bool fFound = false;
-			CheckPlayerName cmd = new CheckPlayerName(m_conn);
-			cmd.setParm("first_name", strFirstName);
-			cmd.setParm("last_name", strLastName);
-			cmd.setParm("team_id", nTeamId);
-			SqlDataReader dr = cmd.executeReader();
-			if (dr.Read())
-				fFound = true;
-			dr.Close();
-			return fFound;
-		}
+        public bool checkPlayerName(int nTeamId, string strFirstName, string strLastName)
+        {
+            bool fFound = false;
+            CheckPlayerName cmd = new CheckPlayerName(m_conn);
+            cmd.setParm("first_name", strFirstName);
+            cmd.setParm("last_name", strLastName);
+            cmd.setParm("team_id", nTeamId);
+            SqlDataReader dr = cmd.executeReader();
+            if (dr.Read())
+                fFound = true;
+            dr.Close();
+            return fFound;
+        }
 
-		public void setPlayerData(bool fInsert, int nTeamId, int nPlayerId, string strFirstName, string strLastName, int nAge, string strBattingStyle, string strBowlingStyle, string strBattingPos,
-								string strStartDate, string strEndDate, int nEmailId, string strEmail, int nPhoneId, string strPhone, string strComments, string strPhotoURL, bool fKeeperSw, int nTypeCd)
-		{
-			if (!fInsert)
-			{
-				setEmail(nEmailId, strEmail);
-				setPhone(nPhoneId, strPhone);
+        public void setPlayerData(bool fInsert, int nTeamId, int nPlayerId, string strFirstName, string strLastName, int nAge, string strBattingStyle, string strBowlingStyle, string strBattingPos,
+                                string strStartDate, string strEndDate, int nEmailId, string strEmail, int nPhoneId, string strPhone, string strComments, string strPhotoURL, bool fKeeperSw, int nTypeCd)
+        {
+            if (!fInsert)
+            {
+                setEmail(nEmailId, strEmail);
+                setPhone(nPhoneId, strPhone);
 
-				SetPlayer cmd = new SetPlayer(m_conn);
-				cmd.setParm("team_id", nTeamId);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("first_name", strFirstName);
-				cmd.setParm("last_name", strLastName);
-				cmd.setParm("age", nAge);
-				cmd.setParm("batting_style", strBattingStyle);
-				cmd.setParm("bowling_style", strBowlingStyle);
-				cmd.setParm("batting_position", strBattingPos);
-				cmd.setParm("start_dt", strStartDate);
-				cmd.setParm("end_dt", strEndDate);
-				cmd.setParm("comments", strComments);
-				cmd.setParm("photo_url", strPhotoURL);
-				cmd.setParm("phone_id", nPhoneId);
-				cmd.setParm("email_id", nEmailId);
-				cmd.setParm("keeper_sw", fKeeperSw);
-				cmd.setParm("type_cd", nTypeCd);
-				cmd.executeNonQuery();
-			
-			}
-			else
-			{
-				//check if the player name already exists before creating
-				if (!checkPlayerName(nTeamId, strFirstName, strLastName))
-				{
-					//generate the player, email, phone ids
-					nEmailId = createEmail(strEmail);
-					nPhoneId = createPhone(strPhone);
+                SetPlayer cmd = new SetPlayer(m_conn);
+                cmd.setParm("team_id", nTeamId);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("first_name", strFirstName);
+                cmd.setParm("last_name", strLastName);
+                cmd.setParm("age", nAge);
+                cmd.setParm("batting_style", strBattingStyle);
+                cmd.setParm("bowling_style", strBowlingStyle);
+                cmd.setParm("batting_position", strBattingPos);
+                cmd.setParm("start_dt", strStartDate);
+                cmd.setParm("end_dt", strEndDate);
+                cmd.setParm("comments", strComments);
+                cmd.setParm("photo_url", strPhotoURL);
+                cmd.setParm("phone_id", nPhoneId);
+                cmd.setParm("email_id", nEmailId);
+                cmd.setParm("keeper_sw", fKeeperSw);
+                cmd.setParm("type_cd", nTypeCd);
+                cmd.executeNonQuery();
 
-					CreatePlayer cmd = new CreatePlayer(m_conn);
-					cmd.setParm("team_id", nTeamId);
-					cmd.setParm("player_id", nPlayerId);
-					cmd.setParm("first_name", strFirstName);
-					cmd.setParm("last_name", strLastName);
-					cmd.setParm("age", nAge);
-					cmd.setParm("batting_style", strBattingStyle);
-					cmd.setParm("bowling_style", strBowlingStyle);
-					cmd.setParm("batting_position", strBattingPos);
-					cmd.setParm("start_dt", strStartDate);
-					cmd.setParm("end_dt", strEndDate);
-					cmd.setParm("comments", strComments);
-					cmd.setParm("photo_url", strPhotoURL);
-					cmd.setParm("phone_id", nPhoneId);
-					cmd.setParm("email_id", nEmailId);
-					cmd.setParm("keeper_sw", fKeeperSw);
-					cmd.setParm("type_cd", nTypeCd);
-					cmd.executeNonQuery();
-				}
-			}
-		}
+            }
+            else
+            {
+                //check if the player name already exists before creating
+                if (!checkPlayerName(nTeamId, strFirstName, strLastName))
+                {
+                    //generate the player, email, phone ids
+                    nEmailId = createEmail(strEmail);
+                    nPhoneId = createPhone(strPhone);
 
-		public SqlDataReader getMatchList(int nTournamentId, int nTeamId)
-		{
-			GetMatchList cmd = new GetMatchList(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+                    CreatePlayer cmd = new CreatePlayer(m_conn);
+                    cmd.setParm("team_id", nTeamId);
+                    cmd.setParm("player_id", nPlayerId);
+                    cmd.setParm("first_name", strFirstName);
+                    cmd.setParm("last_name", strLastName);
+                    cmd.setParm("age", nAge);
+                    cmd.setParm("batting_style", strBattingStyle);
+                    cmd.setParm("bowling_style", strBowlingStyle);
+                    cmd.setParm("batting_position", strBattingPos);
+                    cmd.setParm("start_dt", strStartDate);
+                    cmd.setParm("end_dt", strEndDate);
+                    cmd.setParm("comments", strComments);
+                    cmd.setParm("photo_url", strPhotoURL);
+                    cmd.setParm("phone_id", nPhoneId);
+                    cmd.setParm("email_id", nEmailId);
+                    cmd.setParm("keeper_sw", fKeeperSw);
+                    cmd.setParm("type_cd", nTypeCd);
+                    cmd.executeNonQuery();
+                }
+            }
+        }
 
-		public SqlDataReader getTeamListByTeamId(int nTeamId)
-		{
-			GetTeamListByTeamId cmd = new GetTeamListByTeamId(m_conn);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchList(int nTournamentId, int nTeamId)
+        {
+            GetMatchList cmd = new GetMatchList(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getTeamList(bool activeOnly)
-		{
+        public SqlDataReader getTeamListByTeamId(int nTeamId)
+        {
+            GetTeamListByTeamId cmd = new GetTeamListByTeamId(m_conn);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
+
+        public SqlDataReader getTeamList(bool activeOnly)
+        {
             if (activeOnly)
             {
                 GetTeamListActive cmd = new GetTeamListActive(m_conn);
@@ -683,7 +683,7 @@ namespace Cricket.BAL
                 GetTeamList cmd = new GetTeamList(m_conn);
                 return cmd.executeReader();
             }
-		}
+        }
 
         public SqlDataReader getTournamentList()
         {
@@ -697,27 +697,27 @@ namespace Cricket.BAL
             cmd.setParm("team_id", teamId);
             return cmd.executeReader();
         }
-	    public SqlDataReader getGroupNames()
-	    {
-	        GetGroupNames cmd = new GetGroupNames(m_conn);
-	        return cmd.executeReader();
-	    }
+        public SqlDataReader getGroupNames()
+        {
+            GetGroupNames cmd = new GetGroupNames(m_conn);
+            return cmd.executeReader();
+        }
         public SqlDataReader getTournamentCurrent(int nTeamId, int updateDaysAfterEndDate)
-		{
-			GetTournamentCurrent cmd = new GetTournamentCurrent(m_conn);
+        {
+            GetTournamentCurrent cmd = new GetTournamentCurrent(m_conn);
             cmd.setParm("team_id", nTeamId);
             cmd.setParm("days", updateDaysAfterEndDate);
-            return cmd.executeReader();		
-		}
+            return cmd.executeReader();
+        }
 
 
         public SqlDataReader getTeamRegistrations(int nTournamentId, bool active)
-		{
-			GetTeamRegistrations cmd = new GetTeamRegistrations(m_conn);
-            cmd.setParm("tournament_id", nTournamentId); 
+        {
+            GetTeamRegistrations cmd = new GetTeamRegistrations(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
             cmd.setParm("active_sw", active);
-			return cmd.executeReader();		
-		}
+            return cmd.executeReader();
+        }
 
 
         public SqlDataReader getTeamListByTournament(int nTournamentId)
@@ -728,415 +728,425 @@ namespace Cricket.BAL
         }
 
         public SqlDataReader getMatchData(int nMatchId)
-		{
-			GetMatchData cmd = new GetMatchData(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			return cmd.executeReader();		
-		}
+        {
+            GetMatchData cmd = new GetMatchData(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getMatchStats(int nMatchId, int nTeamId)
-		{
-			GetMatchStats cmd = new GetMatchStats(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchStats(int nMatchId, int nTeamId)
+        {
+            GetMatchStats cmd = new GetMatchStats(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public int getMatchInningNo(int nMatchId, int nTeamId)
-		{
-			int nInningNo = 1;
-			GetMatchStats2 cmd = new GetMatchStats2(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			SqlDataReader dr = cmd.executeReader();		
-			if (dr.Read())
-			{
-				nInningNo = toInt(dr["inning_sw"]);
-			}
-			dr.Close();
-			return nInningNo;
-		}
+        public int getMatchInningNo(int nMatchId, int nTeamId)
+        {
+            int nInningNo = 1;
+            GetMatchStats2 cmd = new GetMatchStats2(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            SqlDataReader dr = cmd.executeReader();
+            if (dr.Read())
+            {
+                nInningNo = toInt(dr["inning_sw"]);
+            }
+            dr.Close();
+            return nInningNo;
+        }
 
-		public void setMatchStats(int nMatchId, int nTeamId, int nInningSw, int nRuns, int nWickets, float flOvers, int nExtras, int nNos, int nWides, int nByes, int nOverThrow)
-		{
-			SetMatchStats cmd = new SetMatchStats(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			cmd.setParm("inning_sw", nInningSw);
-			cmd.setParm("runs_scored", nRuns - nExtras);
-			cmd.setParm("total_runs", nRuns);
-			cmd.setParm("wickets", nWickets);
-			cmd.setParm("overs", flOvers);
-			cmd.setParm("extras", nExtras);
-			cmd.setParm("nos", nNos);
-			cmd.setParm("wides", nWides);
-			cmd.setParm("byes", nByes);
-			cmd.setParm("over_throw", nOverThrow);
-			cmd.executeNonQuery();		
-		}
+        public void setMatchStats(int nMatchId, int nTeamId, int nInningSw, int nRuns, int nWickets, float flOvers, int nExtras, int nNos, int nWides, int nByes, int nOverThrow)
+        {
+            SetMatchStats cmd = new SetMatchStats(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            cmd.setParm("inning_sw", nInningSw);
+            cmd.setParm("runs_scored", nRuns - nExtras);
+            cmd.setParm("total_runs", nRuns);
+            cmd.setParm("wickets", nWickets);
+            cmd.setParm("overs", flOvers);
+            cmd.setParm("extras", nExtras);
+            cmd.setParm("nos", nNos);
+            cmd.setParm("wides", nWides);
+            cmd.setParm("byes", nByes);
+            cmd.setParm("over_throw", nOverThrow);
+            cmd.executeNonQuery();
+        }
 
-		public void setTeamStats(int nTournamentId, int nMatchId, int nTeam1Id, int nTeam2Id, int totalMatchOvers)
-		{
-			setTeamStatsCalc(nTournamentId, nMatchId, nTeam1Id, totalMatchOvers);
-			setTeamStatsCalc(nTournamentId, nMatchId, nTeam2Id, totalMatchOvers);
-		}
+        public void setTeamStats(int nTournamentId, int nMatchId, int nTeam1Id, int nTeam2Id, int totalMatchOvers)
+        {
+            setTeamStatsCalc(nTournamentId, nMatchId, nTeam1Id, totalMatchOvers);
+            setTeamStatsCalc(nTournamentId, nMatchId, nTeam2Id, totalMatchOvers);
+        }
 
-		public SqlDataReader getMatchBattingData(int nMatchId, int nTeamId)
-		{
-			GetMatchBattingData cmd = new GetMatchBattingData(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchBattingData(int nMatchId, int nTeamId)
+        {
+            GetMatchBattingData cmd = new GetMatchBattingData(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getMatchBowlingData(int nMatchId, int nTeamId)
-		{
-			GetMatchBowlingData cmd = new GetMatchBowlingData(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchBowlingData(int nMatchId, int nTeamId)
+        {
+            GetMatchBowlingData cmd = new GetMatchBowlingData(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getMatchPlayerBattingData(int nMatchId, int nTeamId, int nPlayerId)
-		{
-			GetMatchPlayerBattingData cmd = new GetMatchPlayerBattingData(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			cmd.setParm("player_id", nPlayerId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchPlayerBattingData(int nMatchId, int nTeamId, int nPlayerId)
+        {
+            GetMatchPlayerBattingData cmd = new GetMatchPlayerBattingData(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            cmd.setParm("player_id", nPlayerId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getMatchPlayerBowlingData(int nMatchId, int nTeamId, int nPlayerId)
-		{
-			GetMatchPlayerBowlingData cmd = new GetMatchPlayerBowlingData(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			cmd.setParm("player_id", nPlayerId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchPlayerBowlingData(int nMatchId, int nTeamId, int nPlayerId)
+        {
+            GetMatchPlayerBowlingData cmd = new GetMatchPlayerBowlingData(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            cmd.setParm("player_id", nPlayerId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getMatchBattingPlayerList(int nMatchId, int nTeamId)
-		{
-			GetMatchBattingPlayerList cmd = new GetMatchBattingPlayerList(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchBattingPlayerList(int nMatchId, int nTeamId)
+        {
+            GetMatchBattingPlayerList cmd = new GetMatchBattingPlayerList(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getMatchBowlingPlayerList(int nMatchId, int nTeamId)
-		{
-			GetMatchBowlingPlayerList cmd = new GetMatchBowlingPlayerList(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}
+        public SqlDataReader getMatchBowlingPlayerList(int nMatchId, int nTeamId)
+        {
+            GetMatchBowlingPlayerList cmd = new GetMatchBowlingPlayerList(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public void setMatchBatting(bool fInsert, int nTournamentId, int nMatchId, int nTeamId, int nPlayerId, string strStatus, int nFielderId, int nBowlerId, int nRuns, int nBalls, float fStrikeRate, int nFour, int nSix)
-		{
-			if (!fInsert)
-			{
-				SetMatchBatting cmd = new SetMatchBatting(m_conn);
-				cmd.setParm("match_id", nMatchId);
-				cmd.setParm("team_id", nTeamId);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("status", strStatus);
-				cmd.setParm("fielder_id", nFielderId);
-				cmd.setParm("bowler_id", nBowlerId);
-				cmd.setParm("runs", nRuns);
-				cmd.setParm("balls", nBalls);
-				cmd.setParm("strike_rate", fStrikeRate);
-				cmd.setParm("four", nFour);
-				cmd.setParm("six", nSix);
-				cmd.executeNonQuery();		
-			}
-			else
-			{
-				int nSeqNo = 1;
+        public void setMatchBatting(bool fInsert, int nTournamentId, int nMatchId, int nTeamId, int nPlayerId, string strStatus, int nFielderId, int nBowlerId, int nRuns, int nBalls, float fStrikeRate, int nFour, int nSix)
+        {
+            if (!fInsert)
+            {
+                SetMatchBatting cmd = new SetMatchBatting(m_conn);
+                cmd.setParm("match_id", nMatchId);
+                cmd.setParm("team_id", nTeamId);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("status", strStatus);
+                cmd.setParm("fielder_id", nFielderId);
+                cmd.setParm("bowler_id", nBowlerId);
+                cmd.setParm("runs", nRuns);
+                cmd.setParm("balls", nBalls);
+                cmd.setParm("strike_rate", fStrikeRate);
+                cmd.setParm("four", nFour);
+                cmd.setParm("six", nSix);
+                cmd.executeNonQuery();
+            }
+            else
+            {
+                int nSeqNo = 1;
 
-				GetMatchBattingSeqNo cmd1 = new GetMatchBattingSeqNo(m_conn);
-				cmd1.setParm("match_id", nMatchId);
-				cmd1.setParm("team_id", nTeamId);
-				SqlDataReader dr = cmd1.executeReader();
-				if (dr.Read())
-				{
-					nSeqNo = toInt(dr["seq_no"]);
-				}
-				dr.Close();
+                GetMatchBattingSeqNo cmd1 = new GetMatchBattingSeqNo(m_conn);
+                cmd1.setParm("match_id", nMatchId);
+                cmd1.setParm("team_id", nTeamId);
+                SqlDataReader dr = cmd1.executeReader();
+                if (dr.Read())
+                {
+                    nSeqNo = toInt(dr["seq_no"]);
+                }
+                dr.Close();
 
-				CreateMatchBatting cmd = new CreateMatchBatting(m_conn);
-				cmd.setParm("match_id", nMatchId);
-				cmd.setParm("team_id", nTeamId);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("seq_no", nSeqNo);
-				cmd.setParm("status", strStatus);
-				cmd.setParm("fielder_id", nFielderId);
-				cmd.setParm("bowler_id", nBowlerId);
-				cmd.setParm("runs", nRuns);
-				cmd.setParm("balls", nBalls);
-				cmd.setParm("strike_rate", fStrikeRate);
-				cmd.setParm("four", nFour);
-				cmd.setParm("six", nSix);
-				cmd.executeNonQuery();		
-			}
+                CreateMatchBatting cmd = new CreateMatchBatting(m_conn);
+                cmd.setParm("match_id", nMatchId);
+                cmd.setParm("team_id", nTeamId);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("seq_no", nSeqNo);
+                cmd.setParm("status", strStatus);
+                cmd.setParm("fielder_id", nFielderId);
+                cmd.setParm("bowler_id", nBowlerId);
+                cmd.setParm("runs", nRuns);
+                cmd.setParm("balls", nBalls);
+                cmd.setParm("strike_rate", fStrikeRate);
+                cmd.setParm("four", nFour);
+                cmd.setParm("six", nSix);
+                cmd.executeNonQuery();
+            }
 
-			//set player stats
-			setPlayerBattingStats(nTournamentId, nPlayerId);
+            //set player stats
+            setPlayerBattingStats(nTournamentId, nPlayerId);
 
-		}
+        }
 
-		public void setMatchBowling(bool fInsert, int nTournamentId, int nMatchId, int nTeamId, int nPlayerId, float flOvers, int nMaiden, int nRuns, int nWickets, int nWideBalls, int nNoBalls)
-		{
-			float flEconomyRate = Overs.getEconomyRate(nRuns, Overs.getBalls(flOvers));
+        public void setMatchBowling(bool fInsert, int nTournamentId, int nMatchId, int nTeamId, int nPlayerId, float flOvers, int nMaiden, int nRuns, int nWickets, int nWideBalls, int nNoBalls)
+        {
+            float flEconomyRate = Overs.getEconomyRate(nRuns, Overs.getBalls(flOvers));
 
-			if (!fInsert)
-			{
-				SetMatchBowling cmd = new SetMatchBowling(m_conn);
-				cmd.setParm("match_id", nMatchId);
-				cmd.setParm("team_id", nTeamId);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("overs", flOvers);
-				cmd.setParm("maiden", nMaiden);
-				cmd.setParm("runs", nRuns);
-				cmd.setParm("wickets", nWickets);
-				cmd.setParm("wide_balls", nWideBalls);
-				cmd.setParm("no_balls", nNoBalls);
-				cmd.setParm("average", flEconomyRate);
-				cmd.executeNonQuery();	
-			}
-			else
-			{
-				int nSeqNo = 1;
+            if (!fInsert)
+            {
+                SetMatchBowling cmd = new SetMatchBowling(m_conn);
+                cmd.setParm("match_id", nMatchId);
+                cmd.setParm("team_id", nTeamId);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("overs", flOvers);
+                cmd.setParm("maiden", nMaiden);
+                cmd.setParm("runs", nRuns);
+                cmd.setParm("wickets", nWickets);
+                cmd.setParm("wide_balls", nWideBalls);
+                cmd.setParm("no_balls", nNoBalls);
+                cmd.setParm("average", flEconomyRate);
+                cmd.executeNonQuery();
+            }
+            else
+            {
+                int nSeqNo = 1;
 
-				GetMatchBowlingSeqNo cmd1 = new GetMatchBowlingSeqNo(m_conn);
-				cmd1.setParm("match_id", nMatchId);
-				cmd1.setParm("team_id", nTeamId);
-				SqlDataReader dr = cmd1.executeReader();
-				if (dr.Read())
-				{
-					nSeqNo = toInt(dr["seq_no"]);
-				}
-				dr.Close();
+                GetMatchBowlingSeqNo cmd1 = new GetMatchBowlingSeqNo(m_conn);
+                cmd1.setParm("match_id", nMatchId);
+                cmd1.setParm("team_id", nTeamId);
+                SqlDataReader dr = cmd1.executeReader();
+                if (dr.Read())
+                {
+                    nSeqNo = toInt(dr["seq_no"]);
+                }
+                dr.Close();
 
-				CreateMatchBowling cmd = new CreateMatchBowling(m_conn);
-				cmd.setParm("match_id", nMatchId);
-				cmd.setParm("team_id", nTeamId);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("seq_no", nSeqNo);
-				cmd.setParm("overs", flOvers);
-				cmd.setParm("maiden", nMaiden);
-				cmd.setParm("runs", nRuns);
-				cmd.setParm("wickets", nWickets);
-				cmd.setParm("wide_balls", nWideBalls);
-				cmd.setParm("no_balls", nNoBalls);
-				cmd.setParm("average", flEconomyRate);
-				cmd.executeNonQuery();		
-			}
+                CreateMatchBowling cmd = new CreateMatchBowling(m_conn);
+                cmd.setParm("match_id", nMatchId);
+                cmd.setParm("team_id", nTeamId);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("seq_no", nSeqNo);
+                cmd.setParm("overs", flOvers);
+                cmd.setParm("maiden", nMaiden);
+                cmd.setParm("runs", nRuns);
+                cmd.setParm("wickets", nWickets);
+                cmd.setParm("wide_balls", nWideBalls);
+                cmd.setParm("no_balls", nNoBalls);
+                cmd.setParm("average", flEconomyRate);
+                cmd.executeNonQuery();
+            }
 
-			//set player stats
-			setPlayerBowlingStats(nTournamentId, nPlayerId);
-		}
+            //set player stats
+            setPlayerBowlingStats(nTournamentId, nPlayerId);
+        }
 
-		
-		public int getPlayerMatchCount(int nPlayerId, int nTournamentId)
-		{
-			int nMatches = 0;
-			GetPlayerMatchCount cmd = new GetPlayerMatchCount(m_conn);
-			cmd.setParm("player_id", nPlayerId);
-			cmd.setParm("tournament_id", nTournamentId);
-			SqlDataReader dr = cmd.executeReader();		
-			if (dr.Read())
-			{
-				nMatches = toInt(dr["matches"]);
-			}
-			dr.Close();
-			return nMatches;
-		}	
 
-		public SqlDataReader getPlayerBattingData(int nPlayerId, int nTournamentId)
-		{
-			GetPlayerBattingData cmd = new GetPlayerBattingData(m_conn);
-			cmd.setParm("player_id", nPlayerId);
-			cmd.setParm("tournament_id", nTournamentId);
-			return cmd.executeReader();		
-		}	
+        public int getPlayerMatchCount(int nPlayerId, int nTournamentId)
+        {
+            int nMatches = 0;
+            GetPlayerMatchCount cmd = new GetPlayerMatchCount(m_conn);
+            cmd.setParm("player_id", nPlayerId);
+            cmd.setParm("tournament_id", nTournamentId);
+            SqlDataReader dr = cmd.executeReader();
+            if (dr.Read())
+            {
+                nMatches = toInt(dr["matches"]);
+            }
+            dr.Close();
+            return nMatches;
+        }
 
-		public SqlDataReader getPlayerBowlingData(int nPlayerId, int nTournamentId)
-		{
-			GetPlayerBowlingData cmd = new GetPlayerBowlingData(m_conn);
-			cmd.setParm("player_id", nPlayerId);
-			cmd.setParm("tournament_id", nTournamentId);
-			return cmd.executeReader();		
-		}	
+        public SqlDataReader getPlayerBattingData(int nPlayerId, int nTournamentId)
+        {
+            GetPlayerBattingData cmd = new GetPlayerBattingData(m_conn);
+            cmd.setParm("player_id", nPlayerId);
+            cmd.setParm("tournament_id", nTournamentId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getPlayerBattingStats(int nTournamentId, int nPlayerId)
-		{
-			GetPlayerBattingStats cmd = new GetPlayerBattingStats(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			cmd.setParm("player_id", nPlayerId);
-			return cmd.executeReader();		
-		}	
+        public SqlDataReader getPlayerBowlingData(int nPlayerId, int nTournamentId)
+        {
+            GetPlayerBowlingData cmd = new GetPlayerBowlingData(m_conn);
+            cmd.setParm("player_id", nPlayerId);
+            cmd.setParm("tournament_id", nTournamentId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getPlayerBowlingStats(int nTournamentId, int nPlayerId)
-		{
-			GetPlayerBowlingStats cmd = new GetPlayerBowlingStats(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			cmd.setParm("player_id", nPlayerId);
-			return cmd.executeReader();		
-		}	
+        public SqlDataReader getPlayerBattingStats(int nTournamentId, int nPlayerId)
+        {
+            GetPlayerBattingStats cmd = new GetPlayerBattingStats(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            cmd.setParm("player_id", nPlayerId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getAllPlayersBattingStats(int nTournamentId, int nTeamId)
-		{
-			GetAllPlayersBattingStats cmd = new GetAllPlayersBattingStats(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}	
+        public SqlDataReader getPlayerBowlingStats(int nTournamentId, int nPlayerId)
+        {
+            GetPlayerBowlingStats cmd = new GetPlayerBowlingStats(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            cmd.setParm("player_id", nPlayerId);
+            return cmd.executeReader();
+        }
+        public SqlDataReader getPlayerBowlingStatsAllRevised(int nPlayerId)
+        {
+            string cmdText = string.Format("Select sum(A.Matches) Matches, sum(A.Innings) Innings, sum(A.Overs) Overs, sum(A.wickets) Wickets, sum(A.Runs) Runs, " +
+                "Sum(A.Maidens) Maidens , ROUND(AVG(A.Average), 2) Average, MAX(A.best)  Best " +
+                "from player_bowling A , Player B where A.Player_ID = B.Player_id and A.player_id = {0} ", nPlayerId);
+            using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
+            {
+                com.CommandType = System.Data.CommandType.Text;
+                return com.ExecuteReader();
+            }
+        }
+        public SqlDataReader getAllPlayersBattingStats(int nTournamentId, int nTeamId)
+        {
+            GetAllPlayersBattingStats cmd = new GetAllPlayersBattingStats(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getAllPlayersBowlingStats(int nTournamentId, int nTeamId)
-		{
-			GetAllPlayersBowlingStats cmd = new GetAllPlayersBowlingStats(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			cmd.setParm("team_id", nTeamId);
-			return cmd.executeReader();		
-		}	
+        public SqlDataReader getAllPlayersBowlingStats(int nTournamentId, int nTeamId)
+        {
+            GetAllPlayersBowlingStats cmd = new GetAllPlayersBowlingStats(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            cmd.setParm("team_id", nTeamId);
+            return cmd.executeReader();
+        }
 
-		public void addMatch(int nTournamentId, int nTeam1Id, int nTeam2Id, int nUmpireTeamId, int nWinTeamId, int nTypeCd, DateTime MatchDt, int nGroundId, string strResult, int nMOMPlayerId, string startTime, string endTime, string umpiringText, int umpiringTeamId2)
-		{
-			int nMatchId = newMatchId();
+        public void addMatch(int nTournamentId, int nTeam1Id, int nTeam2Id, int nUmpireTeamId, int nWinTeamId, int nTypeCd, DateTime MatchDt, int nGroundId, string strResult, int nMOMPlayerId, string startTime, string endTime, string umpiringText, int umpiringTeamId2)
+        {
+            int nMatchId = newMatchId();
 
-			CreateMatchData cmd = new CreateMatchData(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("tournament_id", nTournamentId);
-			cmd.setParm("team1_id", nTeam1Id);
-			cmd.setParm("team2_id", nTeam2Id);
+            CreateMatchData cmd = new CreateMatchData(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("tournament_id", nTournamentId);
+            cmd.setParm("team1_id", nTeam1Id);
+            cmd.setParm("team2_id", nTeam2Id);
             cmd.setParm("umpiring_team_id", nUmpireTeamId);
             cmd.setParm("umpiring_team2_id", umpiringTeamId2);
             cmd.setParm("umpiring_text", umpiringText);
             cmd.setParm("winning_team_id", nWinTeamId);
-			cmd.setParm("type_cd", nTypeCd);
-			cmd.setParm("match_dt", MatchDt);
-			cmd.setParm("result", strResult);
-			cmd.setParm("ground_id", nGroundId);
-			cmd.setParm("mom_player_id", nMOMPlayerId);
-			cmd.setParm("start_time", startTime);
-			cmd.setParm("end_time", endTime);
-			cmd.executeNonQuery();	
-	
-			//create stats too
-			addMatchStats(nMatchId, nTeam1Id, 1);
-			addMatchStats(nMatchId, nTeam2Id, 2);
-		}
+            cmd.setParm("type_cd", nTypeCd);
+            cmd.setParm("match_dt", MatchDt);
+            cmd.setParm("result", strResult);
+            cmd.setParm("ground_id", nGroundId);
+            cmd.setParm("mom_player_id", nMOMPlayerId);
+            cmd.setParm("start_time", startTime);
+            cmd.setParm("end_time", endTime);
+            cmd.executeNonQuery();
 
-		/// <summary>
-		/// This is called from the admin section schedule_edit page
-		/// </summary>
-		/// <param name="nMatchId"></param>
-		/// <param name="nTournamentId"></param>
-		/// <param name="nTeam1Id"></param>
-		/// <param name="nTeam2Id"></param>
-		/// <param name="nUmpireTeamId"></param>
-		/// <param name="nWinTeamId"></param>
-		/// <param name="nTypeCd"></param>
-		/// <param name="MatchDt"></param>
-		/// <param name="nGroundId"></param>
-		/// <param name="strResult"></param>
-		/// <param name="nMOMPlayerId"></param>
-		public void setMatch(int nMatchId, int nTournamentId, int nTeam1Id, int nTeam2Id, int nUmpireTeamId, int nWinTeamId, int nTypeCd, DateTime MatchDt, int nGroundId, string strResult, int nMOMPlayerId, int matchOvers, string startTime, string endTime, string umpiringText, int umpiringTeamId2)
-		{
-			//The call checks if the match_Stats table record (i.e. match score) exists for the match
-			//If the score is present, it does not allow any updates
-			//This is mainly to ensure that the math_Stats table update does not screw up the stats
-			//as it update the team_id in the table for the innings.
+            //create stats too
+            addMatchStats(nMatchId, nTeam1Id, 1);
+            addMatchStats(nMatchId, nTeam2Id, 2);
+        }
 
-			if (!CheckMatchStatsExists(nMatchId, nTeam1Id))
-			{
-				if (!CheckMatchStatsExists(nMatchId, nTeam2Id))
-				{
-						
-					SetMatchData cmd = new SetMatchData(m_conn);
-					cmd.setParm("match_id", nMatchId);
-					cmd.setParm("tournament_id", nTournamentId);
-					cmd.setParm("team1_id", nTeam1Id);
-					cmd.setParm("team2_id", nTeam2Id);
+        /// <summary>
+        /// This is called from the admin section schedule_edit page
+        /// </summary>
+        /// <param name="nMatchId"></param>
+        /// <param name="nTournamentId"></param>
+        /// <param name="nTeam1Id"></param>
+        /// <param name="nTeam2Id"></param>
+        /// <param name="nUmpireTeamId"></param>
+        /// <param name="nWinTeamId"></param>
+        /// <param name="nTypeCd"></param>
+        /// <param name="MatchDt"></param>
+        /// <param name="nGroundId"></param>
+        /// <param name="strResult"></param>
+        /// <param name="nMOMPlayerId"></param>
+        public void setMatch(int nMatchId, int nTournamentId, int nTeam1Id, int nTeam2Id, int nUmpireTeamId, int nWinTeamId, int nTypeCd, DateTime MatchDt, int nGroundId, string strResult, int nMOMPlayerId, int matchOvers, string startTime, string endTime, string umpiringText, int umpiringTeamId2)
+        {
+            //The call checks if the match_Stats table record (i.e. match score) exists for the match
+            //If the score is present, it does not allow any updates
+            //This is mainly to ensure that the math_Stats table update does not screw up the stats
+            //as it update the team_id in the table for the innings.
+
+            if (!CheckMatchStatsExists(nMatchId, nTeam1Id))
+            {
+                if (!CheckMatchStatsExists(nMatchId, nTeam2Id))
+                {
+
+                    SetMatchData cmd = new SetMatchData(m_conn);
+                    cmd.setParm("match_id", nMatchId);
+                    cmd.setParm("tournament_id", nTournamentId);
+                    cmd.setParm("team1_id", nTeam1Id);
+                    cmd.setParm("team2_id", nTeam2Id);
                     cmd.setParm("umpiring_team_id", nUmpireTeamId);
                     cmd.setParm("umpiring_team2_id", umpiringTeamId2);
                     cmd.setParm("umpiring_text", umpiringText);
-					cmd.setParm("winning_team_id", nWinTeamId);
-					cmd.setParm("type_cd", nTypeCd);
-					cmd.setParm("match_dt", MatchDt);
-					cmd.setParm("result", strResult);
-					cmd.setParm("ground_id", nGroundId);
-					cmd.setParm("mom_player_id", nMOMPlayerId);
-					cmd.setParm("start_time", startTime);
-					cmd.setParm("end_time", endTime);
-					cmd.executeNonQuery();	
+                    cmd.setParm("winning_team_id", nWinTeamId);
+                    cmd.setParm("type_cd", nTypeCd);
+                    cmd.setParm("match_dt", MatchDt);
+                    cmd.setParm("result", strResult);
+                    cmd.setParm("ground_id", nGroundId);
+                    cmd.setParm("mom_player_id", nMOMPlayerId);
+                    cmd.setParm("start_time", startTime);
+                    cmd.setParm("end_time", endTime);
+                    cmd.executeNonQuery();
 
-					//this updates the teamid only for the match and the innings
-					setMatchStats(nTournamentId, nMatchId, nTeam1Id, 1);
-					setMatchStats(nTournamentId, nMatchId, nTeam2Id, 2);
+                    //this updates the teamid only for the match and the innings
+                    setMatchStats(nTournamentId, nMatchId, nTeam1Id, 1);
+                    setMatchStats(nTournamentId, nMatchId, nTeam2Id, 2);
 
-					//update the team stats
-					setTeamStats(nTournamentId, nMatchId, nTeam1Id, nTeam2Id, matchOvers);
-				}
-			}
+                    //update the team stats
+                    setTeamStats(nTournamentId, nMatchId, nTeam1Id, nTeam2Id, matchOvers);
+                }
+            }
 
-		}
+        }
 
-		public bool CheckMatchStatsExists(int nMatchId, int nTeamId)
-		{
-			bool exists = false;
-			CheckMatchStatsExists cmd = new CheckMatchStatsExists(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			SqlDataReader dr = cmd.executeReader();		
-			if (dr.Read())
-				exists = true;
-			dr.Close();
-			return exists;
-		}
+        public bool CheckMatchStatsExists(int nMatchId, int nTeamId)
+        {
+            bool exists = false;
+            CheckMatchStatsExists cmd = new CheckMatchStatsExists(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            SqlDataReader dr = cmd.executeReader();
+            if (dr.Read())
+                exists = true;
+            dr.Close();
+            return exists;
+        }
 
-		public void addMatchStats(int nMatchId, int nTeamId, int nInningsSw)
-		{
-			CreateMatchStats cmd = new CreateMatchStats(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			cmd.setParm("runs_scored", 0);
-			cmd.setParm("inning_sw", nInningsSw);
-			cmd.setParm("total_runs", 0);
-			cmd.setParm("wickets", 0);
-			cmd.setParm("overs", 0);
-			cmd.setParm("extras", 0);
-			cmd.setParm("nos", 0);
-			cmd.setParm("wides", 0);
-			cmd.setParm("byes", 0);
-			cmd.setParm("over_throw", 0);
-			cmd.executeNonQuery();		
-		}
+        public void addMatchStats(int nMatchId, int nTeamId, int nInningsSw)
+        {
+            CreateMatchStats cmd = new CreateMatchStats(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            cmd.setParm("runs_scored", 0);
+            cmd.setParm("inning_sw", nInningsSw);
+            cmd.setParm("total_runs", 0);
+            cmd.setParm("wickets", 0);
+            cmd.setParm("overs", 0);
+            cmd.setParm("extras", 0);
+            cmd.setParm("nos", 0);
+            cmd.setParm("wides", 0);
+            cmd.setParm("byes", 0);
+            cmd.setParm("over_throw", 0);
+            cmd.executeNonQuery();
+        }
 
-		public void setMatchStats(int nTournamentId, int nMatchId, int nTeamId, int nInningSw)
-		{
-			SetMatchStats2 cmd = new SetMatchStats2(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("team_id", nTeamId);
-			cmd.setParm("inning_sw", nInningSw);
-			cmd.executeNonQuery();	
-		}
+        public void setMatchStats(int nTournamentId, int nMatchId, int nTeamId, int nInningSw)
+        {
+            SetMatchStats2 cmd = new SetMatchStats2(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("team_id", nTeamId);
+            cmd.setParm("inning_sw", nInningSw);
+            cmd.executeNonQuery();
+        }
 
 
-		public void setMatchResult(int nMatchId, int nWinTeamId, string strResult)
-		{
-			SetMatchResult cmd = new SetMatchResult(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("winning_team_id", nWinTeamId);
-			cmd.setParm("result", strResult);
-			cmd.executeNonQuery();	
-		}
+        public void setMatchResult(int nMatchId, int nWinTeamId, string strResult)
+        {
+            SetMatchResult cmd = new SetMatchResult(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("winning_team_id", nWinTeamId);
+            cmd.setParm("result", strResult);
+            cmd.executeNonQuery();
+        }
 
-		public string getTeamName(int nTeamId)
-		{
+        public string getTeamName(int nTeamId)
+        {
             string name = "";
-			CheckTeamId cmd = new CheckTeamId(m_conn);
-			cmd.setParm("team_id", nTeamId);
+            CheckTeamId cmd = new CheckTeamId(m_conn);
+            cmd.setParm("team_id", nTeamId);
             using (SqlDataReader dr = cmd.executeReader())
             {
                 if (dr.Read())
@@ -1144,14 +1154,14 @@ namespace Cricket.BAL
                 dr.Close();
             }
             return name;
-		}
+        }
 
-		public SqlDataReader getPlayerName(int nPlayerId)
-		{
-			GetPlayerName cmd = new GetPlayerName(m_conn);
-			cmd.setParm("player_id", nPlayerId);
-			return cmd.executeReader();
-		}
+        public SqlDataReader getPlayerName(int nPlayerId)
+        {
+            GetPlayerName cmd = new GetPlayerName(m_conn);
+            cmd.setParm("player_id", nPlayerId);
+            return cmd.executeReader();
+        }
 
         public SqlDataReader getSchedule(int nTournamentId)
         {
@@ -1169,77 +1179,77 @@ namespace Cricket.BAL
         }
 
         public SqlDataReader getScheduleTop(int nTournamentId)
-		{
+        {
             GetScheduleTop cmd = new GetScheduleTop(m_conn);
             cmd.setParm("tournament_id", nTournamentId);
             return cmd.executeReader();
-		}
+        }
 
-		public void deletePlayerBatting(int nTournamentId, int nMatchId, int nPlayerId)
-		{
-			DeletePlayerBatting cmd = new DeletePlayerBatting(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("player_id", nPlayerId);
-			cmd.executeNonQuery();
+        public void deletePlayerBatting(int nTournamentId, int nMatchId, int nPlayerId)
+        {
+            DeletePlayerBatting cmd = new DeletePlayerBatting(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("player_id", nPlayerId);
+            cmd.executeNonQuery();
 
-			//set player stats
-			setPlayerBattingStats(nTournamentId, nPlayerId);
-		}
+            //set player stats
+            setPlayerBattingStats(nTournamentId, nPlayerId);
+        }
 
-		public void deletePlayerBowling(int nTournamentId, int nMatchId, int nPlayerId)
-		{
-			DeletePlayerBowling cmd = new DeletePlayerBowling(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			cmd.setParm("player_id", nPlayerId);
-			cmd.executeNonQuery();
+        public void deletePlayerBowling(int nTournamentId, int nMatchId, int nPlayerId)
+        {
+            DeletePlayerBowling cmd = new DeletePlayerBowling(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            cmd.setParm("player_id", nPlayerId);
+            cmd.executeNonQuery();
 
-			//set player stats
-			setPlayerBowlingStats(nTournamentId, nPlayerId);
-		}
+            //set player stats
+            setPlayerBowlingStats(nTournamentId, nPlayerId);
+        }
 
-		public SqlDataReader getTeamStats(int nTournamentId)
-		{
-			GetTeamStats cmd = new GetTeamStats(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			return cmd .executeReader();
-		}
+        public SqlDataReader getTeamStats(int nTournamentId)
+        {
+            GetTeamStats cmd = new GetTeamStats(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getTeamStatsByGroup(int nTournamentId)
-		{
-			GetTeamStatsByGroup cmd = new GetTeamStatsByGroup(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			return cmd .executeReader();
-		}
+        public SqlDataReader getTeamStatsByGroup(int nTournamentId)
+        {
+            GetTeamStatsByGroup cmd = new GetTeamStatsByGroup(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader getPenaltyAll(int nTournamentId)
-		{
-			GetPenaltyAll cmd = new GetPenaltyAll(m_conn);
-			cmd.setParm("tournament_id", nTournamentId);
-			return cmd.executeReader();
-		}
+        public SqlDataReader getPenaltyAll(int nTournamentId)
+        {
+            GetPenaltyAll cmd = new GetPenaltyAll(m_conn);
+            cmd.setParm("tournament_id", nTournamentId);
+            return cmd.executeReader();
+        }
 
-		public SqlDataReader GetRecentTournaments()
-		{
-			using (SqlConnection con = GetSQLConnection())
-			{
-				using (SqlCommand com = new SqlCommand("select top 5 * from tournament order by start_dt desc", con))
-				{
-					com.CommandType = System.Data.CommandType.Text;
+        public SqlDataReader GetRecentTournaments()
+        {
+            using (SqlConnection con = GetSQLConnection())
+            {
+                using (SqlCommand com = new SqlCommand("select top 5 * from tournament order by start_dt desc", con))
+                {
+                    com.CommandType = System.Data.CommandType.Text;
                     con.Open();
                     return com.ExecuteReader();
-				}
-			}
-		}
+                }
+            }
+        }
 
         public SqlDataReader GetTournamentWithResults()
         {
-            string query = "select t.tournament_id, t.name, winner, runnersup, t.start_dt, t.end_dt, t.overs from tournament t " + 
-                            "left join (select 'winner' = t.name, ta.tournament_id from tournament_awards ta inner join team t on t.team_id = ta.team_id and ta.award_id = 1)  " + 
-                            "as ta1 on ta1.tournament_id = t.tournament_id " + 
-                            "left join (select 'runnersup' = t.name, ta.tournament_id from tournament_awards ta inner join team t on t.team_id = ta.team_id and ta.award_id = 2)  " + 
-                            "as ta2 on ta2.tournament_id = t.tournament_id " + 
+            string query = "select t.tournament_id, t.name, winner, runnersup, t.start_dt, t.end_dt, t.overs from tournament t " +
+                            "left join (select 'winner' = t.name, ta.tournament_id from tournament_awards ta inner join team t on t.team_id = ta.team_id and ta.award_id = 1)  " +
+                            "as ta1 on ta1.tournament_id = t.tournament_id " +
+                            "left join (select 'runnersup' = t.name, ta.tournament_id from tournament_awards ta inner join team t on t.team_id = ta.team_id and ta.award_id = 2)  " +
+                            "as ta2 on ta2.tournament_id = t.tournament_id " +
                             "order by start_dt desc";
-            
+
             using (SqlCommand com = new SqlCommand(query, m_conn.getConnection()))
             {
                 com.CommandType = System.Data.CommandType.Text;
@@ -1374,7 +1384,7 @@ namespace Cricket.BAL
         public SqlDataReader GetDivisionTeams(string year, string division)
         {
             string cmdText = string.Format("select t.name, td.* from team_division td inner join team t on t.team_id = td.team_id " +
-                        " where year = '{0}' and division = '{1}' " + 
+                        " where year = '{0}' and division = '{1}' " +
                         " order by rank, name ", year, division);
 
             using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
@@ -1386,10 +1396,10 @@ namespace Cricket.BAL
 
         public SqlDataReader GetUmpiringTeams(int tournamentId)
         {
-            string cmdText = string.Format("select t.team_id, t.name from team t inner join tournament_team tm " + 
-                "on tm.team_id = t.team_id and tournament_id in  " + 
-                "(select tournament_id from tournament  " + 
-                "where group_name in (select group_name from tournament where tournament_id = {0}) " + 
+            string cmdText = string.Format("select t.team_id, t.name from team t inner join tournament_team tm " +
+                "on tm.team_id = t.team_id and tournament_id in  " +
+                "(select tournament_id from tournament  " +
+                "where group_name in (select group_name from tournament where tournament_id = {0}) " +
                 ") order by name", tournamentId);
 
             using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
@@ -1435,7 +1445,7 @@ namespace Cricket.BAL
             string cmdText = string.Format("select t.name, at.award_type, ta.* from (select team_id, count = COUNT(team_id), award_id from tournament_awards where award_id in (1,2) group by team_id, award_id) as ta " +
                     "inner join team t on t.team_id = ta.team_id inner join award_types at on ta.award_id = at.award_id " +
                     "order by award_id asc, count desc");
-           
+
 
             using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
             {
@@ -1443,8 +1453,8 @@ namespace Cricket.BAL
                 return com.ExecuteReader();
             }
         }
-        
-        
+
+
         public SqlDataReader GetPlayerBattingStatsAll(int playerId)
         {
             string cmdText = string.Format("select * from player_batting where player_id = {0} ", playerId);
@@ -1454,8 +1464,18 @@ namespace Cricket.BAL
                 com.CommandType = System.Data.CommandType.Text;
                 return com.ExecuteReader();
             }
-        }	
-
+        }
+        public SqlDataReader GetPlayerBattingStatsAllRevised(int playerId)
+        {
+            string cmdText = string.Format("Select sum(matches) Matches, sum(Runs) Runs, sum(hundred) Hundred,sum(not_outs) NotOuts," +
+                            "sum(fifty) Fifty, sum(innings) Innings, sum(Four) Four, sum(six) Six, sum(duck) Zeros, MAX(highest) Highest," +
+                            "ROUND(AVG(average), 2) Average, ROUND(AVG(strike_rate), 2) StrikeRate from player_batting where player_id = {0} ", playerId);
+            using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
+            {
+                com.CommandType = System.Data.CommandType.Text;
+                return com.ExecuteReader();
+            }
+        }
 
         public SqlDataReader GetTeamTournaments2(int teamId)
         {
@@ -1472,7 +1492,7 @@ namespace Cricket.BAL
             string cmdText = string.Format("select count(*) from tournament_team where team_id = {0}; " +
             "select count(*) from match where team1_id = {0} or team2_id = {0}; " +
             "select count(*) from match where ( team1_id = {0} or team2_id = {0}) and winning_team_id = {0}; " +
-            "select count(*) from match where ( team1_id = {0} or team2_id = {0}) and winning_team_id != {0}; " , teamId);
+            "select count(*) from match where ( team1_id = {0} or team2_id = {0}) and winning_team_id != {0}; ", teamId);
 
             using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
             {
@@ -1589,7 +1609,7 @@ namespace Cricket.BAL
                 com.CommandType = System.Data.CommandType.Text;
                 totalpoints = toInt(com.ExecuteScalar());
             }
-            
+
             totalpoints += penaltypoints;
 
             cmdText = string.Format("update tournament_team set points = {0} where tournament_id = {1} and team_id = {2} ", totalpoints, tournamentId, teamId);
@@ -1600,36 +1620,36 @@ namespace Cricket.BAL
             }
         }
 
-	    public int DeletePenalty( int tournamentId, int penaltyId, int teamId, int penaltypoints )
-	    {
-	        string cmdText = string.Empty;
-	        SqlConnection conn = m_conn.getConnection();
+        public int DeletePenalty(int tournamentId, int penaltyId, int teamId, int penaltypoints)
+        {
+            string cmdText = string.Empty;
+            SqlConnection conn = m_conn.getConnection();
 
-	        DeletePenalty cmd = new DeletePenalty( m_conn );
-	        cmd.setParm( "tournament_id", tournamentId );
-	        cmd.setParm( "penalty_id", penaltyId );
-	        cmd.executeNonQuery();
+            DeletePenalty cmd = new DeletePenalty(m_conn);
+            cmd.setParm("tournament_id", tournamentId);
+            cmd.setParm("penalty_id", penaltyId);
+            cmd.executeNonQuery();
 
-	        // update the tournament_team table to adjust the total team points
-	        int totalpoints = 0;
-	        cmdText = string.Format( "select points from tournament_team where tournament_id = {0} and team_id = {1}", tournamentId, teamId );
-	        using ( SqlCommand com = new SqlCommand( cmdText, conn ) )
-	        {
-	            com.CommandType = System.Data.CommandType.Text;
-	            totalpoints = toInt( com.ExecuteScalar() );
-	        }
+            // update the tournament_team table to adjust the total team points
+            int totalpoints = 0;
+            cmdText = string.Format("select points from tournament_team where tournament_id = {0} and team_id = {1}", tournamentId, teamId);
+            using (SqlCommand com = new SqlCommand(cmdText, conn))
+            {
+                com.CommandType = System.Data.CommandType.Text;
+                totalpoints = toInt(com.ExecuteScalar());
+            }
 
-	        totalpoints -= penaltypoints;
+            totalpoints -= penaltypoints;
 
-	        cmdText = string.Format( "update tournament_team set points = {0} where tournament_id = {1} and team_id = {2} ", totalpoints, tournamentId, teamId );
-	        using ( SqlCommand com = new SqlCommand( cmdText, conn ) )
-	        {
-	            com.CommandType = System.Data.CommandType.Text;
-	            return com.ExecuteNonQuery();
-	        }
-	    }
+            cmdText = string.Format("update tournament_team set points = {0} where tournament_id = {1} and team_id = {2} ", totalpoints, tournamentId, teamId);
+            using (SqlCommand com = new SqlCommand(cmdText, conn))
+            {
+                com.CommandType = System.Data.CommandType.Text;
+                return com.ExecuteNonQuery();
+            }
+        }
 
-	    public SqlDataReader GetPlayerRegistrations(int tournamentId)
+        public SqlDataReader GetPlayerRegistrations(int tournamentId)
         {
             string cmdText = string.Format("select * from player_registration where tournament_id = {0}", tournamentId);
 
@@ -1637,7 +1657,7 @@ namespace Cricket.BAL
             {
                 com.CommandType = System.Data.CommandType.Text;
                 return com.ExecuteReader();
-            }        
+            }
         }
 
 
@@ -1690,7 +1710,7 @@ namespace Cricket.BAL
                     com.ExecuteNonQuery();
                 }
             }
-            else 
+            else
             {
                 bonusPoints += points;
 
@@ -1718,278 +1738,278 @@ namespace Cricket.BAL
         }
 
         ////////////////////////////////////////////////////////////////////
-		//Helper Methods
-		///////////////////////////////////////////////////////////////////
+        //Helper Methods
+        ///////////////////////////////////////////////////////////////////
 
-		#region Helper Methods
+        #region Helper Methods
 
-		//Player bowling stats
-		protected void setPlayerBattingStats(int nTournamentId, int nPlayerId)
-		{
+        //Player bowling stats
+        protected void setPlayerBattingStats(int nTournamentId, int nPlayerId)
+        {
 
             //LogMessage("Information", "Stats", "setPlayerBattingStats: " + nPlayerId.ToString() + ": start", nTournamentId);
 
-			//update the player statistics
-			int nMatches = 0;
-			int nInnings = 0;
-			int nNotOuts = 0;
-			int nRuns = 0;
-			int nTotalBalls = 0;
-			int nTotalRuns = 0;
-			int nHighest = 0;
-			int nHundreds = 0;
-			int nFifties = 0;
-			int nFours = 0;
-			int nSixes = 0;
-			int nDucks = 0;
-			int nMatchId = 0;
-			string strStatus;
-			SqlDataReader dr = getPlayerBattingData(nPlayerId, nTournamentId);
-			while(dr.Read())
-			{
+            //update the player statistics
+            int nMatches = 0;
+            int nInnings = 0;
+            int nNotOuts = 0;
+            int nRuns = 0;
+            int nTotalBalls = 0;
+            int nTotalRuns = 0;
+            int nHighest = 0;
+            int nHundreds = 0;
+            int nFifties = 0;
+            int nFours = 0;
+            int nSixes = 0;
+            int nDucks = 0;
+            int nMatchId = 0;
+            string strStatus;
+            SqlDataReader dr = getPlayerBattingData(nPlayerId, nTournamentId);
+            while (dr.Read())
+            {
 
-				strStatus = dr["status"].ToString();
-				nRuns = toInt(dr["runs"]);
-				nTotalBalls += toInt(dr["balls"]);
-				nFours += toInt(dr["four"]);
-				nSixes += toInt(dr["six"]);
+                strStatus = dr["status"].ToString();
+                nRuns = toInt(dr["runs"]);
+                nTotalBalls += toInt(dr["balls"]);
+                nFours += toInt(dr["four"]);
+                nSixes += toInt(dr["six"]);
 
-				if (nRuns == 0 && strStatus != BattingStatus.DNP)
-					nDucks++;
+                if (nRuns == 0 && strStatus != BattingStatus.DNP)
+                    nDucks++;
 
-				//process status
-				if (strStatus != BattingStatus.DNP)
-					nInnings++;
-				if (strStatus == BattingStatus.NotOut) 
-					nNotOuts++;
+                //process status
+                if (strStatus != BattingStatus.DNP)
+                    nInnings++;
+                if (strStatus == BattingStatus.NotOut)
+                    nNotOuts++;
 
-				//calculate 100 and 50's
-				if (nRuns >= 100) 
-					nHundreds++;
-				else if (nRuns >= 50) 
-					nFifties++;
+                //calculate 100 and 50's
+                if (nRuns >= 100)
+                    nHundreds++;
+                else if (nRuns >= 50)
+                    nFifties++;
 
-				//calculate the highest score
-				if (nRuns > nHighest)
-				{
-					nHighest = nRuns;
-					nMatchId = toInt(dr["match_id"]);
-				}
-				
-				nTotalRuns +=  nRuns;
-				nMatches++;
-			}
-			dr.Close();
+                //calculate the highest score
+                if (nRuns > nHighest)
+                {
+                    nHighest = nRuns;
+                    nMatchId = toInt(dr["match_id"]);
+                }
+
+                nTotalRuns += nRuns;
+                nMatches++;
+            }
+            dr.Close();
 
             //LogMessage("Information", "Stats", "setPlayerBattingStats: " + nPlayerId.ToString() + ": after while", nTournamentId);
 
 
-			//get highest vs team id
-			int nHigeshtVsTeamId = 0;
-			if (nMatchId > 0)
-			{
+            //get highest vs team id
+            int nHigeshtVsTeamId = 0;
+            if (nMatchId > 0)
+            {
 
                 //LogMessage("Information", "Stats", "setPlayerBattingStats: " + nPlayerId.ToString() + ": getteamidforhishestscore", nTournamentId);
 
-				GetTeamIdForHighestScore cmd2 = new GetTeamIdForHighestScore(m_conn);
-				cmd2.setParm("match_id", nMatchId);
-				cmd2.setParm("player_id", nPlayerId);
-				dr = cmd2.executeReader();
-				if (dr.Read())
-				{
-					if(!dr.IsDBNull(dr.GetOrdinal("team_id")))
-						nHigeshtVsTeamId = toInt(dr["team_id"]);
-				}
-				dr.Close();
-			}
+                GetTeamIdForHighestScore cmd2 = new GetTeamIdForHighestScore(m_conn);
+                cmd2.setParm("match_id", nMatchId);
+                cmd2.setParm("player_id", nPlayerId);
+                dr = cmd2.executeReader();
+                if (dr.Read())
+                {
+                    if (!dr.IsDBNull(dr.GetOrdinal("team_id")))
+                        nHigeshtVsTeamId = toInt(dr["team_id"]);
+                }
+                dr.Close();
+            }
 
-			float flAverage = nTotalRuns;
-			int nTemp = nInnings - nNotOuts;
-			if (nTemp > 0)
-				flAverage = (float) nTotalRuns / (float) nTemp;
+            float flAverage = nTotalRuns;
+            int nTemp = nInnings - nNotOuts;
+            if (nTemp > 0)
+                flAverage = (float)nTotalRuns / (float)nTemp;
 
-			float flStrikeRate = 0;
-			if (nTotalBalls > 0)
-				flStrikeRate = ((float) nTotalRuns / (float) nTotalBalls) * (float) 100;
+            float flStrikeRate = 0;
+            if (nTotalBalls > 0)
+                flStrikeRate = ((float)nTotalRuns / (float)nTotalBalls) * (float)100;
 
 
-			//update stats
-			bool fInsert = true;
-			CheckPlayerBattingStats cmd1 = new CheckPlayerBattingStats(m_conn);
-			cmd1.setParm("player_id", nPlayerId);
-			cmd1.setParm("tournament_id", nTournamentId);
-			dr = cmd1.executeReader();
-			if (dr.Read())
-				fInsert = false;
-			dr.Close();
+            //update stats
+            bool fInsert = true;
+            CheckPlayerBattingStats cmd1 = new CheckPlayerBattingStats(m_conn);
+            cmd1.setParm("player_id", nPlayerId);
+            cmd1.setParm("tournament_id", nTournamentId);
+            dr = cmd1.executeReader();
+            if (dr.Read())
+                fInsert = false;
+            dr.Close();
 
-			if (!fInsert)
-			{
+            if (!fInsert)
+            {
                 //LogMessage("Information", "Stats", "setPlayerBattingStats: " + nPlayerId.ToString() + ": insert", nTournamentId);
 
-				SetPlayerBattingStats cmd = new SetPlayerBattingStats(m_conn);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("tournament_id", nTournamentId);
-				cmd.setParm("matches", nMatches);
-				cmd.setParm("innings", nInnings);
-				cmd.setParm("runs", nTotalRuns);
-				cmd.setParm("not_outs", nNotOuts);
-				cmd.setParm("average", flAverage);
-				cmd.setParm("strike_rate", flStrikeRate);
-				cmd.setParm("highest", nHighest);
-				cmd.setParm("hundred", nHundreds);
-				cmd.setParm("fifty", nFifties);
-				cmd.setParm("four", nFours);
-				cmd.setParm("six", nSixes);
-				cmd.setParm("duck", nDucks);
-				cmd.setParm("highestvs_team_id", nHigeshtVsTeamId);
-				cmd.executeNonQuery();		
-			}
-			else
-			{
+                SetPlayerBattingStats cmd = new SetPlayerBattingStats(m_conn);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("tournament_id", nTournamentId);
+                cmd.setParm("matches", nMatches);
+                cmd.setParm("innings", nInnings);
+                cmd.setParm("runs", nTotalRuns);
+                cmd.setParm("not_outs", nNotOuts);
+                cmd.setParm("average", flAverage);
+                cmd.setParm("strike_rate", flStrikeRate);
+                cmd.setParm("highest", nHighest);
+                cmd.setParm("hundred", nHundreds);
+                cmd.setParm("fifty", nFifties);
+                cmd.setParm("four", nFours);
+                cmd.setParm("six", nSixes);
+                cmd.setParm("duck", nDucks);
+                cmd.setParm("highestvs_team_id", nHigeshtVsTeamId);
+                cmd.executeNonQuery();
+            }
+            else
+            {
                 //LogMessage("Information", "Stats", "setPlayerBattingStats: " + nPlayerId.ToString() + ": update", nTournamentId);
 
-				CreatePlayerBattingStats cmd = new CreatePlayerBattingStats(m_conn);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("tournament_id", nTournamentId);
-				cmd.setParm("matches", nMatches);
-				cmd.setParm("innings", nInnings);
-				cmd.setParm("runs", nTotalRuns);
-				cmd.setParm("not_outs", nNotOuts);
-				cmd.setParm("average", flAverage);
-				cmd.setParm("strike_rate", flStrikeRate);
-				cmd.setParm("highest", nHighest);
-				cmd.setParm("hundred", nHundreds);
-				cmd.setParm("fifty", nFifties);
-				cmd.setParm("four", nFours);
-				cmd.setParm("six", nSixes);
-				cmd.setParm("duck", nDucks);
-				cmd.setParm("highestvs_team_id", nHigeshtVsTeamId);
-				cmd.executeNonQuery();		
-			}
-
-		
-		}
-
-		//Player bowling stats
-		protected void setPlayerBowlingStats(int nTournamentId, int nPlayerId)
-		{
-			//get the match count 
-			int nMatches = getPlayerMatchCount(nPlayerId, nTournamentId);
-
-			int nInnings = 0;
-			int nRuns = 0;
-			int nTotalRuns = 0;
-			int nWickets = 0;
-			int nBestWickets = 0;
-			int nBestRuns = 0;
-			int nTotalWickets = 0;
-			int nMaidens = 0;
-			int nTotalBalls = 0;
-			SqlDataReader dr = getPlayerBowlingData(nPlayerId, nTournamentId);
-			while(dr.Read())
-			{
-				nInnings++;
-
-				nTotalBalls += Overs.getBalls(toFloat(dr["overs"]));
-				nRuns = toInt(dr["runs"]);
-				nWickets = toInt(dr["wickets"]);
-				nMaidens += toInt(dr["maiden"]);
-
-				//calculate the best figures
-				if (nWickets >= nBestWickets)
-				{
-					if (nWickets > nBestWickets)
-					{
-						nBestWickets = nWickets;
-						nBestRuns = nRuns;
-					}
-					else if (nRuns < nBestRuns || nBestRuns == 0)
-					{
-						nBestRuns = nRuns;
-					}
-				}
-				
-				nTotalRuns +=  nRuns;
-				nTotalWickets +=  nWickets;
-			}
-			dr.Close();
-
-			float flTotalOvers = Overs.getOvers(nTotalBalls);
-			float flAverage = Overs.getAverage(nTotalRuns,nTotalWickets);
-			float flEconomyRate = Overs.getEconomyRate(nTotalRuns, nTotalBalls);
-			string strBest = nBestWickets.ToString() + "/" + nBestRuns.ToString();
-
-			if (nMatches < nInnings)
-				nMatches = nInnings;
+                CreatePlayerBattingStats cmd = new CreatePlayerBattingStats(m_conn);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("tournament_id", nTournamentId);
+                cmd.setParm("matches", nMatches);
+                cmd.setParm("innings", nInnings);
+                cmd.setParm("runs", nTotalRuns);
+                cmd.setParm("not_outs", nNotOuts);
+                cmd.setParm("average", flAverage);
+                cmd.setParm("strike_rate", flStrikeRate);
+                cmd.setParm("highest", nHighest);
+                cmd.setParm("hundred", nHundreds);
+                cmd.setParm("fifty", nFifties);
+                cmd.setParm("four", nFours);
+                cmd.setParm("six", nSixes);
+                cmd.setParm("duck", nDucks);
+                cmd.setParm("highestvs_team_id", nHigeshtVsTeamId);
+                cmd.executeNonQuery();
+            }
 
 
-			//update the stats
-			bool fInsert = true;
-			CheckPlayerBowlingStats cmd1 = new CheckPlayerBowlingStats(m_conn);
-			cmd1.setParm("player_id", nPlayerId);
-			cmd1.setParm("tournament_id", nTournamentId);
-			dr = cmd1.executeReader();
-			if (dr.Read())
-				fInsert = false;
-			dr.Close();
+        }
 
-			if (!fInsert)
-			{
-				SetPlayerBowlingStats cmd = new SetPlayerBowlingStats(m_conn);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("tournament_id", nTournamentId);
-				cmd.setParm("matches", nMatches);
-				cmd.setParm("innings", nInnings);
-				cmd.setParm("overs", flTotalOvers);
-				cmd.setParm("maidens", nMaidens);
-				cmd.setParm("wickets", nTotalWickets);
-				cmd.setParm("runs", nTotalRuns);
-				cmd.setParm("average", flAverage);
-				cmd.setParm("economy_rate", flEconomyRate);
-				cmd.setParm("best", strBest);
-				cmd.executeNonQuery();		
-			}
-			else
-			{
-				CreatePlayerBowlingStats cmd = new CreatePlayerBowlingStats(m_conn);
-				cmd.setParm("player_id", nPlayerId);
-				cmd.setParm("tournament_id", nTournamentId);
-				cmd.setParm("matches", nMatches);
-				cmd.setParm("innings", nInnings);
-				cmd.setParm("overs", flTotalOvers);
-				cmd.setParm("maidens", nMaidens);
-				cmd.setParm("wickets", nTotalWickets);
-				cmd.setParm("runs", nTotalRuns);
-				cmd.setParm("average", flAverage);
-				cmd.setParm("economy_rate", flEconomyRate);
-				cmd.setParm("best", strBest);
-				cmd.executeNonQuery();		
-			}
-		}
+        //Player bowling stats
+        protected void setPlayerBowlingStats(int nTournamentId, int nPlayerId)
+        {
+            //get the match count 
+            int nMatches = getPlayerMatchCount(nPlayerId, nTournamentId);
+
+            int nInnings = 0;
+            int nRuns = 0;
+            int nTotalRuns = 0;
+            int nWickets = 0;
+            int nBestWickets = 0;
+            int nBestRuns = 0;
+            int nTotalWickets = 0;
+            int nMaidens = 0;
+            int nTotalBalls = 0;
+            SqlDataReader dr = getPlayerBowlingData(nPlayerId, nTournamentId);
+            while (dr.Read())
+            {
+                nInnings++;
+
+                nTotalBalls += Overs.getBalls(toFloat(dr["overs"]));
+                nRuns = toInt(dr["runs"]);
+                nWickets = toInt(dr["wickets"]);
+                nMaidens += toInt(dr["maiden"]);
+
+                //calculate the best figures
+                if (nWickets >= nBestWickets)
+                {
+                    if (nWickets > nBestWickets)
+                    {
+                        nBestWickets = nWickets;
+                        nBestRuns = nRuns;
+                    }
+                    else if (nRuns < nBestRuns || nBestRuns == 0)
+                    {
+                        nBestRuns = nRuns;
+                    }
+                }
+
+                nTotalRuns += nRuns;
+                nTotalWickets += nWickets;
+            }
+            dr.Close();
+
+            float flTotalOvers = Overs.getOvers(nTotalBalls);
+            float flAverage = Overs.getAverage(nTotalRuns, nTotalWickets);
+            float flEconomyRate = Overs.getEconomyRate(nTotalRuns, nTotalBalls);
+            string strBest = nBestWickets.ToString() + "/" + nBestRuns.ToString();
+
+            if (nMatches < nInnings)
+                nMatches = nInnings;
 
 
-		/// <summary>
-		/// Indicates if teams stats should be updated
-		/// Team stats are updatable for group matches and league matches to maintain rankings
-		/// Team stats are not updatable for playoffs - quaterfinals, semis, finals 
-		/// </summary>
-		/// <returns></returns>
-		public bool ShouldUpdateTeamStats(int nMatchId)
-		{
-			int nTypeCd = 0;
+            //update the stats
+            bool fInsert = true;
+            CheckPlayerBowlingStats cmd1 = new CheckPlayerBowlingStats(m_conn);
+            cmd1.setParm("player_id", nPlayerId);
+            cmd1.setParm("tournament_id", nTournamentId);
+            dr = cmd1.executeReader();
+            if (dr.Read())
+                fInsert = false;
+            dr.Close();
 
-			GetMatchType cmd = new GetMatchType(m_conn);
-			cmd.setParm("match_id", nMatchId);
-			SqlDataReader dr = cmd.executeReader();
-			if (dr.Read())
-			{
-				nTypeCd = toInt(dr["type_cd"]);
-			}
-			dr.Close();
+            if (!fInsert)
+            {
+                SetPlayerBowlingStats cmd = new SetPlayerBowlingStats(m_conn);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("tournament_id", nTournamentId);
+                cmd.setParm("matches", nMatches);
+                cmd.setParm("innings", nInnings);
+                cmd.setParm("overs", flTotalOvers);
+                cmd.setParm("maidens", nMaidens);
+                cmd.setParm("wickets", nTotalWickets);
+                cmd.setParm("runs", nTotalRuns);
+                cmd.setParm("average", flAverage);
+                cmd.setParm("economy_rate", flEconomyRate);
+                cmd.setParm("best", strBest);
+                cmd.executeNonQuery();
+            }
+            else
+            {
+                CreatePlayerBowlingStats cmd = new CreatePlayerBowlingStats(m_conn);
+                cmd.setParm("player_id", nPlayerId);
+                cmd.setParm("tournament_id", nTournamentId);
+                cmd.setParm("matches", nMatches);
+                cmd.setParm("innings", nInnings);
+                cmd.setParm("overs", flTotalOvers);
+                cmd.setParm("maidens", nMaidens);
+                cmd.setParm("wickets", nTotalWickets);
+                cmd.setParm("runs", nTotalRuns);
+                cmd.setParm("average", flAverage);
+                cmd.setParm("economy_rate", flEconomyRate);
+                cmd.setParm("best", strBest);
+                cmd.executeNonQuery();
+            }
+        }
+
+
+        /// <summary>
+        /// Indicates if teams stats should be updated
+        /// Team stats are updatable for group matches and league matches to maintain rankings
+        /// Team stats are not updatable for playoffs - quaterfinals, semis, finals 
+        /// </summary>
+        /// <returns></returns>
+        public bool ShouldUpdateTeamStats(int nMatchId)
+        {
+            int nTypeCd = 0;
+
+            GetMatchType cmd = new GetMatchType(m_conn);
+            cmd.setParm("match_id", nMatchId);
+            SqlDataReader dr = cmd.executeReader();
+            if (dr.Read())
+            {
+                nTypeCd = toInt(dr["type_cd"]);
+            }
+            dr.Close();
 
             return MatchTypeCd.IsMatchTypeValidForStats(nTypeCd);
-		}
+        }
 
 
         protected void setTeamStatsCalc(int nTournamentId, int nCurrentMatchId, int nTeamId, int totalMatchOvers)
@@ -2065,7 +2085,7 @@ namespace Cricket.BAL
         }
 
 
-		public int setTeamStatsCalc(int nTournamentId)
+        public int setTeamStatsCalc(int nTournamentId)
         {
             //Note: this will screw up the stats for matches that had reduced overs since we are not keeping the number of reduced overs per match at this time
 
@@ -2100,15 +2120,15 @@ namespace Cricket.BAL
         }
 
 
-		/// <summary>
-		/// Calculates the statistics for all the matches in the tournament
-		/// Includes only the valid matches for stats calculations by type_cd
-		/// i.e. does not include the playoff matches for stats calculations
-		/// </summary>
-		/// <param name="nTournamentId"></param>
-		/// <param name="nTeamId"></param>
-		protected void setTeamStatsCalc(int nTournamentId, int nTeamId, int totalMatchOvers)
-		{
+        /// <summary>
+        /// Calculates the statistics for all the matches in the tournament
+        /// Includes only the valid matches for stats calculations by type_cd
+        /// i.e. does not include the playoff matches for stats calculations
+        /// </summary>
+        /// <param name="nTournamentId"></param>
+        /// <param name="nTeamId"></param>
+        protected void setTeamStatsCalc(int nTournamentId, int nTeamId, int totalMatchOvers)
+        {
             SqlDataReader dr = null;
             try
             {
@@ -2283,7 +2303,7 @@ namespace Cricket.BAL
 
                 //LogMessage("Information", "Stats", "setTeamStatsCalc done", nTournamentId);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 LogMessage("Error", "setTeamStatsCalc", ex.ToString(), nTournamentId);
                 if (dr != null)
@@ -2291,11 +2311,11 @@ namespace Cricket.BAL
                 throw;
             }
 
-		}
-		#endregion 
+        }
+        #endregion
 
 
-	}
+    }
 
 
 
