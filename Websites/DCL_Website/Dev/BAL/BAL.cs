@@ -1399,7 +1399,7 @@ namespace Cricket.BAL
             string cmdText = string.Format("select t.team_id, t.name from team t inner join tournament_team tm " + 
                 "on tm.team_id = t.team_id and tournament_id in  " + 
                 "(select tournament_id from tournament  " + 
-                "where group_name in (select group_name from tournament where tournament_id = {0}) " + 
+                "where group_name not in (select group_name from tournament where tournament_id = {0}) " + 
                 ") order by name", tournamentId);
 
             using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
