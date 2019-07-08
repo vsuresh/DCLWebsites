@@ -1396,11 +1396,20 @@ namespace Cricket.BAL
 
         public SqlDataReader GetUmpiringTeams(int tournamentId)
         {
-            string cmdText = string.Format("select t.team_id, t.name from team t inner join tournament_team tm " +
-                "on tm.team_id = t.team_id and tournament_id in  " +
-                "(select tournament_id from tournament  " +
-                "where group_name in (select group_name from tournament where tournament_id = {0}) " +
-                ") order by name", tournamentId);
+            //string cmdText = string.Format("select distinct t.team_id, t.name from team t inner join tournament_team tm " + 
+            //    "on tm.team_id = t.team_id and tournament_id in  " + 
+            //    "(select tournament_id from tournament  " + 
+            //    "where group_name not in (select group_name from tournament where tournament_id = {0}) " + 
+            //    ") order by nam" +
+            //    "e", tournamentId);
+
+            string cmdText = string.Format("select distinct t.team_id, t.name from team t inner join tournament_team tm " +
+                                           "on tm.team_id = t.team_id and tournament_id in " +
+                                           "(select tournament_id from tournament where  substring(name, 1, 26) = (Select distinct top 1   substring(name, 1, 26) tournament_name from tournament t " +
+                                           "inner join match m on t.tournament_id = m.tournament_id " +
+                                           "where t.tournament_id = {0}) " +
+                                           "and group_name not in (select group_name from tournament where tournament_id = {0})) " +
+                                           "order by t.name", tournamentId);
 
             using (SqlCommand com = new SqlCommand(cmdText, m_conn.getConnection()))
             {
