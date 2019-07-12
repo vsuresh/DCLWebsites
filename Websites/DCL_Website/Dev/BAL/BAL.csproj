@@ -126,6 +126,7 @@
     <Compile Include="DAL\Address.cs" />
     <Compile Include="DAL\Command.cs" />
     <Compile Include="DAL\Connection.cs" />
+    <Compile Include="DAL\UnlockScoresheet.cs" />
     <Compile Include="DAL\Matches.cs" />
     <Compile Include="DAL\Match_Batting.cs" />
     <Compile Include="DAL\Penalty.cs" />

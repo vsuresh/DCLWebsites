@@ -14,7 +14,7 @@
 	margin-right: 2;
 	margin-top: 2;
 	border: none;
-	width: 800px;
+	/*width: 800px; */
 }
 
 .headerTableTR1
@@ -39,15 +39,15 @@
 
 .headerTitle
 {
-	font-family: helvetica;
-	font-weight: bold;
-	font-size: 10pt;
-	color: DarkRed;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 24px;
+	color:#333 !important;
+	margin-top:20px !important;
 }
 
 .headerTitle2
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 10pt;
 	color:Maroon;
@@ -116,24 +116,21 @@
 
 .btnAdmin
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
-	font-size: 9pt;
+	font-size: 1.2em;
 	text-align: center;
-	background-color: #40779F;
+	background-color: #007afc;
 	color: White;
-	border-top: 1 solid #8F93D3;
-	border-left: 2 solid #8F93D3;
-	border-right: 1 solid #000446;
-	border-bottom: 2 solid #000446;
 	cursor: hand;
-	width: 100px;
-	height: 20px
+	min-width: 100px;
+	height: 40px;
+	padding:10px 20px;
 }
 
 .infoError
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 9pt;
 	color: red;
@@ -141,7 +138,7 @@
 
 .infoLabel
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 9pt;
 	color: #000000;
@@ -149,7 +146,7 @@
 
 .infoLabelShort
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 8pt;
 	color: #000000;
@@ -158,7 +155,7 @@
 
 .infoLabelShort
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 8pt;
 	color: #000000;
@@ -168,7 +165,7 @@
 
 .infoLabel2
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 10pt;
 	color: #000000;
@@ -176,7 +173,7 @@
 
 .infoData
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 10pt;
 	color: #000000;
@@ -184,7 +181,7 @@
 
 .infoDataShort
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 8pt;
 	color: #000000;
@@ -192,7 +189,7 @@
 
 .infoDataBold
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 10pt;
 	color: #000000;
@@ -216,7 +213,7 @@
 
 .infoTitle
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 11pt;
 	color: #000000;
@@ -226,7 +223,7 @@
 /* info checks */
 .infoCheck
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 8pt;
 	color: #000000;
@@ -235,7 +232,7 @@
 /* info checks */
 .infoCheckTotal
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 8pt;
 	color: #000000;
@@ -246,7 +243,7 @@
 /* blue buttons */
 .infoAction
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 9pt;
 	text-align: center;
@@ -262,7 +259,7 @@
 /* edit labels in the info section */
 .infoEditLabel
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-size: 10pt;
 	font-weight: bold;
 	color: #0066CC;
@@ -272,7 +269,7 @@
 /* links in the info section */
 .infoLink
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-size: 10pt;
 	font-weight: bold;
 	color: #0066CC;
@@ -321,8 +318,8 @@
 	border-left:  2 solid #ffffef;
 	border-right: 2 solid #dfdfdf;
 	border-bottom: 2 solid #dfdfdf;
-	font-family: helvetica;
-	font-size: 10pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: bold;
 	text-align: center;
 	cursor: hand;
@@ -336,7 +333,7 @@
 	border-right:  2 solid #ffffef;
 	border-left: 2 solid #dfdfdf;
 	border-top: 2 solid #dfdfdf;
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-size: 8pt;
 	font-weight: lighter; 
 	text-align: right;
@@ -350,7 +347,7 @@
 	border-right:  2 solid #ffffef;
 	border-left: 2 solid #dfdfdf;
 	border-top: 2 solid #dfdfdf;
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-size: 8pt;
 	font-weight: bold;
 	text-align: center;
@@ -361,12 +358,12 @@
 .rtColHeader
 {
 	background-color: #42ABBD;
-	font-family: helvetica;
-	font-size: 9pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 1em;
 	font-weight: bold;
 	text-align: center;
 	cursor: default;
-	height: 20px;
+	height: 30px;
 	vertical-align:middle;
 }
 
@@ -375,8 +372,8 @@
 	background-color: #42ABBD;
 	color:White;
 	vertical-align:middle;
-	font-family: helvetica;
-	font-size: 9pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 1em;
 	font-weight: bold;
 	text-align: center;
 	cursor: default;
@@ -399,8 +396,8 @@
 	width: 35px;
 	color: #ffffff; 
 	background-color: #0066CC;
-	font-family: helvetica;
-	font-size: 9pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 12px;
 	font-weight: normal;
 	text-align: center;
 	cursor: hand;
@@ -416,8 +413,8 @@
 	border-right: 2 solid #dfdfdf;
 	border-bottom: 2 solid #dfdfdf;
 	color: #f56C19;
-	font-family: helvetica;
-	font-size: 9pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 12px;
 	font-weight: normal;
 	text-align: center;
 	cursor: hand;
@@ -428,16 +425,16 @@
 /* large text data label in stats */
 .rtCellLabelXl
 {
-	font-family: Arial;
-	font-size: 10pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 12px;
 	font-weight: 600;
 	color: #6f6f6f;
 }
 
 .rtCellData
 {
-	font-family: helvetica;
-	font-size: 8pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: normal;
 	text-align: center;
 	vertical-align:middle;
@@ -445,8 +442,8 @@
 
 .rtCellDataLeft
 {
-	font-family: helvetica;
-	font-size: 8pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: normal;
 	text-align: left;
 	vertical-align:middle;
@@ -454,8 +451,8 @@
 
 .rtCellDataRight
 {
-	font-family: helvetica;
-	font-size: 8pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: normal;
 	text-align: right;
 	vertical-align:middle;
@@ -463,8 +460,8 @@
 
 .rtCellDataBorder
 {
-	font-family: helvetica;
-	font-size: 8pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: normal;
 	text-align: left;
 	border-right: 2 ridge #ccffcc;
@@ -474,8 +471,8 @@
 /* large text data in stats */
 .rtCellMultiDataXl
 {
-	font-family: Arial;
-	font-size: 8pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: 500;
 	color: #6f6f6f;
 }
@@ -483,8 +480,8 @@
 /* small text data label in stats */
 .rtCellLabel
 {
-	font-family: Arial;
-	font-size: 8pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: 600;
 	color: #6f6f6f;
 }
@@ -492,8 +489,8 @@
 /* small text data label in stats */
 .rtCellMultiData
 {
-	font-family: Arial;
-	font-size: 8pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: 500;
 	color: #6f6f6f;
 }
@@ -504,8 +501,8 @@
 .editLabel
 {
 	width: 40%;
-	font-family: helvetica;
-	font-size: 10pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	font-weight: bold;
 	color: #0066CC;
 	text-align: right;
@@ -515,9 +512,9 @@
 /* view data only */
 .viewOnly
 {
-	font-family: helvetica;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-weight: normal;
-	font-size: 10pt;
+	font-size: 0.9em;
 	color: #0066CC;
 	text-align: left;
 }
@@ -533,8 +530,8 @@
 /* server side edit errors posted back */
 .serverError
 {
-	font-family: helvetica;
-	font-size: 10pt;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 0.9em;
 	color: #ff0000;
 	text-align: left;
 	border: 3 groove #efefef;

@@ -11,6 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using Cricket;
+using System.Collections.Generic;
 
 namespace Cricket.AdminTeams
 {
@@ -30,13 +31,24 @@ namespace Cricket.AdminTeams
             updateDaysAfterEndDate = toInt(ConfigurationManager.AppSettings["DaysToAllowMatchScoreUpdatesAfterMatchDate"]);
 
             // get the match ids that are defined in web config files that we need to allow match score updates for
-            string matchIds = ConfigurationManager.AppSettings["MatchIDsForScoreUpdateAllowedCommaSeperated"];
-            if (!string.IsNullOrEmpty(matchIds))
+            //string matchIds = ConfigurationManager.AppSettings["MatchIDsForScoreUpdateAllowedCommaSeperated"];
+            //if (!string.IsNullOrEmpty(matchIds))
+            //{
+            //    string[] matchIdArray = matchIds.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+            //    matchIDsForScoreUpdateAllowed.AddRange(matchIdArray);
+            //}
+            //get from db now
+            List<string> matchIdCollection = new List<string>();
+            SqlDataReader dr = m_bl.getActiveUnlockList();
+            if (dr.Read())
             {
-                string[] matchIdArray = matchIds.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                matchIDsForScoreUpdateAllowed.AddRange(matchIdArray);
+                matchIdCollection.Add(dr["match_id"].ToString());
             }
-
+            dr.Close();
+            if (matchIdCollection.Count > 0)
+            {
+                matchIDsForScoreUpdateAllowed.AddRange(matchIdCollection.ToArray());
+            }
             if (!IsPostBack)
             {
                 bindControls();

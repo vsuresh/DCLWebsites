@@ -1,9 +1,9 @@
 body,
 td,
 th {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    color: #000000;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 1em;
+    color: #333;
 }
 
 body {
@@ -14,10 +14,17 @@ body {
 }
 
 .txt {
-    font-size: 12px;
+    font-size: 0.8em;
     color: #000000;
     line-height: 22px;
 }
+
+.txt-l {font-size: 1em !important;}
+.txt-xl {font-size: 1.1em !important;}
+.txt-xxl {font-size: 1.4em !important;}
+.txt-xxxl {font-size: 1.6em !important;}
+.bolder { font-weight: bold!important; }
+
 
 .Space {
     padding-left: 20px;
@@ -32,9 +39,9 @@ body {
 .bodyoutline {}
 
 .bodyoutline2 {
-    border-left: 1px solid #CCCCCC;
+   /*  border-left: 1px solid #CCCCCC;
     border-right: 1px solid #CCCCCC;
-    border-top: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;  */
 }
 
 .bodyoutlineAll {
@@ -50,17 +57,17 @@ body {
 }
 
 .menuline {
-    border-right: 1px solid #003851;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
+    border-right: 0px solid #003851;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 15px;
+    
     text-decoration: none;
     color: #FFFFFF;
     line-height: 26px;
 }
 
-menulineNoBorder {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+.menulineNoBorder {
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
     text-decoration: none;
@@ -69,8 +76,8 @@ menulineNoBorder {
 }
 
 .menuline2 {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 13px;
     font-weight: regular;
     text-decoration: none;
     color: Blue;
@@ -78,7 +85,7 @@ menulineNoBorder {
 }
 
 .aboutustext {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
     text-decoration: none;
@@ -92,7 +99,7 @@ menulineNoBorder {
 
 .Subbg1 {
     font-size: 12px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     color: #666666;
     border-bottom: 1px solid #CCCCCC;
     background-color: #e6e6e6;
@@ -100,7 +107,7 @@ menulineNoBorder {
 }
 
 .summertext {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
     color: #a73736;
@@ -108,7 +115,7 @@ menulineNoBorder {
 }
 
 .summercontent {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-size: 12px;
     color: #767676;
     padding: 15px;
@@ -117,7 +124,7 @@ menulineNoBorder {
 .bodyrighttext {
     color: #616161;
     font-size: 12px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     padding: 15px;
 }
 
@@ -131,15 +138,15 @@ menulineNoBorder {
 }
 
 .footermenu {
-    font: Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 1em;
     color: #FFFFFF;
     text-decoration: none;
 }
 
 .footertext {
-    font: Arial, Helvetica, sans-serif;
-    font-size: 10px;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 1em;
     color: #FFFFFF;
 }
 
@@ -187,7 +194,7 @@ menulineNoBorder {
 }
 
 #note {
-    font-size: 11px;
+    font-size: 0.7em;
     color: #b2b2b2;
     line-height: 16px;
     position: absolute;
@@ -299,21 +306,21 @@ ul {
 }
 
 .NormalText {
-    font-family: Verdana;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-weight: normal;
     color: Black;
     font-size: 12px;
 }
 
 .NormalTextBold {
-    font-family: Verdana;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-weight: bold;
     color: Black;
     font-size: 12px;
 }
 
 .NormalLink {
-    font-family: Verdana;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-weight: normal;
     color: Blue;
     font-size: 12px;
@@ -321,7 +328,7 @@ ul {
 }
 
 .Buttons {
-    font-family: Verdana;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
     font-weight: bold;
     color: Black;
     font-size: 11px;
@@ -411,7 +418,7 @@ ul {
 }
 
 .tournamentHeader {
-    font-family: Times New Roman;
+   font-family: Helvetica, Verdana, Arial, sans-serif;
     font-size: 24px;
     color: Blue;
     font-weight: bold;
