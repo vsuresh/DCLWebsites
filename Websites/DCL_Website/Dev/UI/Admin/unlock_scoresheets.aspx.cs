@@ -24,8 +24,8 @@ namespace Cricket.Admin
 		protected override void OnLoad(System.EventArgs e)
 		{
 			base.OnLoad(e);
-            load_unlock_grid();
-            //load_dropdown();
+
+            load_unlock_controls();
             if (!IsPostBack)
             {
                 Session["unlock_id"] = string.Empty;
@@ -38,15 +38,29 @@ namespace Cricket.Admin
             this.dgrid_unlock.ItemDataBound += new System.Web.UI.WebControls.DataGridItemEventHandler(this.dgrid_unlock_ItemDataBound);
 
         }
-        protected void load_unlock_grid()
-		{
-			//load the data from the database
-			SqlDataReader dr = m_bl.getUnlockList();
-            dgrid_unlock.DataSource = dr;
+        protected void load_unlock_controls()
+        {
+            var selectedValue = ddlTournament.SelectedValue;
+            SqlDataReader dr = m_bl.getGroupNames();
+            ddlTournament.DataSource = dr;
+            ddlTournament.DataTextField = "group_name";
+            ddlTournament.DataValueField = "group_name";
+            ddlTournament.DataBind();
+            dr.Close();
+            if(!string.IsNullOrEmpty(selectedValue)) ddlTournament.SelectedIndex = ddlTournament.Items.IndexOf(ddlTournament.Items.FindByValue(selectedValue));
+            //ddlTournament.SelectedIndex = ddlTournament.Items.IndexOf(ddlTournament.Items.FindByValue(dr["team_requesting"].ToString().ToLower()));
+            //ddlTournament.SelectedValue = "Summer 2017";
+            //load the data from the database
+            SqlDataReader dr1 = m_bl.getUnlockList();
+            dgrid_unlock.DataSource = dr1;
             dgrid_unlock.DataBind();
-         	dr.Close();
+            dr1.Close();
 		}
-
+        protected void ddlTournament_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //LoadPlayerReport(ddlTournament.SelectedValue);
+            //ddlTournament.SelectedIndex = ddlTournament.Items.IndexOf(ddlTournament.Items.FindByValue(ddlTournament.SelectedValue));
+        }
 
         private void dgrid_unlock_ItemDataBound(object sender, System.Web.UI.WebControls.DataGridItemEventArgs e)
         {
@@ -69,9 +83,11 @@ namespace Cricket.Admin
             if (dr.Read())
             {
                 ddlActive.SelectedIndex = ddlActive.Items.IndexOf(ddlActive.Items.FindByValue(dr["is_active"].ToString().ToLower()));
+                ddlTournament.SelectedIndex = ddlTournament.Items.IndexOf(ddlTournament.Items.FindByValue(dr["team_requesting"].ToString().ToLower()));
                 //ddlActive.DataValueField = dr["is_active"].ToString().ToLower();
                 txtMatchId.Text = dr["match_id"].ToString();
                 txtTeamRequesting.Text = dr["team_requesting"].ToString();
+                ddlTournament.SelectedValue = dr["group_name"].ToString();
             }
             dr.Close();
         }
@@ -123,7 +139,8 @@ namespace Cricket.Admin
                 int nMatchId = toInt(txtMatchId.Text);
                 bool isActive = ddlActive.SelectedIndex == 1;
                 string teamRequesting = txtTeamRequesting.Text;
-                m_bl.createUnlockScoresheet(nMatchId, isActive , teamRequesting);
+                string season = ddlTournament.SelectedValue;
+                m_bl.createUnlockScoresheet(nMatchId, isActive , teamRequesting, season);
             }
             else
             {
@@ -131,8 +148,8 @@ namespace Cricket.Admin
                 int nMatchId = toInt(txtMatchId.Text);
                 bool isActive = ddlActive.SelectedIndex == 1;
                 string teamRequesting = txtTeamRequesting.Text;
-        
-                m_bl.setUnlockScoresheet(nMatchId, isActive,  teamRequesting, nId);
+                string season = ddlTournament.SelectedValue;
+                m_bl.setUnlockScoresheet(nMatchId, isActive,  teamRequesting, nId, season);
             }
 
             clearAll();

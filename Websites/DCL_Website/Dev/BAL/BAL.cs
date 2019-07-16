@@ -522,21 +522,23 @@ namespace Cricket.BAL
             cmd.executeNonQuery();
 		}
 
-        public void setUnlockScoresheet(int match_id, bool is_active, string team_requesting, int nId)
+        public void setUnlockScoresheet(int match_id, bool is_active, string team_requesting, int nId, string season)
         {
             SetUnlockScoresheet cmd = new SetUnlockScoresheet(m_conn);
             cmd.setParm("match_id", match_id);
             cmd.setParm("is_active", is_active);
             cmd.setParm("team_requesting", team_requesting);
             cmd.setParm("id", nId);
+            cmd.setParm("group_name", season);
             cmd.executeNonQuery();
         }
-        public void createUnlockScoresheet(int match_id, bool is_active, string team_requesting)
+        public void createUnlockScoresheet(int match_id, bool is_active, string team_requesting, string season)
         {
             CreateUnlockScoresheet cmd = new CreateUnlockScoresheet(m_conn);
             cmd.setParm("match_id", match_id);
             cmd.setParm("is_active", is_active);
             cmd.setParm("team_requesting", team_requesting);
+            cmd.setParm("group_name", season); 
             cmd.executeNonQuery();
         }
 

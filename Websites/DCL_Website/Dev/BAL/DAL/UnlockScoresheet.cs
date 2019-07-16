@@ -11,7 +11,7 @@ namespace BAL.DAL
     {
         public GetUnlockList(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "select id, match_id, is_active ,team_requesting from unlock_scoresheet order by  is_active desc, created_date desc";
+            m_cmd.CommandText = "select id, match_id, is_active ,team_requesting, group_name from unlock_scoresheet order by  is_active desc, created_date desc";
         }
     }
 
@@ -19,7 +19,7 @@ namespace BAL.DAL
     {
         public GetActiveUnlockList(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "select id, match_id, is_active ,team_requesting from unlock_scoresheet  where is_active = 1 order by  is_active desc, created_date desc";
+            m_cmd.CommandText = "select id, match_id, is_active ,team_requesting, group_name from unlock_scoresheet  where is_active = 1 order by  is_active desc, created_date desc";
         }
     }
     public class GetUnlockData : Command
@@ -34,11 +34,12 @@ namespace BAL.DAL
     {
         public CreateUnlockScoresheet(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "insert into unlock_scoresheet ([match_id],[is_active],[created_date],[modified_date],[team_requesting]) " +
-                                "values (@match_id, @is_active, GetDate(), GetDate(), @team_requesting) ";
+            m_cmd.CommandText = "insert into unlock_scoresheet ([match_id],[is_active],[created_date],[modified_date],[team_requesting],[group_name]) " +
+                                "values (@match_id, @is_active, GetDate(), GetDate(), @team_requesting, @group_name) ";
             addParmInt("match_id");
             addParmInt("is_active");
             addParmText("team_requesting");
+            addParmText("group_name");
         }
     }
 
@@ -47,12 +48,13 @@ namespace BAL.DAL
         public SetUnlockScoresheet(Connection conn) : base(conn)
         {
             m_cmd.CommandText = "update unlock_scoresheet set " +
-                                "match_id = @match_id, is_active = @is_active, modified_date = GetDate(), team_requesting = @team_requesting " +
+                                "match_id = @match_id, is_active = @is_active, modified_date = GetDate(), team_requesting = @team_requesting, group_name = @group_name " +
                                 "where id = @id ";
             addParmInt("match_id");
             addParmInt("is_active");
             addParmText("team_requesting");
             addParmInt("id");
+            addParmText("group_name");
         }
     }
 }

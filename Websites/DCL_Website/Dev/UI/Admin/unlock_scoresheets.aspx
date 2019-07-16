@@ -79,12 +79,12 @@
 								            <Columns>
 									            <asp:BoundColumn DataField="id" HeaderText=""  Visible="false">
 										            <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-										            <ItemStyle Font-Bold="False" Width="0%" CssClass="rtCellDataLeft">
+										            <ItemStyle Font-Bold="False" Width="10%" CssClass="rtCellDataLeft">
 										            </ItemStyle>
 									            </asp:BoundColumn>
 									            <asp:BoundColumn DataField="match_id" HeaderText="Match Id">
 										            <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-										            <ItemStyle Width="20%" Font-Bold="true" CssClass="rtCellData">
+										            <ItemStyle Width="15%" Font-Bold="true" CssClass="rtCellData">
 										            </ItemStyle>
 									            </asp:BoundColumn>
                                                <%-- <asp:TemplateField HeaderText="IsActive?" >
@@ -94,17 +94,22 @@
                                                 </asp:TemplateField>--%>
 									            <asp:BoundColumn DataField="is_active" HeaderText="Active?">
 										            <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-										            <ItemStyle Font-Bold="False" Width="20%" CssClass="rtCellData">
+										            <ItemStyle Font-Bold="False" Width="10%" CssClass="rtCellData">
 										            </ItemStyle>
 									            </asp:BoundColumn>
-									            <asp:BoundColumn DataField="team_requesting" HeaderText="Team Requesting" Visible="True">
+									            <asp:BoundColumn DataField="group_name" HeaderText="Season" Visible="True">
 										            <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-										            <ItemStyle Font-Bold="False" Width="50%" CssClass="rtCellData">
+										            <ItemStyle Font-Bold="False" Width="40%" CssClass="rtCellData">
 										            </ItemStyle>
 									            </asp:BoundColumn>
+                                                <asp:BoundColumn DataField="team_requesting" HeaderText="Team Requesting" Visible="True">
+                                                    <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
+                                                    <ItemStyle Font-Bold="False" Width="25%" CssClass="rtCellData">
+                                                    </ItemStyle>
+                                                </asp:BoundColumn>
 									            <asp:ButtonColumn Text="Edit" SortExpression="Edit" HeaderText="Edit" CommandName="Edit">
                                                     <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-                                                    <ItemStyle HorizontalAlign="Right" Width="30%" CssClass="rtCellData"></ItemStyle>
+                                                    <ItemStyle HorizontalAlign="Right" Width="15%" CssClass="rtCellData"></ItemStyle>
                                                 </asp:ButtonColumn>
 								            </Columns>
 							            </asp:DataGrid>
@@ -160,6 +165,15 @@
                                                 <td>
                                                     <asp:TextBox ID="txtTeamRequesting" TabIndex="2" runat="server" Width="304px" ReadOnly="False" MaxLength="100" Height="24px"></asp:TextBox>
                                                     <span class="infoData2">(Optional)</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <span class="infoLabel">Season:</span>
+                                                </td>
+                                                <td>
+                                                    <asp:DropDownList ID="ddlTournament" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTournament_SelectedIndexChanged">
+                                                    </asp:DropDownList>
                                                 </td>
                                             </tr>
                                             <tr>
