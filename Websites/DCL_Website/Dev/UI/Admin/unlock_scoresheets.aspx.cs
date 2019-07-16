@@ -51,7 +51,7 @@ namespace Cricket.Admin
             //ddlTournament.SelectedIndex = ddlTournament.Items.IndexOf(ddlTournament.Items.FindByValue(dr["team_requesting"].ToString().ToLower()));
             //ddlTournament.SelectedValue = "Summer 2017";
             //load the data from the database
-            SqlDataReader dr1 = m_bl.getUnlockList();
+            SqlDataReader dr1 = m_bl.getActiveUnlockList();
             dgrid_unlock.DataSource = dr1;
             dgrid_unlock.DataBind();
             dr1.Close();
