@@ -135,6 +135,7 @@
     <Compile Include="DAL\Team.cs" />
     <Compile Include="DAL\TeamRegistration.cs" />
     <Compile Include="DAL\Tournament.cs" />
+    <Compile Include="DAL\UnlockScoresheet.cs" />
     <Compile Include="DAL\Users.cs" />
     <Compile Include="TournamentHelper.cs" />
     <Compile Include="Helper.cs">

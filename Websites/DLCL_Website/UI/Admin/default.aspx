@@ -104,6 +104,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td align="center">
+                                                                <a href="/Admin/unlock_scoresheets.aspx">Unlock Score Sheets</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">
                                                             </td>
                                                         </tr>
                                                     </table>

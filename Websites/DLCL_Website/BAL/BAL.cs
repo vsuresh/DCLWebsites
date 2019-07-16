@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Data.SqlClient;
+using BAL.DAL;
 using Cricket.DAL;
 using Cricket.DAL.Address;
 using Cricket.DAL.Matches;
@@ -520,7 +521,25 @@ namespace Cricket.BAL
             cmd.setParm("format", format);
             cmd.executeNonQuery();
         }
-
+        public void setUnlockScoresheet(int match_id, bool is_active, string team_requesting, int nId, string season)
+        {
+            SetUnlockScoresheet cmd = new SetUnlockScoresheet(m_conn);
+            cmd.setParm("match_id", match_id);
+            cmd.setParm("is_active", is_active);
+            cmd.setParm("team_requesting", team_requesting);
+            cmd.setParm("id", nId);
+            cmd.setParm("group_name", season);
+            cmd.executeNonQuery();
+        }
+        public void createUnlockScoresheet(int match_id, bool is_active, string team_requesting, string season)
+        {
+            CreateUnlockScoresheet cmd = new CreateUnlockScoresheet(m_conn);
+            cmd.setParm("match_id", match_id);
+            cmd.setParm("is_active", is_active);
+            cmd.setParm("team_requesting", team_requesting);
+            cmd.setParm("group_name", season);
+            cmd.executeNonQuery();
+        }
 
         public SqlDataReader getTournamentData(int nId)
         {
@@ -582,7 +601,12 @@ namespace Cricket.BAL
             cmd.setParm("player_id", nPlayerId);
             return cmd.executeReader();
         }
-
+        public SqlDataReader getUnlockData(int id)
+        {
+            GetUnlockData cmd = new GetUnlockData(m_conn);
+            cmd.setParm("id", id);
+            return cmd.executeReader();
+        }
         public bool checkPlayerName(int nTeamId, string strFirstName, string strLastName)
         {
             bool fFound = false;
@@ -710,7 +734,22 @@ namespace Cricket.BAL
             return cmd.executeReader();
         }
 
+        //public SqlDataReader getTournamentList()
+        //{
+        //    GetTournamentList cmd = new GetTournamentList(m_conn);
+        //    return cmd.executeReader();
+        //}
 
+        public SqlDataReader getUnlockList()
+        {
+            GetUnlockList cmd = new GetUnlockList(m_conn);
+            return cmd.executeReader();
+        }
+        public SqlDataReader getActiveUnlockList()
+        {
+            GetActiveUnlockList cmd = new GetActiveUnlockList(m_conn);
+            return cmd.executeReader();
+        }
         public SqlDataReader getTeamRegistrations(int nTournamentId, bool active)
         {
             GetTeamRegistrations cmd = new GetTeamRegistrations(m_conn);
