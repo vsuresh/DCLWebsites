@@ -1,6 +1,17 @@
 <%@ Page language="c#" AutoEventWireup="true" MasterPageFile="~/SiteTournament.master" Inherits="Cricket.Tournament.registration" CodeFile="registration.aspx.cs" CodeFileBaseClass="Cricket.PageBaseTournament" %>
 
 <asp:Content ID="Control1" runat="server" ContentPlaceHolderID="HeadContent">
+<%--    <script type="text/javascript">
+        function showTexbox() {
+            if (document.getElementById('<%=chkbxNewTeam.ClientID%>').checked) {
+                document.getElementById("oldTeamrow").style.visibility = 'hidden';
+                document.getElementById("newTeamrow").style.visibility = 'visible';
+            } else {
+                document.getElementById("oldTeamrow").style.visibility = 'visible';
+                document.getElementById("newTeamrow").style.visibility = 'hidden';
+            }
+        }
+    </script>--%>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="MainContent">
@@ -95,16 +106,44 @@
 								        <td align="left" colSpan="2">
 									        <asp:label id="lblMessage" runat="server" Width="600px" ForeColor="DarkRed" CssClass="infoData"></asp:label>
 									        <br>
+                                            <asp:ValidationSummary ID="ValidationSummary1" runat="server"  BackColor="Snow"
+                                          
+                                                                   ForeColor="Red"
+                                                                   CssClass="input_error"
+                                                                   DisplayMode ="BulletList" ShowSummary ="true" HeaderText="Errors:" />
 								        </td>
 							        </tr>
-							        <tr>
-								        <td align="right"><span class="infoLabel">Team Name:</span>
+                                    <tr>
+                                        <td align="right"><span class="infoLabel">Check if new team:</span>
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox ID="chkbxNewTeam" runat="server" AutoPostBack="True" OnCheckedChanged="chkbxNewTeam_CheckedChanged" />
+                                        </td>
+                                    </tr>
+                         	        <tr id="oldTeamrow"  runat="server">
+								        <td align="right"><span class="infoLabel">Select Team Name:</span>
 								        </td>
-								        <td>
-									        <asp:textbox id="txtTeamName" tabIndex="1" runat="server" Width="304px" MaxLength="30"></asp:textbox>
-									        <asp:requiredfieldvalidator id="Requiredfieldvalidator5" runat="server" ControlToValidate="txtTeamName" ErrorMessage="RequiredFieldValidator">Field is required</asp:requiredfieldvalidator>
-								        </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlTeams" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTeams_SelectedIndexChanged">
+                                            </asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="Requiredfieldvalidator9" runat="server" ControlToValidate ="ddlTeams"
+                                                                        ErrorMessage="Please choose a Team"  Text="*" 
+                                                                        InitialValue="0">
+                                            </asp:RequiredFieldValidator>
+                                        </td>
+								      
 							        </tr>
+                                    <tr id="newTeamrow"  runat="server">
+                                        <td align="right"><span class="infoLabel">Team Name:</span>
+                                        </td>
+                                      <td>
+                                            <asp:textbox id="txtTeamName" tabIndex="1" runat="server" Width="304px" MaxLength="30"></asp:textbox>
+                                        </td>
+                                        <td>
+                                            <asp:requiredfieldvalidator id="Requiredfieldvalidator3" runat="server" ControlToValidate="txtTeamName" Text="*" ErrorMessage="Team Name is required"></asp:requiredfieldvalidator>
+
+                                        </td>
+                                    </tr>
 							        <tr>
 								        <td align="right"><span class="infoLabel">Preferred Location:</span>
 								        </td>
@@ -119,8 +158,8 @@
 								        </td>
 								        <td>
 									        <asp:textbox id="txtContact1Name" tabIndex="3" runat="server" Width="200px" MaxLength="30"></asp:textbox>
-									        <asp:requiredfieldvalidator ControlToValidate="txtContact1Name" id="Requiredfieldvalidator1" runat="server"
-										        ErrorMessage="RequiredFieldValidator">Field is required</asp:requiredfieldvalidator>
+									        <asp:requiredfieldvalidator ControlToValidate="txtContact1Name" id="Requiredfieldvalidator1" runat="server" Text="*"
+										        ErrorMessage="Contact1 is Required"></asp:requiredfieldvalidator>
 								        </td>
 							        </tr>
 							        <tr>
@@ -135,7 +174,8 @@
 								        <td>
 									        <asp:textbox id="txtContact1Email" tabIndex="5" runat="server" Width="200px" MaxLength="40"></asp:textbox>
 									        <asp:requiredfieldvalidator ControlToValidate="txtContact1Email" id="Requiredfieldvalidator7" runat="server"
-										        ErrorMessage="RequiredFieldValidator">Field is required</asp:requiredfieldvalidator>
+										        ErrorMessage="Contact1 Email Required" Text="*" ></asp:requiredfieldvalidator>
+                                            <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtContact1Email" Text="*" ErrorMessage="Invalid Contact1 Email Format"></asp:RegularExpressionValidator>
 								        </td>
 							        </tr>
 							        <tr>
@@ -144,8 +184,9 @@
 								        <td style="HEIGHT: 26px">
 									        <asp:textbox id="txtContact1Phone" tabIndex="6" runat="server" Width="200px" MaxLength="30"></asp:textbox>
 									        <asp:requiredfieldvalidator ControlToValidate="txtContact1Phone" id="Requiredfieldvalidator8" runat="server"
-										        ErrorMessage="RequiredFieldValidator">Field is required</asp:requiredfieldvalidator>
-								        </td>
+										        ErrorMessage="Contact1 Phone Required" Text="*"></asp:requiredfieldvalidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ErrorMessage="Enter valid Contact1 Phone number" Text="*" ControlToValidate="txtContact1Phone" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" ></asp:RegularExpressionValidator>
+                                            </td>
 							        </tr>
 							        <tr>
 								        <td colSpan="2">&nbsp;</td>
@@ -155,7 +196,10 @@
 								        </td>
 								        <td>
 									        <asp:textbox id="txtContact2Name" tabIndex="7" runat="server" Width="200px" MaxLength="40"></asp:textbox>
-								        </td>
+                                            <asp:requiredfieldvalidator ControlToValidate="txtContact2Name" id="Requiredfieldvalidator6" runat="server"
+                                                                        ErrorMessage="Contact2 Name Required" Text="*" ></asp:requiredfieldvalidator>
+
+                                            </td>
 							        </tr>
 							        <tr>
 								        <td align="right"><span class="infoLabel">Contact2 Title:</span>
@@ -168,14 +212,23 @@
 								        </td>
 								        <td>
 									        <asp:textbox id="txtContact2Email" tabIndex="9" runat="server" Width="200px" MaxLength="40"></asp:textbox>
-								        </td>
+                                            <asp:requiredfieldvalidator ControlToValidate="txtContact2Email" id="Requiredfieldvalidator4" runat="server"
+                                                                        ErrorMessage="Contact2 Email Required" Text="*" ></asp:requiredfieldvalidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtContact2Email" Text="*" ErrorMessage="Invalid Contact2 Email Format"></asp:RegularExpressionValidator>
+
+                                            </td>
+
 							        </tr>
 							        <tr>
 								        <td align="right"><span class="infoLabel">Contact2 Phone:</span>
 								        </td>
 								        <td>
 									        <asp:textbox id="txtContact2Phone" tabIndex="10" runat="server" Width="200px" MaxLength="30"></asp:textbox>
-								        </td>
+                                            <asp:requiredfieldvalidator ControlToValidate="txtContact2Phone" id="Requiredfieldvalidator5" runat="server"
+                                                                        ErrorMessage="Contact2 Phone Required" Text="*" ></asp:requiredfieldvalidator>
+
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"  ErrorMessage="Enter valid Contact2 Phone number" Text="*" ControlToValidate="txtContact2Phone" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" ></asp:RegularExpressionValidator>
+                                            </td>
 							        </tr>
 							        <tr>
 								        <td align="center" colSpan="2">
@@ -208,7 +261,8 @@
 								        <td>
 									        <asp:textbox id="txtComments" tabIndex="11" runat="server" Width="100%" MaxLength="255" Height="98px"
 										        TextMode="MultiLine"></asp:textbox>
-									        <asp:RequiredFieldValidator id="RequiredFieldValidator2" runat="server" ErrorMessage="Field is required" ControlToValidate="txtComments"></asp:RequiredFieldValidator></td>
+                                        <asp:requiredfieldvalidator ControlToValidate="txtComments" id="Requiredfieldvalidator2" runat="server"
+                                                                    ErrorMessage="Comments Required" Text="*" ></asp:requiredfieldvalidator>
 							        </tr>
 							        <tr>
 								        <td align="center" colSpan="2">
@@ -230,6 +284,7 @@
 								        </td>
 							        </tr>
 						        </table>
+                               
                             </div>
 							<br>
 							<br>

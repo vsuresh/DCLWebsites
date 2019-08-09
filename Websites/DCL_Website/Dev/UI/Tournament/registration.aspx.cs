@@ -82,9 +82,40 @@ namespace Cricket.Tournament
                 }
             }
 
-		}
+            oldTeamrow.Visible = true;
+            newTeamrow.Visible = false;
+            //load the data from the database
+            SqlDataReader dr1 = m_bl.getTeamList(false);
+            ddlTeams.DataSource = dr1;
+            ddlTeams.DataTextField = "name";
+            ddlTeams.DataValueField = "team_id";
+            ddlTeams.SelectedValue = null;
+            ddlTeams.DataBind();
+            dr1.Close();
 
-		public void populateTitle()
+            ddlTeams.Items.Insert(0, new ListItem("select", "0"));
+            ddlTeams.SelectedIndex = 0;
+
+            //loadTeamData(0);
+            //
+        }
+
+  
+        protected void ddlTeams_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            //int id = toInt(ddlTeams.SelectedValue.ToString());
+
+            //if (id > 0)
+            //{
+            //    loadTeamData(id);
+            //}
+            //else
+            //{
+            //    loadTeamData(0);
+            //}
+
+        }
+        public void populateTitle()
 		{
 			ddlContact1Title.Items.Add(new ListItem("Captain", "Captain"));
 			ddlContact1Title.Items.Add(new ListItem("Vice-Captain", "Vice-Captain"));
@@ -137,18 +168,20 @@ namespace Cricket.Tournament
 			txtComments.Text = "";
 
 			lblMessage.Text = "";
+            txtTeamName.Text = "";
+            ddlTeams.SelectedValue = "0";
 
-		}
+        }
 
 		protected void btnSubmit_Click(object sender, System.EventArgs e)
 		{
 			if (Page.IsValid)
 			{
+                txtTeamName.Text = oldTeamrow.Visible ? ddlTeams.SelectedItem.Text : txtTeamName.Text;
                 if (txtTeamName.Text != "" && txtTeamName.Text != "")
                 {
                     Guid regID = Guid.NewGuid();
                     string orderID = PayPalHelper.GetOrderID();
-
 
                     m_bl.createTeamRegistration(regID, tournamentId, txtTeamName.Text, ddlLocation.SelectedValue,
                         txtContact1Name.Text, ddlContact1Title.SelectedValue, txtContact1Phone.Text, txtContact1Email.Text,
@@ -234,7 +267,15 @@ namespace Cricket.Tournament
 		{    
 
 		}
-		#endregion
-		
-	}
+        #endregion
+
+
+        protected void chkbxNewTeam_CheckedChanged(object sender, EventArgs e)
+        {
+           
+            CheckBox cb = (CheckBox)sender;
+            oldTeamrow.Visible = !cb.Checked;
+            newTeamrow.Visible = cb.Checked;
+        }
+    }
 }
