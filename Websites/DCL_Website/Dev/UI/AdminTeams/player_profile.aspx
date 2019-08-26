@@ -138,7 +138,7 @@
                                         <span class="infoLabel">Select Photo:</span>
                                     </td>
                                     <td>
-                                        <input id="filePhoto" type="file" runat="server" name="filePhoto" required/>
+                                        <input id="filePhoto" type="file" runat="server" name="filePhoto" />
                                         <br />
                                         <span class="infoData">(Size: &lt;= 100KB / Dimension: 200x150pixels)</span>
                                     </td>

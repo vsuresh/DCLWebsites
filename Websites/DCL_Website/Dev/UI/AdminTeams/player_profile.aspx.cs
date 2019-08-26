@@ -35,8 +35,8 @@ namespace Cricket.AdminTeams
 				m_nPlayerId = toInt(Session["player_id"]);
 
 				loadData();
-
-				ViewState["player_id"] = m_nPlayerId;
+                lblMessage.Text = "";
+                ViewState["player_id"] = m_nPlayerId;
 				ViewState["email_id"] = m_nEmailId;
 				ViewState["phone_id"] = m_nPhoneId;
 				ViewState["photo_url"] = m_strPhotoURL;
@@ -115,11 +115,24 @@ namespace Cricket.AdminTeams
         {
             if (Page.IsValid)
             {
+                lblMessage.Text = "";
                 string strPhotoURL = "";
                 bool fKeeperSw = chkKeeper.Checked;
                 bool fInActiveSw = chkInActive.Checked;
                 int nTypeCd = toInt(ddlDesignation.SelectedValue);
                 bool fInsert = false;
+                //string strPhotoPath = "c:\\inetpub\\wwwroot\\cricket\\photos\\";
+                string strPhotoName = "Player_" + m_nPlayerId.ToString();
+                HttpPostedFile postedFile = filePhoto.PostedFile;
+                if (m_nPlayerId <= 0)
+                {
+                    if (string.IsNullOrEmpty(postedFile.FileName))
+                    {
+                        lblMessage.Text = "Please upload a player picture";
+                        return;
+                    }
+                }
+
                 if (m_nPlayerId <= 0)
                 {
                     fInsert = true;
@@ -128,10 +141,6 @@ namespace Cricket.AdminTeams
 
                 try
                 {
-
-                    //string strPhotoPath = "c:\\inetpub\\wwwroot\\cricket\\photos\\";
-                    string strPhotoName = "Player_" + m_nPlayerId.ToString();
-                    HttpPostedFile postedFile = filePhoto.PostedFile;
                     if (postedFile != null)
                     {
                         strPhotoName += Path.GetExtension(postedFile.FileName);
