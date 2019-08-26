@@ -52,7 +52,7 @@
                                     <td>
                                         <asp:TextBox ID="txtFirstName" TabIndex="1" runat="server" Width="200px" MaxLength="20"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"
-                                            ControlToValidate="txtFirstName">Required Field</asp:RequiredFieldValidator>
+                                            ControlToValidate="txtFirstName">First Name is required</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -62,7 +62,7 @@
                                     <td>
                                         <asp:TextBox ID="txtLastName" TabIndex="2" runat="server" Width="200px" MaxLength="20"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"
-                                            ControlToValidate="txtLastName">Required Field</asp:RequiredFieldValidator>
+                                            ControlToValidate="txtLastName">Last Name is required</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -80,6 +80,8 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="txtBattingStyle" TabIndex="4" runat="server" Width="200px" MaxLength="30"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"
+                                                                    ControlToValidate="txtBattingStyle">Batting style is required</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -96,6 +98,8 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="txtBattingPos" TabIndex="6" runat="server" Width="100px" MaxLength="10"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"
+                                                                    ControlToValidate="txtBattingPos">Batting Position is required</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -112,6 +116,8 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="txtEmail" TabIndex="8" runat="server" Width="200px" MaxLength="60"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"
+                                                                    ControlToValidate="txtEmail">Email is required</asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"
                                             ControlToValidate="txtEmail" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Invalid Email</asp:RegularExpressionValidator>
                                     </td>
@@ -122,6 +128,9 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="txtPhone" TabIndex="9" runat="server" Width="200px" MaxLength="15"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"
+                                                                    ControlToValidate="txtPhone">Phone is required</asp:RequiredFieldValidator>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -129,7 +138,7 @@
                                         <span class="infoLabel">Select Photo:</span>
                                     </td>
                                     <td>
-                                        <input id="filePhoto" type="file" runat="server" name="filePhoto" />
+                                        <input id="filePhoto" type="file" runat="server" name="filePhoto" required/>
                                         <br />
                                         <span class="infoData">(Size: &lt;= 100KB / Dimension: 200x150pixels)</span>
                                     </td>
