@@ -2,6 +2,16 @@
     CodeFileBaseClass="Cricket.PageBaseAdmin" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+
+    <script type='text/javascript'>
+        function ValidatePhoneNo() {
+            if ((event.keyCode > 47 && event.keyCode < 58) || event.keyCode == 43 || event.keyCode == 32)
+                return event.returnValue;
+            return event.returnValue = '';
+        }
+    </script>
+
+
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -127,10 +137,11 @@
                                         <span class="infoLabel">Phone Number:</span>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtPhone" TabIndex="9" runat="server" Width="200px" MaxLength="15"></asp:TextBox>
+                                        <asp:TextBox ID="txtPhone" TabIndex="9" runat="server" Width="200px"  MaxLength="15"  onkeypress="return ValidatePhoneNo()"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"
                                                                     ControlToValidate="txtPhone">Phone is required</asp:RequiredFieldValidator>
-
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationExpression="^[0-9 +]+$"
+                                                                        ErrorMessage="Not a valid Phone no" ControlToValidate="txtPhone"></asp:RegularExpressionValidator>
                                     </td>
                                 </tr>
                                 <tr>
