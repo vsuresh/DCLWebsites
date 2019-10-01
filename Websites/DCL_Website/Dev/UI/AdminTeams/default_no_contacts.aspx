@@ -27,7 +27,7 @@
                                         <span class="infoData">
                                             ChaukaLogin: <b><asp:Label ID="lblChaukaLogin" runat="server" CssClass="infoData2"></asp:Label></b>
                                             <br/>
-                                            ChuakaPassword: <b><asp:Label ID="lblChaukaPassword" runat="server" CssClass="infoData2"></asp:Label></b>
+                                            ChaukaPassword: <b><asp:Label ID="lblChaukaPassword" runat="server" CssClass="infoData2"></asp:Label></b>
                                         </span>
                                         <br/>
                                         <br />
