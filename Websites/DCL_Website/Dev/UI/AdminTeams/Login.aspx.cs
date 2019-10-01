@@ -63,7 +63,7 @@ namespace Cricket.AdminTeams
                 Session["admin_sw"] = "1";
                 Session["user_id"] = nUserId;				//used in admin team section
                 Session["team_name"] = "System Admin";
-
+                Session["user_name"] = username;
                 Response.Redirect("/Admin/default.aspx");
             }
             //check if user is a team admin
@@ -71,8 +71,8 @@ namespace Cricket.AdminTeams
             {
                 //put the admin status switch to indicate we are in team administrator mode
                 Session["admin_sw"] = "1";
-                Session["user_id"] = nUserId;				//used in admin team section
-
+                Session["user_id"] = nUserId;               //used in admin team section
+                Session["user_name"] = username;
                 //put the team and  details in the session 
                 Session["admin_team_id"] = nTeamId;			//used in admin team  section
 

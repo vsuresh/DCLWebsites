@@ -82,8 +82,17 @@ namespace Cricket.DAL.Tournament
 			addParmInt("tournament_id");
 		}
 	}
+    public class GetChaukaLoginData : Command
+    {
+        public GetChaukaLoginData(Connection conn) : base(conn)
+        {
+            m_cmd.CommandText = "select top 1 * from ChaukaLogin where ChaukaUser = @ChaukaUser ";
+            addParmText("ChaukaUser");
+        }
+    }
 
-	public class AddTournamentTeam : Command
+
+    public class AddTournamentTeam : Command
 	{
 		public AddTournamentTeam(Connection conn) : base(conn)
 		{

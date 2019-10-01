@@ -10,6 +10,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using Cricket;
+using Cricket.Common;
+using Cricket.DAL.Tournament;
+
 //using Cricket.controls;
 
 namespace Cricket.AdminTeams
@@ -23,12 +26,26 @@ namespace Cricket.AdminTeams
 		protected override void OnLoad(System.EventArgs e)
 		{
 			base.OnLoad(e);
+            if (!IsPostBack)
+            {
+                getChaukaLoginData();
+            }
 
             if (IsSysAdmin())
                 Server.Transfer("/Admin/default.aspx");
+        }
 
-		}
-
+        private void getChaukaLoginData()
+        {
+            string userName = Session["user_name"].ToString().Trim();
+            SqlDataReader dr = m_bl.getChaukaLoginData(userName);
+            if (dr.Read())
+            {
+                lblChaukaLogin.Text = dr["ChaukaUser"].ToString();
+                lblChaukaPassword.Text= dr["ChaukaPassword"].ToString(); 
+            }
+            dr.Close();
+        }
 	}
 }
 

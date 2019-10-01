@@ -51,6 +51,7 @@ namespace Cricket.AdminTeams
             {
                 nTeamId = toInt(dr["team_id"]);
                 nUserId = toInt(dr["user_id"]);
+                Session["user_name"] = username;
                 teamName = dr["name"].ToString();
             }
             dr.Close();
@@ -63,7 +64,7 @@ namespace Cricket.AdminTeams
                 Session["admin_sw"] = "1";
                 Session["user_id"] = nUserId;				//used in admin team section
                 Session["team_name"] = "System Admin";
-
+                Session["user_name"] = username;
                 Response.Redirect("/Admin/default.aspx");
             }
             //check if user is a team admin

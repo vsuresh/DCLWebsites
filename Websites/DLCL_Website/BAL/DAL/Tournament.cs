@@ -20,7 +20,16 @@ namespace Cricket.DAL.Tournament
                     "and tt.team_id = @team_id order by t.start_dt desc ";
             addParmInt("team_id");
         }
-	}
+    }
+    
+    public class GetChaukaLoginData : Command
+    {
+        public GetChaukaLoginData(Connection conn) : base(conn)
+        {
+            m_cmd.CommandText = "select top 1 * from ChaukaLogin where ChaukaUser = @ChaukaUser ";
+            addParmText("ChaukaUser");
+        }
+    }
 
     public class GetGroupNames : Command
     {

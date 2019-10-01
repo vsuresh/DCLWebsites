@@ -620,7 +620,12 @@ namespace Cricket.BAL
             dr.Close();
             return fFound;
         }
-
+        public SqlDataReader getChaukaLoginData(string ChaukaUser)
+        {
+            GetChaukaLoginData cmd = new GetChaukaLoginData(m_conn);
+            cmd.setParm("ChaukaUser", ChaukaUser);
+            return cmd.executeReader();
+        }
         public void setPlayerData(bool fInsert, int nTeamId, int nPlayerId, string strFirstName, string strLastName, int nAge, string strBattingStyle, string strBowlingStyle, string strBattingPos,
                                 string strStartDate, string strEndDate, int nEmailId, string strEmail, int nPhoneId, string strPhone, string strComments, string strPhotoURL, bool fKeeperSw, int nTypeCd)
         {

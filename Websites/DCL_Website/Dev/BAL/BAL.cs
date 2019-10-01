@@ -542,6 +542,12 @@ namespace Cricket.BAL
             cmd.executeNonQuery();
         }
 
+        public SqlDataReader getChaukaLoginData(string ChaukaUser)
+        {
+            GetChaukaLoginData cmd = new GetChaukaLoginData(m_conn);
+            cmd.setParm("ChaukaUser", ChaukaUser);
+            return cmd.executeReader();
+        }
 
         public SqlDataReader getTournamentData(int nId)
 		{
