@@ -1618,7 +1618,7 @@ namespace Cricket.BAL
         {
             string cmdText = string.Format("select top 20 name = p.first_name + ' ' + p.last_name, team_name = t.name, pb.*  " +
                     "from player p inner join player_batting pb on pb.player_id = p.player_id  " +
-                    "and (p.end_dt = '' or p.end_dt = NULL) and pb.tournament_id = 1086433314 " +
+                    "and (p.end_dt = '' or p.end_dt = NULL) and pb.tournament_id = {0}  " +
                     "inner join team t on p.team_id = t.team_id and hundred > 0 " +
                     "order by pb.highest desc, pb.average desc ", tournamentId);
 
