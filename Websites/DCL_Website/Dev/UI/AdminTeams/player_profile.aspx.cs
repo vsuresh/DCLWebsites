@@ -124,14 +124,14 @@ namespace Cricket.AdminTeams
                 //string strPhotoPath = "c:\\inetpub\\wwwroot\\cricket\\photos\\";
                 string strPhotoName = "Player_" + m_nPlayerId.ToString();
                 HttpPostedFile postedFile = filePhoto.PostedFile;
-                if (m_nPlayerId <= 0)
-                {
-                    if (string.IsNullOrEmpty(postedFile.FileName))
-                    {
-                        lblMessage.Text = "Please upload a player picture";
-                        return;
-                    }
-                }
+                //if (m_nPlayerId <= 0)
+                //{
+                //    if (string.IsNullOrEmpty(postedFile.FileName))
+                //    {
+                //        lblMessage.Text = "Please upload a player picture";
+                //        return;
+                //    }
+                //}
 
                 if (m_nPlayerId <= 0)
                 {
