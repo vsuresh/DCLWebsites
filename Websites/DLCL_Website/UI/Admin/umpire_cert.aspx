@@ -26,6 +26,7 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
+    <h2>Umpire Cert Management</h2>
 <div id="dvGrid" style="padding: 10px; width: 450px">
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
