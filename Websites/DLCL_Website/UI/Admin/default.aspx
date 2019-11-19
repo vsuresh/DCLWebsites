@@ -109,6 +109,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td align="center">
+                                                                <a href="/Admin/umpire_cert.aspx">Umpire Cert Management</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">
                                                             </td>
                                                         </tr>
                                                     </table>

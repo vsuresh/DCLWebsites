@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Data;
 using System.Data.SqlClient;
 using BAL.DAL;
 using Cricket.DAL;
@@ -626,6 +627,16 @@ namespace Cricket.BAL
             cmd.setParm("ChaukaUser", ChaukaUser);
             return cmd.executeReader();
         }
+
+
+        public void insertCertData(string Name, string CertifiedBy)
+        {
+            InsertCertData cmd = new InsertCertData(m_conn);
+            cmd.setParm("Name", Name);
+            cmd.setParm("CertifiedBy", CertifiedBy);
+            cmd.executeNonQuery();
+        }
+
         public void setPlayerData(bool fInsert, int nTeamId, int nPlayerId, string strFirstName, string strLastName, int nAge, string strBattingStyle, string strBowlingStyle, string strBattingPos,
                                 string strStartDate, string strEndDate, int nEmailId, string strEmail, int nPhoneId, string strPhone, string strComments, string strPhotoURL, bool fKeeperSw, int nTypeCd)
         {
@@ -718,6 +729,15 @@ namespace Cricket.BAL
         {
             GetTournamentList cmd = new GetTournamentList(m_conn);
             return cmd.executeReader();
+        }
+        public DataTable getCertList()
+        {
+            GetCertList cmd = new GetCertList(m_conn);
+
+            var dataReader = cmd.executeReader();
+            var dataTable = new DataTable();
+            dataTable.Load(dataReader);
+            return dataTable;
         }
 
         public SqlDataReader getTournamentList(int teamId)
@@ -1135,6 +1155,14 @@ namespace Cricket.BAL
             }
 
         }
+        public void setUmpireCert(int PlayerId, string Name, string CertifiedBy)
+        {
+            SetUmpireCert cmd = new SetUmpireCert(m_conn);
+            cmd.setParm("PlayerId", PlayerId);
+            cmd.setParm("Name", Name);
+            cmd.setParm("CertifiedBy", CertifiedBy);
+            cmd.executeNonQuery();
+        }
 
         public bool CheckMatchStatsExists(int nMatchId, int nTeamId)
         {
@@ -1238,6 +1266,12 @@ namespace Cricket.BAL
 
             //set player stats
             setPlayerBattingStats(nTournamentId, nPlayerId);
+        }
+        public void deleteUmpireCert(int PlayerId)
+        {
+            DeleteUmpireCert cmd = new DeleteUmpireCert(m_conn);
+            cmd.setParm("PlayerId", PlayerId);
+            cmd.executeNonQuery();
         }
 
         public void deletePlayerBowling(int nTournamentId, int nMatchId, int nPlayerId)

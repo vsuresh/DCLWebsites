@@ -9,7 +9,16 @@ namespace Cricket.DAL.Tournament
 		}
 	}
 
-	public class GetTournamentListByTeam : Command
+    public class GetCertList : Command
+    {
+        public GetCertList(Connection conn) : base(conn)
+        {
+            m_cmd.CommandText = "SELECT PlayerId, Name, CertifiedBy FROM UmpireCert order by name";
+        }
+    }
+
+
+    public class GetTournamentListByTeam : Command
 	{
         public GetTournamentListByTeam(Connection conn)
             : base(conn)

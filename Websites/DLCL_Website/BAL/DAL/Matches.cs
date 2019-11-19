@@ -342,7 +342,21 @@ namespace Cricket.DAL.Matches
 		}
 	}
 
-	public class SetMatchBatting : Command
+    
+
+    public class SetUmpireCert : Command
+    {
+        public SetUmpireCert(Connection conn) : base(conn)
+        {
+            m_cmd.CommandText = "update UmpireCert set Name = @Name, CertifiedBy = @CertifiedBy " +
+                                "where PlayerId = @PlayerId";
+            addParmInt("PlayerId");
+            addParmText("Name");
+            addParmText("CertifiedBy");
+        }
+    }
+
+    public class SetMatchBatting : Command
 	{
 		public SetMatchBatting(Connection conn) : base(conn)
 		{
@@ -413,8 +427,16 @@ namespace Cricket.DAL.Matches
 			addParmInt("player_id");
 		}
 	}
+    public class DeleteUmpireCert : Command
+    {
+        public DeleteUmpireCert(Connection conn) : base(conn)
+        {
+            m_cmd.CommandText = "delete from UmpireCert where PlayerId = @PlayerId ";
+            addParmInt("PlayerId");
+        }
+    }
 
-	public class DeletePlayerBowling : Command
+    public class DeletePlayerBowling : Command
 	{
 		public DeletePlayerBowling(Connection conn) : base(conn)
 		{

@@ -146,6 +146,18 @@ namespace Cricket.DAL.Players
         }
     }
 
+    public class InsertCertData : Command
+    {
+        public InsertCertData(Connection conn) : base(conn)
+        {
+            m_cmd.CommandText = "insert into UmpireCert (Name, CertifiedBy) " +
+                                "values (@Name, @CertifiedBy) ";
+            addParmText("Name");
+            addParmText("CertifiedBy");
+        }
+    }
+
+    
     public class SetPlayer : Command
     {
         public SetPlayer(Connection conn) : base(conn)
