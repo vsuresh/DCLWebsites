@@ -13,7 +13,7 @@ namespace Cricket.DAL.Tournament
     {
         public GetCertList(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "SELECT PlayerId, Name, CertifiedBy FROM UmpireCert order by name";
+            m_cmd.CommandText = "SELECT id, PlayerID, Name, TeamName, CertifiedBy FROM UmpireCert order by name";
         }
     }
 

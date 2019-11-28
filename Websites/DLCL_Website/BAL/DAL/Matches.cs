@@ -348,11 +348,13 @@ namespace Cricket.DAL.Matches
     {
         public SetUmpireCert(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "update UmpireCert set Name = @Name, CertifiedBy = @CertifiedBy " +
-                                "where PlayerId = @PlayerId";
-            addParmInt("PlayerId");
+            m_cmd.CommandText = "update UmpireCert set Name = @Name, CertifiedBy = @CertifiedBy , TeamName = @TeamName , PlayerID = @PlayerID " +
+                                "where id = @id";
+            addParmInt("id");
             addParmText("Name");
             addParmText("CertifiedBy");
+            addParmText("TeamName");
+            addParmText("PlayerID");
         }
     }
 
@@ -431,8 +433,8 @@ namespace Cricket.DAL.Matches
     {
         public DeleteUmpireCert(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "delete from UmpireCert where PlayerId = @PlayerId ";
-            addParmInt("PlayerId");
+            m_cmd.CommandText = "delete from UmpireCert where id = @id ";
+            addParmInt("id");
         }
     }
 

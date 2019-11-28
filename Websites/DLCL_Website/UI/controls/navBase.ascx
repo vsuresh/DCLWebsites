@@ -65,10 +65,13 @@
                     <td width="80" align="center" valign="middle" class="menuline">
                         <a href="/Main/grounds.aspx" class="menuline">Grounds</a>
                     </td>
-                    <td width="119" align="center" valign="middle" class="menuline">
+                    <td width="80" align="center" valign="middle" class="menuline">
                         <a href="/Main/Awards.aspx" class="menuline">Awards</a>
                     </td>
-                    <td width="90" align="center" valign="middle" class="menuline">
+                    <td width="64" align="center" valign="middle" class="menuline">
+                        <a href="/Main/Umpires.aspx" class="menuline">Umpires</a>
+                    </td>
+                    <td width="75" align="center" valign="middle" class="menuline">
                         <a href="/Main/groups.aspx" class="menuline">Forums</a>
                     </td>
                     <td width="108" align="center" valign="middle" class="menuline">
@@ -82,7 +85,7 @@
                         <a href="/Main/LiveScore.aspx" class="menuline" style="color:Yellow">Live Scorecard</a>
                     </td>
  
-                    <td width="70" align="center" valign="middle">
+                    <td width="60" align="center" valign="middle">
                         <a href="/AdminTeams/Login.aspx" class="aboutustext">Login</a>
                     </td>
                 </tr>

@@ -43,15 +43,20 @@ namespace Cricket.Admin
             dt.Clear();
             txtName.Text = String.Empty;
             txtCertifiedBy.Text = String.Empty;
-            
+            txtTeamName.Text = String.Empty;
+            txtPlayerID.Text = String.Empty;
+
+
         }
         protected void Insert(object sender, EventArgs e)
         {
             string name = txtName.Text;
             string certifiedBy = txtCertifiedBy.Text;
+            string teamName = txtTeamName.Text;
+            string playerID = txtPlayerID.Text;
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(certifiedBy))
             {
-                m_bl.insertCertData(name, certifiedBy);
+                m_bl.insertCertData(name, certifiedBy, teamName, playerID);
                 this.LoadData();
             }
         }
@@ -63,11 +68,13 @@ namespace Cricket.Admin
         protected void OnRowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = CertGridView.Rows[e.RowIndex];
-            int playerId = Convert.ToInt32(CertGridView.DataKeys[e.RowIndex].Values[0]);
+            int id = Convert.ToInt32(CertGridView.DataKeys[e.RowIndex].Values[0]);
             string name = (row.FindControl("txtName") as TextBox).Text;
             string certifiedBy = (row.FindControl("txtCertifiedBy") as TextBox).Text;
+            string teamName = (row.FindControl("txtTeamName") as TextBox).Text;
+            string playerID = (row.FindControl("txtPlayerID") as TextBox).Text;
 
-            m_bl.setUmpireCert(playerId, name, certifiedBy);
+            m_bl.setUmpireCert(id, name, certifiedBy, teamName, playerID);
             CertGridView.EditIndex = -1;
            LoadData();
         }
@@ -86,7 +93,7 @@ namespace Cricket.Admin
         {
             if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != CertGridView.EditIndex)
             {
-                (e.Row.Cells[2].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
+                (e.Row.Cells[5].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
             }
         }
         protected void OnPaging(object sender, GridViewPageEventArgs e)

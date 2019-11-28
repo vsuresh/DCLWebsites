@@ -150,10 +150,12 @@ namespace Cricket.DAL.Players
     {
         public InsertCertData(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "insert into UmpireCert (Name, CertifiedBy) " +
-                                "values (@Name, @CertifiedBy) ";
+            m_cmd.CommandText = "insert into [dbo].[UmpireCert] ([Name],[TeamName],[CertifiedBy],[PlayerID]) " +
+                                "values (@Name, @CertifiedBy, @TeamName, @PlayerID) ";
             addParmText("Name");
             addParmText("CertifiedBy");
+            addParmText("TeamName");
+            addParmText("PlayerID");
         }
     }
 
