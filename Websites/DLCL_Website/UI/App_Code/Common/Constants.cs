@@ -13,6 +13,10 @@ namespace Cricket
         {
             return (userId == 1);
         }
-	}
+        public static bool IsStudent(int userId)
+        {
+            return (userId == 9999);
+        }
+    }
 
 }

@@ -36,7 +36,7 @@ namespace Cricket.DAL.Players
         public GetActivePlayerList(Connection conn)
             : base(conn)
         {
-            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, address, number, keeper_sw, type_cd from player pl " +
+            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, pl.Address, number, keeper_sw, type_cd from player pl " +
                 "inner join email e on e.email_id = pl.email_id inner join phone p on p.phone_id = pl.phone_id " +
                 "where team_id = @team_id and (end_dt = '' or end_dt = NULL) order by type_cd desc, name ";
             addParmInt("team_id");
@@ -47,7 +47,7 @@ namespace Cricket.DAL.Players
         public GetPlayerList(Connection conn)
             : base(conn)
         {
-            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, address, number, keeper_sw, type_cd, end_dt from player pl " +
+            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, pl.Address, number, keeper_sw, type_cd, end_dt from player pl " +
                 "inner join email e on e.email_id = pl.email_id inner join phone p on p.phone_id = pl.phone_id " +
                 "where team_id = @team_id order by end_dt asc, type_cd desc, name ";
             addParmInt("team_id");
