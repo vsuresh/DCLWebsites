@@ -11,6 +11,9 @@
                     <td align="center" valign="middle">
                         <a href="/AdminTeams/default.aspx" class="menuline">Admin Home</a>
                     </td>
+                  <td align="center" valign="middle">
+                        <a href="http://182.71.233.146:151/" class="menuline">Umpire Portal</a>
+                    </td>
                     <td align="center" valign="middle" class="menuline">
                         <a href="/AdminTeams/password.aspx" class="menuline">Change Password</a>
                     </td>
